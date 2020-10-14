@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head><title>car showroom</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;
+  background-image: url("images/login.jpg");
+background-position: center;
+background-size: auto;}
+
+.blackbox{
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  width: 500px;
+  height:400px;
+  padding: 30px 0px 30px 0px;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  box-shadow: rgba(133, 133, 133, 0.603) 10px 10px 10px;
+}
+button:hover {
+  opacity: 0.8;
+}
+
+.loginform{
+		opacity: 1;
+}
+
+.loginform h3{
+    display:flex;
+		opacity: 1;
+    justify-content: center;
+}
+.loginform input[type="submit"]{
+    background-color:green;
+		opacity:1;
+    color:black;
+    font-weight: 500;
+}
+</style>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="blackbox">
+    <div class="col-md-6 col-sm-12">
+      <form action="login.php" class="loginform form-group" method="post" enctype="multipart/form-data">
+        <h3 class="form-group" style="color:white"><b>LOGIN</h3></b>
+        <div class="form-group"><input type="text" class="form-control" placeholder="username" id="usr" name="usr"  required ></div>
+        <div class="form-group"><input type="password" class="form-control" placeholder="password" id="psw" name="psw" required></div>
+        <div class="form-group" style="color:white;"><input type="checkbox"> Remember me</div>
+        <div class="form-group"><input type="submit" value="LOGIN" class="form-control" name="button"></div>
+        <footer><a href="registration.html">Sign Up now</a></footer>
+      </form>
+    </div>
+  <div>
+</body>
+</html>
