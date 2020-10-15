@@ -1,12 +1,12 @@
-<!DOCTYPE html>
 <html>
-<head><title>Car</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> -->
-<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
-<style>
-		body {
+    <head>
+        <title>UR Carz</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> -->
+        <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
+    <style>
+	body {
 	  background-image: linear-gradient(to right , #6dd5ed , #2193b0);
 	}
 
@@ -15,174 +15,198 @@
          color: red;
 		 font-weight: bold;
 	}
-</style>
-<script>
-function rname()
-{
-var nam=document.getElementById("name").value;
-var nam1=/^[a-zA-Z]+$/;
-
-if(nam=="")
-	{
-		document.getElementById("err1").innerHTML="Enter name";
-	return false;
-	}
-if(nam.match(nam1))
-	{
-		document.getElementById("err1").innerHTML="";
-
-	}
-else
-	{
-		document.getElementById("err1").innerHTML="Enter valid name";
-	return false;
-
-	}
-}
-function ema()
-{
-var emi=document.getElementById("mail").value;
-var emi1=/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})+$/;
-if(emi=="")
-	{
-		document.getElementById("err2").innerHTML="Enter email";
-	return false;
-	}
-if(emi.match(emi1))
-	{
-		document.getElementById("err2").innerHTML="";
-
-	}
-else
-	{
-		document.getElementById("err2").innerHTML="Enter valid email";
-	return false;
-	}
-}
-function phn()
-{
-var ph=document.getElementById("ph").value;
-var ph1=/^([6-9]{1}[0-9]{9})+$/;
-if(ph=="")
-	{
-		document.getElementById("err3").innerHTML="Enter phno";
-	return false;
-	}
-if(ph.match(ph1)&& (ph.length==10))
-	{
-		document.getElementById("err3").innerHTML="";
-
-	}
-else
-	{
-		document.getElementById("err3").innerHTML="Enter valid no";
-	return false;
-	}
-}
-function usr()
-{
-var un=document.getElementById("user").value;
-var un1=/^[a-zA-Z0-9]+$/;
-if(un=="")
-	{
-
-	return false;
-	}
-if(un.match(un1))
-	{
-		document.getElementById("err5").innerHTML="";
-
-	}
-else
-	{
-		document.getElementById("err5").innerHTML="Enter valid Username";
-	return false;
-	}
-}
-
-function npsw()
-{
-var ps=document.getElementById("pass").value;
-var ps1=/^[a-zA-Z0-9:@]+$/;
-if(ps=="")
-	{
-		document.getElementById("err6").innerHTML="Enter Password";
-	return false;
-	}
-if(ps.match(ps1)&& (ps.length>=8))
-	{
-		document.getElementById("err6").innerHTML="";
-
-	}
-else
-	{
-		document.getElementById("err6").innerHTML="Enter valid Password";
-	return false;
-	}
-}
-function psw1()
-{var ps=document.getElementById("pass").value;
-var ps1=document.getElementById("conpass").value;
-if(ps==ps1)
-	{
-		document.getElementById("err7").innerHTML="";
-	}
-else
-	{
-		document.getElementById("err7").innerHTML="Password not match!!!!!!!!!!";
-	}
-}
-function loca()
-{
-var loc=document.getElementById("name").value;
-var loc1=/^[a-zA-Z]+$/;
-if(loc.match(loc1))
-	{
-		document.getElementById("err8").innerHTML="";
-
-	}
-else
-	{
-		document.getElementById("err8").innerHTML="Enter valid location";
-	return false;
-
-	}
-}
-</script>
-</head>
-<body>
-
-<div class="container col-sm-8 col-md-4">
-<center>
-<h2 style="padding-top:25px;color:blue;">Create your account</h2>
-<form  method="post" name="regform" action="reg.php" class="form-group-sm container" enctype="multipart/form-data"></center><br>
-<input type="text"class="form-control" name="nme" id="name" placeholder="Name" autocomplete="off" autofocus="on" onblur="rname()" required>
-<span id="err1"></span><br>
-<h6 style="padding-right:900px; color:black;">Gender</h6>
-</h6> <input type="radio" name="gender" value="Male" required>&nbsp;Male&nbsp;&nbsp;&nbsp;
-</h6><input type="radio" name="gender" value="Female">&nbsp;Female&nbsp;&nbsp;&nbsp;
-</h6><input type="radio" name="gender" value="Other">&nbsp;Others <br>
-<h6 style="padding-right:900px; color:white;"></h6>
-<input type="text" id="loc" name="location" class="form-control  form-group"value=""placeholder="Location" onblur="loca()" required>
-<span id="err8"></span><br>
-<input type="email" id="mail" name="mail" class="form-control  form-group" value=""placeholder="E-mail"onblur="ema()" required>
-<span id="err2"></span><br>
-<input type="tel" id="ph" name="phne" class="form-control  form-group"value=""placeholder=" Phone Number" onblur="phn()" required>
-<span id="err3"></span><br>
-<input type="text" name="usr" class="form-control  form-group" placeholder=" Username" id="user" onblur="usr()" required>
-<span id="err5"></span><br>
-<input type="password" name="psw" class="form-control  form-group" placeholder="Password" id="pass"  onblur="npsw()" required>
-<span id="err6"></span><br>
-<input type="password" class="form-control  form-group" placeholder="Conform Password"  id="conpass" onblur="psw1()" required>
-<span id="err7"></span><br>
-
-<input type="checkbox" ><p style="color:blue;">I accepts to the terms and conditions.<br>
-
-<br><input type="submit" class="btn btn-success" value="Submit" onsubmit="rname(); ema(); phn(); loc(); usr(); npsw(); psw1();">
-<input type="reset" class="btn btn-danger" value="Reset"><br>
-
-</form>
-</div></div>
-
-</body>
+    .vl {
+        border-left: 2px solid black;
+        height: 350px;
+        position: absolute;
+        left: 50%;
+        margin-left: -1px;
+        top: 150px;
+    }
+    .row{
+        padding-top:50px ;
+    }
+    input[type=text],[type=password],[type=email],[type=tel] {
+        width: 70%;
+    }
+    input[type=submit],[type=reset] {
+        width: 35%;
+    }
+    
+    </style>
+    <script>
+        function rname()
+        {
+        var nam=document.getElementById("name").value;
+        var nam1=/^[a-zA-Z]+$/;
+        
+        if(nam=="")
+            {
+                document.getElementById("err1").innerHTML="Enter name";
+            return false;
+            }
+        if(nam.match(nam1))
+            {
+                document.getElementById("err1").innerHTML="";
+        
+            }
+        else
+            {
+                document.getElementById("err1").innerHTML="Enter valid name";
+            return false;
+        
+            }
+        }
+        function ema()
+        {
+        var emi=document.getElementById("mail").value;
+        var emi1=/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})+$/;
+        if(emi=="")
+            {
+                document.getElementById("err2").innerHTML="Enter email";
+            return false;
+            }
+        if(emi.match(emi1))
+            {
+                document.getElementById("err2").innerHTML="";
+        
+            }
+        else
+            {
+                document.getElementById("err2").innerHTML="Enter valid email";
+            return false;
+            }
+        }
+        function phn()
+        {
+        var ph=document.getElementById("ph").value;
+        var ph1=/^([6-9]{1}[0-9]{9})+$/;
+        if(ph=="")
+            {
+                document.getElementById("err3").innerHTML="Enter phno";
+            return false;
+            }
+        if(ph.match(ph1)&& (ph.length==10))
+            {
+                document.getElementById("err3").innerHTML="";
+        
+            }
+        else
+            {
+                document.getElementById("err3").innerHTML="Enter valid no";
+            return false;
+            }
+        }
+        function usr()
+        {
+        var un=document.getElementById("user").value;
+        var un1=/^[a-zA-Z0-9]+$/;
+        if(un=="")
+            {
+            document.getElementById("err5").innerHTML="Enter Username";
+            return false;
+            }
+        if(un.match(un1))
+            {
+                document.getElementById("err5").innerHTML="";
+        
+            }
+        else
+            {
+                document.getElementById("err5").innerHTML="Enter valid Username";
+            return false;
+            }
+        }
+        
+        function npsw()
+        {
+        var ps=document.getElementById("pass").value;
+        var ps1=/^[a-zA-Z0-9:@]+$/;
+        if(ps=="")
+            {
+                document.getElementById("err6").innerHTML="Enter Password";
+            return false;
+            }
+        if(ps.match(ps1)&& (ps.length>=8))
+            {
+                document.getElementById("err6").innerHTML="";
+        
+            }
+        else
+            {
+                document.getElementById("err6").innerHTML="Enter valid Password";
+            return false;
+            }
+        }
+        function psw1()
+        {var ps=document.getElementById("pass").value;
+        var ps1=document.getElementById("conpass").value;
+        if(ps==ps1)
+            {
+                document.getElementById("err7").innerHTML="";
+            }
+        else
+            {
+                document.getElementById("err7").innerHTML="Password not match!!!!!!!!!!";
+            }
+        }
+        function loca()
+        {
+        var loc=document.getElementById("name").value;
+        var loc1=/^[a-zA-Z]+$/;
+        if(loc.match(loc1))
+            {
+                document.getElementById("err8").innerHTML="";
+        
+            }
+        else
+            {
+                document.getElementById("err8").innerHTML="Enter valid location";
+            return false;
+        
+            }
+        }
+    </script>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <center>
+            <h2 style="padding-top:50px;color:blue;">Create your account</h2></center>
+            <form  method="post" name="regform" action="reg.php" class="form-group-sm container" enctype="multipart/form-data"></center><br>
+            <div class="row">
+                <div class="col-lg-6"><center>
+                    <input type="text"class="form-control" name="nme" id="name" placeholder="Name" autocomplete="off" autofocus="on" onblur="rname()" required>
+                    <span id="err1"></span><br></center>
+                    <h6 style="padding-left:100px; color:black;">Gender</h6><center>
+                    </h6> <input type="radio" name="gender" value="Male" required>&nbsp;Male&nbsp;&nbsp;&nbsp;
+                    </h6><input type="radio" name="gender" value="Female">&nbsp;Female&nbsp;&nbsp;&nbsp;
+                    </h6><input type="radio" name="gender" value="Other">&nbsp;Others <br>
+                    <h6 style="padding-right:900px; color:white;"></h6>
+                    <br><input type="text" id="loc" name="location" class="form-control  "value=""placeholder="Location" onblur="loca()" required>
+                    <span id="err8"></span><br>
+                    <input type="email" id="mail" name="mail" class="form-control  " value=""placeholder="E-mail"onblur="ema()" required>
+                    <span id="err2"></span><br>
+                    <input type="tel" id="ph" name="phne" class="form-control  form-group"value=""placeholder=" Phone Number" onblur="phn()" required>
+                    <span id="err3"></span><br></center>
+                </div>
+                <div class="vl"></div>
+                <div class="col-lg-6">
+                    <center>
+                    <input type="text" name="usr" class="form-control  form-group" placeholder=" Username" id="user" onblur="usr()" required>
+                    <span id="err5"></span><br>
+                    <input type="password" name="psw" class="form-control  form-group" placeholder="Password" id="pass"  onblur="npsw()" required>
+                    <span id="err6"></span><br>
+                    <input type="password" class="form-control  form-group" placeholder="Conform Password"  id="conpass" onblur="psw1()" required>
+                    <span id="err7"></span><br>
+                    <div class="form-group form-check">
+                        <h5><input type="checkbox" class="form-check-input">
+                        <label class="form-check-label" style="color:blue;">I accepts to the terms and conditions.</label>
+                    </div></h5>
+                    <input type="submit" class="btn btn-success btn-lg" value="Submit" onsubmit="rname(); ema(); phn(); loc(); usr(); npsw(); psw1();">&nbsp;&nbsp;&nbsp;
+                    <input type="reset" class="btn btn-danger btn-lg" value="Reset"><br></center>
+                </div>
+            </div>
+            </form>
+        </div>
+    </body>
 </html>
