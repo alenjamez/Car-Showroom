@@ -7,9 +7,20 @@
         <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
     <style>
 	body {
-	  background-color: #2f4454;
-	}
+	  /* background-color: #2f4454; */
+      background-color: white;
 
+	}
+    .border{
+        top:50%;
+        left:50%;
+        width:70%;
+        height:70%;
+        position: relative;
+        background-color: antiquewhite;
+        transform: translate(-50%,-50%);
+        border: solid black;
+    }
 
 	span{
          color: red;
@@ -168,44 +179,46 @@
     </script>
     </head>
     <body>
-        <div class="container-fluid">
-            <center>
-            <h2 style="padding-top:50px;color:blue;">Create your account</h2></center>
-            <form  method="post" name="regform" action="reg.php" class="form-group-sm container" enctype="multipart/form-data"></center><br>
-            <div class="row">
-                <div class="col-lg-6"><center>
-                    <input type="text"class="form-control" name="nme" id="name" placeholder="Name" autocomplete="off" autofocus="on" onblur="rname()" required>
-                    <span id="err1"></span><br></center>
-                    <h6 style="padding-left:100px; color:black;">Gender</h6><center>
-                    </h6> <input type="radio" name="gender" value="Male" required>&nbsp;Male&nbsp;&nbsp;&nbsp;
-                    </h6><input type="radio" name="gender" value="Female">&nbsp;Female&nbsp;&nbsp;&nbsp;
-                    </h6><input type="radio" name="gender" value="Other">&nbsp;Others <br>
-                    <h6 style="padding-right:900px; color:white;"></h6>
-                    <br><input type="text" id="loc" name="location" class="form-control  "value=""placeholder="Location" onblur="loca()" required>
-                    <span id="err8"></span><br>
-                    <input type="email" id="mail" name="mail" class="form-control  " value=""placeholder="E-mail"onblur="ema()" required>
-                    <span id="err2"></span><br>
-                    <input type="tel" id="ph" name="phne" class="form-control  form-group"value=""placeholder=" Phone Number" onblur="phn()" required>
-                    <span id="err3"></span><br></center>
+        <div class="border" style="border: solid black 2px">
+            <div class="container-fluid">
+                <center>
+                <h2 style="padding-top:50px;color:blue;">Create your account</h2></center>
+                <form  method="post" name="regform" action="reg.php" class="form-group-sm container" enctype="multipart/form-data"></center><br>
+                <div class="row">
+                    <div class="col-lg-6"><center>
+                        <input type="text"class="form-control" name="nme" id="name" placeholder="Name" autocomplete="off" autofocus="on" onblur="rname()" required>
+                        <span id="err1"></span><br></center>
+                        <h6 style="padding-left:100px; color:black;">Gender</h6><center>
+                        </h6> <input type="radio" name="gender" value="Male" required>&nbsp;Male&nbsp;&nbsp;&nbsp;
+                        </h6><input type="radio" name="gender" value="Female">&nbsp;Female&nbsp;&nbsp;&nbsp;
+                        </h6><input type="radio" name="gender" value="Other">&nbsp;Others <br>
+                        <h6 style="padding-right:900px; color:white;"></h6>
+                        <br><input type="text" id="loc" name="location" class="form-control  "value=""placeholder="Location" onblur="loca()" required>
+                        <span id="err8"></span><br>
+                        <input type="email" id="mail" name="mail" class="form-control  " value=""placeholder="E-mail"onblur="ema()" required>
+                        <span id="err2"></span><br>
+                        <input type="tel" id="ph" name="phne" class="form-control  form-group"value=""placeholder=" Phone Number" onblur="phn()" required>
+                        <span id="err3"></span><br></center>
+                    </div>
+                    <div class="vl"></div>
+                    <div class="col-lg-6">
+                        <center>
+                        <input type="text" name="usr" class="form-control  form-group" placeholder=" Username" id="user" onblur="usr()" required>
+                        <span id="err5"></span><br>
+                        <input type="password" name="psw" class="form-control  form-group" placeholder="Password" id="pass"  onblur="npsw()" required>
+                        <span id="err6"></span><br>
+                        <input type="password" class="form-control  form-group" placeholder="Conform Password"  id="conpass" onblur="psw1()" required>
+                        <span id="err7"></span><br>
+                        <div class="form-group form-check">
+                            <h5><input type="checkbox" class="form-check-input">
+                            <label class="form-check-label" style="color:blue;">I accepts to the terms and conditions.</label>
+                        </div></h5>
+                        <input type="submit" class="btn btn-success btn-lg" value="Submit" onsubmit="rname(); ema(); phn(); loc(); usr(); npsw(); psw1();">&nbsp;&nbsp;&nbsp;
+                        <input type="reset" class="btn btn-danger btn-lg" value="Reset"><br></center>
+                    </div>
                 </div>
-                <div class="vl"></div>
-                <div class="col-lg-6">
-                    <center>
-                    <input type="text" name="usr" class="form-control  form-group" placeholder=" Username" id="user" onblur="usr()" required>
-                    <span id="err5"></span><br>
-                    <input type="password" name="psw" class="form-control  form-group" placeholder="Password" id="pass"  onblur="npsw()" required>
-                    <span id="err6"></span><br>
-                    <input type="password" class="form-control  form-group" placeholder="Conform Password"  id="conpass" onblur="psw1()" required>
-                    <span id="err7"></span><br>
-                    <div class="form-group form-check">
-                        <h5><input type="checkbox" class="form-check-input">
-                        <label class="form-check-label" style="color:blue;">I accepts to the terms and conditions.</label>
-                    </div></h5>
-                    <input type="submit" class="btn btn-success btn-lg" value="Submit" onsubmit="rname(); ema(); phn(); loc(); usr(); npsw(); psw1();">&nbsp;&nbsp;&nbsp;
-                    <input type="reset" class="btn btn-danger btn-lg" value="Reset"><br></center>
-                </div>
+                </form>
             </div>
-            </form>
         </div>
     </body>
 </html>
