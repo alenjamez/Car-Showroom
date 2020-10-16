@@ -6,7 +6,7 @@
 
     $sql1="insert into tbl_com(name,icon,description) values('$name','$pic','$desc')";
     mysqli_query($con,$sql1);
-    $t="upload/".$pic;
+    $t="../upload/company/".$pic;
     move_uploaded_file($_FILES["icn"]["tmp_name"],$t);
     header("location:comadd.php");
 ?>

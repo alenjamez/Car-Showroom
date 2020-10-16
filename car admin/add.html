@@ -34,6 +34,7 @@ h3 {
 .label{
   color:white;
 }
+input
 
 </style>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -46,15 +47,11 @@ h3 {
       <div class="form-popup" id="myForm">
       <form class="form-container" method="post" action="addcom.php" enctype="multipart/form-data">
         <center><h3><b>Add Company</b></h3></center>
-
-        <label for="name"><b>Company name</b></label>
-        <input type="text" name="comnme" id="comnme" class="form-control"  autofocus="on" required>
+        <input type="text" name="comnme" id="comnme" placeholder="Company name" class="form-control"  autofocus="on" required>
 
         <label for="icon"><b>Icon</b></label><br>
         <input type="file" id="icn" name="icn" class="form-control-file" required>
-
-        <label for="desc"><b>Description</b></label>
-        <textarea name="disp" id="disp" rows="4" cols="40" class="form-control"></textarea>
+        <textarea name="disp" id="disp" rows="4" cols="40" placeholder="Description" class="form-control"></textarea>
 
         <button type="submit" class="btn">Add</button>
         <button type="button" class="btn cancel" onclick="location.href='accessory.php'">Cancel</button>

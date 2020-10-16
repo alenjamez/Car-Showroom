@@ -62,7 +62,7 @@ h2{
     <div id="page-content-wrapper">
       <br><br><h2><center><b>Company List</b></h3><br><br><br><hr style="border: 1px solid red;">
 
-          <button class="btn btn-primary"  onclick="location.href='add.html'" id="butn">Add Compan</button>
+          <button class="btn btn-primary"  onclick="location.href='add.html'" id="butn">Add Company</button>
 
 
    <br><br><br><br>
