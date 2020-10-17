@@ -8,16 +8,16 @@
     <style>
 	body {
 	  /* background-color: #2f4454; */
-      background-color: white;
+      background-color:#802bb1;
 
 	}
     .border{
         top:50%;
         left:50%;
         width:70%;
-        height:70%;
+        height:80%;
         position: relative;
-        background-color: antiquewhite;
+        background-color: #111111;
         transform: translate(-50%,-50%);
         border: solid black;
     }
@@ -27,21 +27,34 @@
 		 font-weight: bold;
 	}
     .vl {
-        border-left: 2px solid black;
-        height: 350px;
+        border-left: 2px solid #802bb1;
+        height: 300px;
         position: absolute;
         left: 50%;
         margin-left: -1px;
-        top: 150px;
+        top: 105px;
     }
     .row{
-        padding-top:50px ;
+        padding-top:10px ;
     }
     input[type=text],[type=password],[type=email],[type=tel] {
         width: 70%;
     }
     input[type=submit],[type=reset] {
         width: 35%;
+        height:10%;
+        color: #802bb1;
+        background-color:  #111111;
+        border-radius: 10px;
+        border: solid #802bb1;
+        opacity: 0.8;
+        font-weight: bold;
+    }
+    input[type=submit]:hover {
+        background-color:  #2d283e;
+    }
+    input[type=reset]:hover {
+        background-color:  #2d283e;
     }
     </style>
     <script>
@@ -182,28 +195,28 @@
         <div class="border" style="border: solid black 2px">
             <div class="container-fluid">
                 <center>
-                <h2 style="padding-top:50px;color:blue;">Create your account</h2></center>
+                <h2 style="padding-top:20px;color:#802bb1;">Create your Account</h2></center>
                 <form  method="post" name="regform" action="reg.php" class="form-group-sm container" enctype="multipart/form-data"></center><br>
                 <div class="row">
                     <div class="col-lg-6"><center>
-                        <input type="text"class="form-control" name="nme" id="name" placeholder="Name" autocomplete="off" autofocus="on" onblur="rname()" required>
+                        <input type="text"class="form-control" name="nme" id="name" placeholder="Name" autocomplete="off" onblur="rname()" required>
                         <span id="err1"></span><br></center>
-                        <h6 style="padding-left:100px; color:black;">Gender</h6><center>
-                        </h6> <input type="radio" name="gender" value="Male" required>&nbsp;Male&nbsp;&nbsp;&nbsp;
+                        <h5 style="padding-left:60px; color:#802bb1;">Gender</h5><center>
+                        <div style="color:#802bb1;"> <input type="radio" name="gender" value="Male" required>&nbsp;Male&nbsp;&nbsp;&nbsp;
                         </h6><input type="radio" name="gender" value="Female">&nbsp;Female&nbsp;&nbsp;&nbsp;
-                        </h6><input type="radio" name="gender" value="Other">&nbsp;Others <br>
+                        </h6><input type="radio" name="gender" value="Other">&nbsp;Others <br></div>
                         <h6 style="padding-right:900px; color:white;"></h6>
-                        <br><input type="text" id="loc" name="location" class="form-control  "value=""placeholder="Location" onblur="loca()" required>
+                        <br><input type="text" id="loc" name="location" class="form-control  "value=""placeholder="Location" onblur="loca()" autocomplete="off" required>
                         <span id="err8"></span><br>
-                        <input type="email" id="mail" name="mail" class="form-control  " value=""placeholder="E-mail"onblur="ema()" required>
+                        <input type="email" id="mail" name="mail" class="form-control  " value=""placeholder="E-mail"onblur="ema()" autocomplete="off" required>
                         <span id="err2"></span><br>
-                        <input type="tel" id="ph" name="phne" class="form-control  form-group"value=""placeholder=" Phone Number" onblur="phn()" required>
+                        <input type="tel" id="ph" name="phne" class="form-control  form-group"value=""placeholder="Phone Number" onblur="phn()" autocomplete="off" required>
                         <span id="err3"></span><br></center>
                     </div>
                     <div class="vl"></div>
                     <div class="col-lg-6">
                         <center>
-                        <input type="text" name="usr" class="form-control  form-group" placeholder=" Username" id="user" onblur="usr()" required>
+                        <input type="text" name="user" class="form-control  form-group"  pattern="User name must only contain number and charecter"  placeholder="Username" id="user" onblur="usr()" autocomplete="off" required>
                         <span id="err5"></span><br>
                         <input type="password" name="psw" class="form-control  form-group" placeholder="Password" id="pass"  onblur="npsw()" required>
                         <span id="err6"></span><br>
@@ -211,11 +224,13 @@
                         <span id="err7"></span><br>
                         <div class="form-group form-check">
                             <h5><input type="checkbox" class="form-check-input">
-                            <label class="form-check-label" style="color:blue;">I accepts to the terms and conditions.</label>
+                            <label class="form-check-label" style="color:#802bb1;">I accepts to the terms and conditions.</label>
                         </div></h5>
-                        <input type="submit" class="btn btn-success btn-lg" value="Submit" onsubmit="rname(); ema(); phn(); loc(); usr(); npsw(); psw1();">&nbsp;&nbsp;&nbsp;
-                        <input type="reset" class="btn btn-danger btn-lg" value="Reset"><br></center>
+                        <input type="submit"  value="Submit" onsubmit="rname(); ema(); phn(); loc(); usr(); npsw(); psw1();">&nbsp;&nbsp;&nbsp;
+                        <input type="reset"  value="Reset"><br></center><br>
+                        <a href="login.html" style="color:#802bb1;padding-left: 200px;">Already a Member</a>
                     </div>
+                    <br><span id=></span>
                 </div>
                 </form>
             </div>

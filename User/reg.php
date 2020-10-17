@@ -5,7 +5,7 @@
     $loc=$_POST["location"];
     $email=$_POST["mail"];
     $phno=$_POST["phne"];
-    $usr=$_POST["usr"];
+    $usr=$_POST["user"];
     $psw=md5($_POST["psw"]);
 
     $sql="select username,password from tbl_login where username='$usr'";
