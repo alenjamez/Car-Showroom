@@ -65,17 +65,19 @@
         
         if(nam=="")
             {
-                document.getElementById("err1").innerHTML="Enter name";
+                document.getElementById("error").innerHTML="* Enter name";
+                document.getElementById("name").focus();
             return false;
             }
         if(nam.match(nam1))
             {
-                document.getElementById("err1").innerHTML="";
+                document.getElementById("error").innerHTML="";
         
             }
         else
             {
-                document.getElementById("err1").innerHTML="Enter valid name";
+                document.getElementById("error").innerHTML="* Name must only contain characters";
+                document.getElementById("name").focus();
             return false;
         
             }
@@ -86,17 +88,19 @@
         var emi1=/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})+$/;
         if(emi=="")
             {
-                document.getElementById("err2").innerHTML="Enter email";
+                document.getElementById("error").innerHTML="* Enter email";
+                document.getElementById("mail").focus();
             return false;
             }
         if(emi.match(emi1))
             {
-                document.getElementById("err2").innerHTML="";
+                document.getElementById("error").innerHTML="";
         
             }
         else
             {
-                document.getElementById("err2").innerHTML="Enter valid email";
+                document.getElementById("error").innerHTML="* Enter valid email";
+                document.getElementById("mail").focus();
             return false;
             }
         }
@@ -106,37 +110,41 @@
         var ph1=/^([6-9]{1}[0-9]{9})+$/;
         if(ph=="")
             {
-                document.getElementById("err3").innerHTML="Enter phno";
+                document.getElementById("error").innerHTML="* Enter phno";
+                document.getElementById("ph").focus();
             return false;
             }
-        if(ph.match(ph1)&& (ph.length==10))
+        if((ph.match(ph1))&& (ph.length==10))
             {
-                document.getElementById("err3").innerHTML="";
+                document.getElementById("error").innerHTML="";
         
             }
         else
             {
-                document.getElementById("err3").innerHTML="Enter valid no";
+                document.getElementById("error").innerHTML="* Must contain only numbers and must have 10 digits";
+                document.getElementById("ph").focus();
             return false;
             }
         }
         function usr()
         {
         var un=document.getElementById("user").value;
-        var un1=/^[a-zA-Z0-9]+$/;
+        var un1=/^[a-z]+$/;
         if(un=="")
             {
-            document.getElementById("err5").innerHTML="Enter Username";
+            document.getElementById("error").innerHTML="* Enter Username";
+            document.getElementById("user").focus();
             return false;
             }
-        if(un.match(un1))
+        if((un.match(un1))&&(un.length>=5))
             {
-                document.getElementById("err5").innerHTML="";
+                document.getElementById("error").innerHTML="";
         
             }
         else
             {
-                document.getElementById("err5").innerHTML="Enter valid Username";
+                document.getElementById("error").innerHTML="* Username must contain only lowercase letters with length greater than 5";
+                document.getElementById("user").focus();
             return false;
             }
         }
@@ -147,18 +155,20 @@
         var ps1=/^[a-zA-Z0-9:@]+$/;
         if(ps=="")
             {
-                document.getElementById("err6").innerHTML="Enter Password";
+                document.getElementById("error").innerHTML="* Enter Password";
+                document.getElementById("pass").focus();
             return false;
             }
-        if(ps.match(ps1)&& (ps.length>=8))
+        if((ps.match(ps1))&& (ps.length>=8))
             {
-                document.getElementById("err6").innerHTML="";
+                document.getElementById("error").innerHTML="";
         
             }
         else
             {
-                document.getElementById("err6").innerHTML="Enter valid Password";
-            return false;
+                document.getElementById("error").innerHTML="* Password must contain number and charecter with length greater than 8";
+                document.getElementById("pass").focus();
+                return false;
             }
         }
         function psw1()
@@ -166,25 +176,34 @@
         var ps1=document.getElementById("conpass").value;
         if(ps==ps1)
             {
-                document.getElementById("err7").innerHTML="";
+                document.getElementById("error").innerHTML="";
+                
             }
         else
             {
-                document.getElementById("err7").innerHTML="Password not match!!!!!!!!!!";
+                document.getElementById("error").innerHTML="* Password not match!!!!!!!!!!";
+                document.getElementById("conpass").focus();
             }
         }
         function loca()
         {
-        var loc=document.getElementById("name").value;
+        var loc=document.getElementById("loc").value;
         var loc1=/^[a-zA-Z]+$/;
+        if(loc=="")
+           {
+                document.getElementById("error").innerHTML="* Enter location";
+                document.getElementById("loc").focus();
+            return false;
+            }
         if(loc.match(loc1))
             {
-                document.getElementById("err8").innerHTML="";
+                document.getElementById("error").innerHTML="";
         
             }
         else
             {
-                document.getElementById("err8").innerHTML="Enter valid location";
+                document.getElementById("error").innerHTML="* Must conatian only characters";
+                document.getElementById("loc").focus();
             return false;
         
             }
@@ -199,7 +218,7 @@
                 <form  method="post" name="regform" action="reg.php" class="form-group-sm container" enctype="multipart/form-data"></center><br>
                 <div class="row">
                     <div class="col-lg-6"><center>
-                        <input type="text"class="form-control" name="nme" id="name" placeholder="Name" autocomplete="off" onblur="rname()" required>
+                        <input type="text"class="form-control" name="nme" id="name" placeholder="Name" autocomplete="off" on onblur="rname()" required>
                         <span id="err1"></span><br></center>
                         <h5 style="padding-left:60px; color:#802bb1;">Gender</h5><center>
                         <div style="color:#802bb1;"> <input type="radio" name="gender" value="Male" required>&nbsp;Male&nbsp;&nbsp;&nbsp;
@@ -216,7 +235,7 @@
                     <div class="vl"></div>
                     <div class="col-lg-6">
                         <center>
-                        <input type="text" name="user" class="form-control  form-group"  pattern="User name must only contain number and charecter"  placeholder="Username" id="user" onblur="usr()" autocomplete="off" required>
+                        <input type="text" name="user" class="form-control  form-group"  placeholder="Username" id="user" onblur="usr()" autocomplete="off" required>
                         <span id="err5"></span><br>
                         <input type="password" name="psw" class="form-control  form-group" placeholder="Password" id="pass"  onblur="npsw()" required>
                         <span id="err6"></span><br>
@@ -228,9 +247,9 @@
                         </div></h5>
                         <input type="submit"  value="Submit" onsubmit="rname(); ema(); phn(); loc(); usr(); npsw(); psw1();">&nbsp;&nbsp;&nbsp;
                         <input type="reset"  value="Reset"><br></center><br>
-                        <a href="login.html" style="color:#802bb1;padding-left: 200px;">Already a Member</a>
+                        <a href="login.html" style="color:#802bb1;padding-left: 200px;">Already a Member?</a>
                     </div>
-                    <br><span id=></span>
+                    <br><span id="error" style="padding-left:50px"></span>
                 </div>
                 </form>
             </div>

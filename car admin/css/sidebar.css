@@ -4,15 +4,15 @@ body {
 /* The side navigation menu */
 .sidenav {
   height: 100%; /* 100% Full-height */
-  width: 250px; /* 0 width - change this with JavaScript */
+  width: 25%; /* 0 width - change this with JavaScript */
   position: fixed; /* Stay in place */
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
-  background-color: #111; /* Black*/
+  background-color: rgba(0, 0, 0, 0.5); /* Black*/
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 60px; /* Place content 60px from the top */
-  opacity: 0.8;
+  opacity: 1;
 }
 
 .sidenav a {
@@ -47,17 +47,24 @@ body {
 
 #page-content-wrapper {
 height: 100%;
-width: 1100px;
+width: 70%;
 margin-left:250px;
 position: fixed;
 margin-top: 0;
 overflow-x: hidden;
 top: 0;
 z-index: 1;
+right: 0;
 }
 #butn{
   float:right;
   display:block;
   margin-right:20px;
   clear:left;
+}
+.vl {
+  border-left: 2px solid red;
+  height: 70%;
+  margin-left: 250px;
+  top: 130px;
 }

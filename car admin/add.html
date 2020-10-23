@@ -16,6 +16,7 @@ h3 {
      text-shadow: -2px -2px 0 rgba(0, 0, 0, 0.125);
      text-transform: none;
      align-content: center;
+     padding-bottom: 50px;
     }
 .blackbox{
   background-color: rgba(0, 0, 0, 0.125);
@@ -34,7 +35,9 @@ h3 {
 .label{
   color:white;
 }
-input
+input [type=text]{
+  width: 100%;
+}
 
 </style>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -47,7 +50,7 @@ input
       <div class="form-popup" id="myForm">
       <form class="form-container" method="post" action="addcom.php" enctype="multipart/form-data">
         <center><h3><b>Add Company</b></h3></center>
-        <input type="text" name="comnme" id="comnme" placeholder="Company name" class="form-control"  autofocus="on" required>
+        <input type="text" name="comnme" id="comnme" placeholder="Company name" class="form-control" required>
 
         <label for="icon"><b>Icon</b></label><br>
         <input type="file" id="icn" name="icn" class="form-control-file" required>

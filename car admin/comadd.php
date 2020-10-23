@@ -23,18 +23,21 @@
 </head>
 <style>
 body{
-  background-image: url('images/1.jpg');
-  background-position: center;
+  background-color:#182628;
   opacity: 1;
 }
 h2{
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 0.5em;
   width:300px;
   color:white;
   position: fixed;
   text-align: center;
   left: 45%;
+}
+.back{
+  background-color: rgba(0, 0, 0, 0.5);
+  width:100%;
+  right:0;
+
 }
 #MainTable{
   background-color: rgba(0, 0, 0, 0.5);
@@ -55,13 +58,13 @@ h2{
         <a href="logout.php" >Log Out</a>
 
     </div>
-  </div>
+  </div><div class="vl"></div>
     <!-- /#sidebar-wrapper -->
 
     <!-- Page Content -->
     <div id="page-content-wrapper">
-      <br><br><h2><center><b>Company List</b></h3><br><br><br><hr style="border: 1px solid red;">
-
+      <div class="back"><br><br><h2><center><b>Company List</b></h3><br><br><br>
+      <hr style="border: 1px solid red;"></div>
           <button class="btn btn-primary"  onclick="location.href='add.html'" id="butn">Add Company</button>
 
 
