@@ -22,7 +22,7 @@
         $li=mysqli_insert_id($con);
         $sql1="insert into tbl_registration(name,gender,email,phone,location,login_id) values('$name','$gender','$email','$phno','$loc',$li)";
         mysqli_query($con,$sql1);
-        header("location:login.html");
+        header("location:login.php");
     }
 
 ?>

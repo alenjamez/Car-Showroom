@@ -10,7 +10,7 @@
   <link href="css/sidebar.css" rel="stylesheet">
   <style>
   body{
-   background-color:black;
+   background-color:white;
    font-family: "Lato", sans-serif;
    opacity: 1;
   }
@@ -60,41 +60,120 @@ h2{
     left: 45%;
   }
   .back{
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: #111;
     width:100%;
-    height:185px;
+    height:107px;
     right:0;
+    margin-right:0;
     left:0;
   }
-  #MainTable{
+ 
+  #butn{
+  float:right;
+  display:block;
+  margin-right:20px;
+  clear:left;
+}
+.sidenav a, .dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+  border: none;
+  background: #111;
+  width:100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+.sidenav a:hover, .dropdown-btn:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 200px;  
+  font-size: 20px; 
+  padding: 0px 10px;
+}
+
+.active {
+  color: white;
+}
+
+.dropdown-container {
+  display: none;
+  background-color: #262626;
+  padding-left: 8px;
+}
+
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+.name{
+  width:75%;
+  padding-top:5px;
+  margin-left:22%;
+  height:30px;
+  background-color:red;
+  border-radius:5px
+}
+.table{
+  width:75%;
+  margin-left:22%;
+  height:450px;
+  background-color:red;
+  border-radius:5px;
+  padding:20px 20px 20px 20px;
+}
+#MainTable{
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
-    width: 500px;
-    padding-left:400px;
-  }
-
-
+    width: 100%;
+}
 </style>
 </head>
 <body>
 <div class="sidenav">
   <div class="sidebar-heading">UR CARZ</div>
         <a href="#" >Dashboard</a>
-        <a href="#" >Company---</a>
-        <a href="addcar.php" >Cars</a>
-        <a href="accessory.php" >Accessories</a>
+        <button class="dropdown-btn" style="border=0">Company
+        <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+        <a href="comadd.php">Add Company</a>
+        <a href="company.php">Manage Details</a>
+        </div>
+        <button class="dropdown-btn">Car
+        <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+        <a href="#">Add car</a>
+        <a href="#">Manage Details</a>
+        </div>
+        <button class="dropdown-btn">Accesory
+        <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+        <a href="#">Add car</a>
+        <a href="#">Manage Details</a>
+        </div>
         <a href="#" >Sales</a>
         <a href="logout.php" >Log Out</a></div>
 
-<div class="main"><br>
-<p style="color:red;padding-right:0"><b><?php echo $_SESSION['user']; ?>&nbsp;
-            <img src="upload/images/admin.jpg" width="50" height="50"><p>
-<div class="back"><br><h2><center><b>Company List</b></h3><br><br>
-      <hr style="border: 1px solid red;"></div><br>
-      <button class="btn btn-primary"  onclick="location.href='add.html'" id="butn">Add Company</button>
+<div class="main">
+<div class="back"><br><h2><center><b>Company List</b></h2><br></center>
+<p style="color:white;float:right;font-family: Arial;"><b><?php echo $_SESSION['user']; ?>&nbsp;
+            <img src="upload/images/admin.jpg" width="40" height="40"><p><br>
+      <hr style="border: 1px solid red;"></div>
 </div>
-<br><br><br><br>
-   <center>
+<br>
+<div class="name">
+<h6 style="margin-left:10px;"><a href="#"style="text-decoration:none;color:black;">Home</a>&nbsp;/&nbsp;Company</h6>
+</div><br>
+<div class="table"> 
    <table id="MainTable" width= 70% border="1">
    <thead>
      <tr>
@@ -119,19 +198,32 @@ h2{
      }
    ?>
    </tbody>
-   </table></center>
+   </table>
    </div>
    </div>
  </div>
-    <!-- /#page-content-wrapper -->
-
-  <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script type="text/javascript">
   document. getElementById("myButton"). onclick = function () {
   location. href = "www.yoursite.com";
   };
+  </script>
+  <script>
+    var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+    } else {
+      dropdownContent.style.display = "block";
+    }
+  });
+}
   </script>
 </body>
 </html>

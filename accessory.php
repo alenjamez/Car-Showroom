@@ -1,73 +1,107 @@
 <?php
  $con=mysqli_connect("localhost","root","","car showroom") or die("couldn't connect");
+ session_start();
  ?>
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
+  <head>
   <title>UR CARZ</title>
-
-  <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom styles for this template -->
   <link href="css/sidebar.css" rel="stylesheet">
-  <link href="css/popup.css" rel="stylesheet">
+  <style>
+  body{
+   background-color:black;
+   font-family: "Lato", sans-serif;
+   opacity: 1;
+  }
+  .sidenav {
+  height: 100%;
+  width: 20%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 60px;
+}
 
-</head>
-<style>
-body{
-  background-image: url('images/1.jpg');
-  background-position: center;
-  opacity: 1;
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 20%; 
+  font-size: 28px; 
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+.sidebar-heading {
+  font-size: 30px;
+  color: #f1f1f1;
+ padding: 10px 16px 12px 24px;
 }
 h2{
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 0.5em;
-  width:300px;
-  color:white;
-  position: fixed;
-  text-align: center;
-  left: 45%;
+    width:300px;
+    color:white;
+    position: fixed;
+    text-align: center;
+    left: 45%;
+  }
+  .back{
+    background-color: rgba(0, 0, 0, 0.5);
+    width:100%;
+    height:185px;
+    right:0;
+    left:0;
+  }
+  #MainTable{
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    width: 500px;
+    margin-left:40%
+  }
+  #butn{
+  float:right;
+  display:block;
+  margin-right:20px;
+  clear:left;
 }
-#MainTable{
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  text-align: center;
-  width: 500px;
-}
+
 </style>
+</head>
 <body>
-    <!-- Sidebar -->
-    <div  id="sidebar-wrapper"><div id="mySidenav" class="sidenav">
-      <div class="sidebar-heading">UR CARZ</div>
+<div class="sidenav">
+  <div class="sidebar-heading">UR CARZ</div>
         <a href="#" >Dashboard</a>
         <a href="comadd.php" >Company</a>
         <a href="addcar.php" >Cars</a>
         <a href="#" >Accessories</a>
         <a href="#" >Sales</a>
-        <a href="logout.php" >Log Out</a>
+        <a href="logout.php" >Log Out</a></div>
 
-    </div>
-  </div>
-    <!-- /#sidebar-wrapper -->
-
-    <!-- Page Content -->
-    <div id="page-content-wrapper">
-      <br><br><h2><center><b>Accesory List</b></h3><br><br><br><hr style="border: 1px solid red;">
-
-          <button class="btn btn-primary"  onclick="location.href='addacc.html'" id="butn">Add Accessory</button>
-
-
-   <br><br><br><br>
-   <center>
-   <table id="MainTable" width= 70% border="1">
+<div class="main">
+<div class="back"><br><h2><center><b>Accesory List</b></h2><br></center>
+<p style="color:white;float:right;font-family: Arial;"><b><?php echo $_SESSION['user']; ?>&nbsp;
+            <img src="upload/images/admin.jpg" width="40" height="40"><p><br>
+      <hr style="border: 1px solid red;"></div>
+      <button class="btn btn-primary"  onclick="location.href='addacc.html'" id="butn">Add Accesory</button>
+      <button class="btn btn-primary"  onclick="location.href='addacc.html'" id="butn">Edit Details</button>
+</div>
+<br><br><br><br>
+   
+<table id="MainTable" width= 70% border="1">
    <thead>
      <tr>
      <th scope="col">Sl.no</th>
@@ -91,13 +125,10 @@ h2{
      }
    ?>
    </tbody>
-   </table></center>
+   </table>
    </div>
    </div>
  </div>
-    <!-- /#page-content-wrapper -->
-
-  <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script type="text/javascript">
@@ -105,7 +136,5 @@ h2{
   location. href = "www.yoursite.com";
   };
   </script>
-
 </body>
-
 </html>
