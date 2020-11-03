@@ -1,6 +1,7 @@
 <?php
  $con=mysqli_connect("localhost","root","","car showroom") or die("couldn't connect");
  session_start();
+ $_SESSION['id']="";
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +11,7 @@
   <link href="css/sidebar.css" rel="stylesheet">
   <style>
   body{
-   background-color:white;
+   background-color:#EDF5E1;
    font-family: "Lato", sans-serif;
    opacity: 1;
   }
@@ -43,6 +44,10 @@
   font-size: 28px; 
 }
 
+.main {
+  margin-left: 200px;  
+  font-size: 20px; 
+}
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
@@ -62,7 +67,7 @@ h2{
   .back{
     background-color: #111;
     width:100%;
-    height:107px;
+    height:77px;
     right:0;
     margin-right:0;
     left:0;
@@ -87,25 +92,23 @@ h2{
   cursor: pointer;
   outline: none;
 }
-
+.dropdown-btn .active{
+  outline:none;
+}
 .sidenav a:hover, .dropdown-btn:hover {
   color: #f1f1f1;
 }
 
-.main {
-  margin-left: 200px;  
-  font-size: 20px; 
-  padding: 0px 10px;
-}
-
 .active {
   color: white;
+  outline:none;
 }
 
 .dropdown-container {
   display: none;
   background-color: #262626;
   padding-left: 8px;
+  outline:none;
 }
 
 .fa-caret-down {
@@ -117,21 +120,24 @@ h2{
   padding-top:5px;
   margin-left:22%;
   height:30px;
-  background-color:red;
+  background-color:white;
   border-radius:5px
 }
 .table{
   width:75%;
   margin-left:22%;
-  height:450px;
-  background-color:red;
+  height:100%;
+  background-color:white;
   border-radius:5px;
   padding:20px 20px 20px 20px;
 }
 #MainTable{
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
+    color: black;
     width: 100%;
+}
+h1{
+  margin-left:22%;
+  color:#747474;
 }
 </style>
 </head>
@@ -139,21 +145,21 @@ h2{
 <div class="sidenav">
   <div class="sidebar-heading">UR CARZ</div>
         <a href="#" >Dashboard</a>
-        <button class="dropdown-btn" style="border=0">Company
+        <button class="dropdown-btn" style="outline:none">Company
         <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
         <a href="comadd.php">Add Company</a>
         <a href="company.php">Manage Details</a>
         </div>
-        <button class="dropdown-btn">Car
+        <button class="dropdown-btn"  style="outline:none">Car
         <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-        <a href="#">Add car</a>
+        <a href="comadd.php">Add car</a>
         <a href="#">Manage Details</a>
         </div>
-        <button class="dropdown-btn">Accesory
+        <button class="dropdown-btn"  style="outline:none">Accesory
         <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
@@ -164,14 +170,14 @@ h2{
         <a href="logout.php" >Log Out</a></div>
 
 <div class="main">
-<div class="back"><br><h2><center><b>Company List</b></h2><br></center>
+<div class="back"><br>
 <p style="color:white;float:right;font-family: Arial;"><b><?php echo $_SESSION['user']; ?>&nbsp;
             <img src="upload/images/admin.jpg" width="40" height="40"><p><br>
-      <hr style="border: 1px solid red;"></div>
-</div>
+    </div></div>
 <br>
+<h1>Manage Details</h1>
 <div class="name">
-<h6 style="margin-left:10px;"><a href="#"style="text-decoration:none;color:black;">Home</a>&nbsp;/&nbsp;Company</h6>
+<h6 style="margin-left:10px;"><a href="#"style="text-decoration:none;color:black;">Home</a>&nbsp;/&nbsp;Company&nbsp;/&nbsp;Manage Details</h6>
 </div><br>
 <div class="table"> 
    <table id="MainTable" width= 70% border="1">
@@ -179,6 +185,7 @@ h2{
      <tr>
      <th scope="col">Sl.no</th>
      <th scope="col">Company Name</th>
+     <th scope="col"></th>
      </tr>
    </thead>
    <tbody>
@@ -195,8 +202,11 @@ h2{
        echo $no;
        echo "</td><td>";
        echo $name;
+       ?></td><td><a href="updatecom.php">Edit</a></td?</tr><?php
+
      }
    ?>
+
    </tbody>
    </table>
    </div>
@@ -205,16 +215,10 @@ h2{
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script type="text/javascript">
-  document. getElementById("myButton"). onclick = function () {
-  location. href = "www.yoursite.com";
-  };
-  </script>
-  <script>
     var dropdown = document.getElementsByClassName("dropdown-btn");
-var i;
-
-for (i = 0; i < dropdown.length; i++) {
-  dropdown[i].addEventListener("click", function() {
+    var i;
+    for (i = 0; i < dropdown.length; i++) {
+    dropdown[i].addEventListener("click", function() {
     this.classList.toggle("active");
     var dropdownContent = this.nextElementSibling;
     if (dropdownContent.style.display === "block") {
