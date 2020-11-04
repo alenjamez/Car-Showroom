@@ -1,9 +1,8 @@
+<!DOCTYPE html>
 <?php
  $con=mysqli_connect("localhost","root","","car showroom") or die("couldn't connect");
  session_start();
- $_SESSION['id']="";
  ?>
-<!DOCTYPE html>
 <html lang="en">
   <head>
   <title>UR CARZ</title>
@@ -131,17 +130,53 @@ h2{
   border-radius:5px;
   padding:20px 20px 20px 20px;
 }
-#MainTable{
-    color: black;
-    width: 100%;
-    text-align:center;
-}
 h1{
   margin-left:22%;
   color:#747474;
 }
+#adddet{
+  width:100%x;
+  margin-left:50px;
+}
+input[type=text]{
+  width:600px;
+}
+input[type=file]{ 
+  font-size: 15px;
+  color: rgb(153,153,153);
+}
+input[type=file]{ 
+  font-size: 15px;
+  color: rgb(153,153,153);
+}
+input[type=submit] {
+        width: 35%;
+        height:15%;
+        color: #f2f2f2;
+        background-color:  #469fbd;
+        border-radius: 10px;
+        border: solid #f2f2f2;
+        opacity: 1;
+        font-weight: bold;
+        margin-left:250px;
+    }
 </style>
-
+<script>
+function Val()
+{
+var fileInput = document.getElementById('icn');
+var filePath = fileInput.value;
+var allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
+if(!allowedExtensions.exec(filePath)){
+  document.getElementById("err").innerHTML = "* Please upload file having extensions .jpeg/.jpg/.png only.";
+	fileInput.value = '';
+	return false;
+ }
+else{
+  document.getElementById("err").innerHTML = "";
+}
+}
+</script>
 </head>
 <body>
 <div class="sidenav">
@@ -151,7 +186,7 @@ h1{
         <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-        <a href="comadd.php">Add Company</a>
+        <a href="#">Add Company</a>
         <a href="company.php">Manage Details</a>
         </div>
         <button class="dropdown-btn"  style="outline:none">Car
@@ -177,52 +212,32 @@ h1{
             <img src="upload/images/admin.jpg" width="40" height="40"><p><br>
     </div></div>
 <br>
-<h1>Manage Details</h1>
+<h1>Add Car</h1>
 <div class="name">
-<h6 style="margin-left:10px;"><a href="#"style="text-decoration:none;color:black;">Home</a>&nbsp;/&nbsp;Company&nbsp;/&nbsp;Manage Details</h6>
+<h6 style="margin-left:10px;"><a href="#"style="text-decoration:none;color:black;">Home</a>&nbsp;/&nbsp;Car&nbsp;/&nbsp;Add Car</h6>
 </div><br>
 <div class="table"> 
-   <table id="MainTable" class="auto-index" width= 70% border="1">
-   <thead>
-     <tr>
-     <th scope="col">Sl.no</th>
-     <th scope="col">Company Name</th>
-     <th scope="col"></th>
-     </tr>
-   </thead>
-   <tbody>
-
-   <?php
-     $sql="select comp_id,name from tbl_com where status=1";
-     $res=mysqli_query($con,$sql);
-     while($row=mysqli_fetch_array($res))
-     {
-       $no=$row['comp_id'];
-       $name=$row['name'];
-
-       echo "<tr><td>";
-       echo "</td><td>";
-       echo $name;
-       ?></td><td><a href="updatecom.php?id=<?php echo $no; ?>" >Edit</a></td?</tr><?php
-
-     }
-   ?>
-   </tbody>
+  <label id="msg" style="color:#008000;"></label>
+    <form id="adddet" method="post" enctype="multipart/form-data">
+    <table >
+      <tr><td>
+        <label for="icon"><b>Company Name</b></label></td>
+        <td><input type="text" name="comnme" id="comnme" placeholder="Company name" pattern="[A-Za-z]+" title="Only Alphabets" required>
+      </td></tr>
+      <tr>
+        <td>
+          <label for="icon"><b>Icon</b></label></td>
+          <td><input type="file" id="icn" name="icn" onblur="Val()" required>
+          </td>
+      </tr>
+      <tr><td></td><td><input type="submit" value="Submit" onsubmit="Val();" name="submit"></td></tr>
    </table>
+   <span id="err" style="color:green"></span>
+   </form>
    </div>
    </div>
  </div>
   <script src="vendor/jquery/jquery.min.js"></script>
-  <script>//serial number
-var addSerialNumber = function () {
-    var i = 0
-    $('table tr').each(function(index) {
-        $(this).find('td:nth-child(1)').html(index-1+1);
-    });
-};
-
-addSerialNumber();
-</script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script type="text/javascript">
     var dropdown = document.getElementsByClassName("dropdown-btn");
@@ -239,10 +254,29 @@ addSerialNumber();
   });
 }
   </script>
-
+  </script>
 </body>
 </html>
 <?php
-if(isset($_GET['id'])){
-  $_SESSION['id'] = id;
+ $con=mysqli_connect("localhost","root","","car showroom") or die("couldn't connect");
+ if(isset($_POST['submit']))
+ {
+ 
+    $name=$_POST["comnme"];
+    $pic=$_FILES["icn"]["name"];
+
+    $sql="select name from tbl_com where name='$name'";
+    $res=mysqli_query($con,$sql);
+    if(mysqli_num_rows($res)>0)
+    {
+      ?><script>document.getElementById("msg").innerHTML = "Name Already exist ";</script><?php
+    }
+    else{
+      $sql1="insert into tbl_com(name,icon,status) values('$name','$pic','1')";
+      mysqli_query($con,$sql1);
+      $t="upload/company/".$pic;
+      move_uploaded_file($_FILES["icn"]["tmp_name"],$t);
+      ?><script>document.getElementById("msg").innerHTML = "Successful ";</script><?php
+    }    
+ }
 ?>

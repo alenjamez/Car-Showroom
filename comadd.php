@@ -1,8 +1,8 @@
+<!DOCTYPE html>
 <?php
  $con=mysqli_connect("localhost","root","","car showroom") or die("couldn't connect");
  session_start();
  ?>
-<!DOCTYPE html>
 <html lang="en">
   <head>
   <title>UR CARZ</title>
@@ -222,7 +222,7 @@ else{
     <table >
       <tr><td>
         <label for="icon"><b>Company Name</b></label></td>
-        <td><input type="text" name="comnme" id="comnme" placeholder="Company name" required>
+        <td><input type="text" name="comnme" id="comnme" placeholder="Company name" pattern="[A-Za-z]+" title="Only Alphabets" required>
       </td></tr>
       <tr>
         <td>
@@ -272,7 +272,7 @@ else{
       ?><script>document.getElementById("msg").innerHTML = "Name Already exist ";</script><?php
     }
     else{
-      $sql1="insert into tbl_com(name,icon) values('$name','$pic')";
+      $sql1="insert into tbl_com(name,icon,status) values('$name','$pic','1')";
       mysqli_query($con,$sql1);
       $t="upload/company/".$pic;
       move_uploaded_file($_FILES["icn"]["tmp_name"],$t);

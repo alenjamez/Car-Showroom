@@ -138,15 +138,27 @@ h1{
   margin-left:22%;
   color:#747474;
 }
+input[type=submit] {
+        width: 25%;
+        height:15%;
+        color: #f2f2f2;
+        background-color:  #469fbd;
+        border-radius: 10px;
+        border: solid #f2f2f2;
+        opacity: 1;
+        font-weight: bold;
+        margin-left:650px;
+        margin-top:20px;
+    }
 </style>
 <script>
-    function fileVal()
+function Val()
 {
 var fileInput = document.getElementById('icn');
 var filePath = fileInput.value;
 var allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
 if(!allowedExtensions.exec(filePath)){
-	alert('Please upload file having extensions .jpeg/.jpg/.png only.');
+	document.getElementById("err").innerHTML = "* Please upload file having extensions .jpeg/.jpg/.png only.";
 	fileInput.value = '';
 	return false;
  }
@@ -203,8 +215,18 @@ else{
 </div><br>
 <div class="table"> 
     <form>
-    <input type="file" id="icn" name="icn" onblur="Val()" required>
-
+    <div class="text-center">
+        <img src="<?php echo $propic;?>" class="avatar img-circle img-thumbnail" alt="avatar"><br>
+        <h6>Upload a different photo...</h6>
+        <input type="file" class="text-center center-block file-upload" id="icn" name="icn" onblur="Val()">
+        <span class="err" style="color:green"></span>
+        </div>
+        <br>
+        <input type="text" name="comnme" id="comnme" value="<?php echo $user;?>" style="font-size:15px;width:40%;margin-left:30%;"><br>
+        <select name="drpdwn" id="derpdwn"  style="font-size:15px;width:40%;margin-left:30%;margin-top:10px">   
+        <option value="volvo">Active</option>
+        <option value="saab">Inactive</option></select>
+        <input type="submit" onsubmit="val();" value="Update">
     </form>
    </div>
    </div>
@@ -228,3 +250,17 @@ else{
   </script>
 </body>
 </html>
+<?php
+ $con=mysqli_connect("localhost","root","","car showroom") or die("couldn't connect");
+ if(isset($_POST['submit']))
+ {
+ 
+    $name=$_POST["comnme"];
+    $pic=$_FILES["icn"]["name"];
+
+      $sql1="insert into tbl_com(name,icon) values('$name','$pic')";
+      mysqli_query($con,$sql1);
+      $t="upload/company/".$pic;
+      move_uploaded_file($_FILES["icn"]["tmp_name"],$t);  
+ }
+?>
