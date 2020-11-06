@@ -1,6 +1,14 @@
 <?php
  $con=mysqli_connect("localhost","root","","car showroom") or die("couldn't connect");
  session_start();
+ $ids=$_GET['id'];
+ $sql="select * from tbl_com where comp_id='$ids'";
+ $res=mysqli_query($con,$sql)or die( mysqli_error($con));;
+ while($row=mysqli_fetch_array($res))
+ {
+   $name=$row['name'];
+   $pic='upload/company/'.$row['icon'];
+ }
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +24,7 @@
   }
   .sidenav {
   height: 100%;
-  width: 20%;
+  width: 15%;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -39,13 +47,8 @@
 }
 
 .main {
-  margin-left: 20%; 
+  margin-left: 15%; 
   font-size: 28px; 
-}
-
-.main {
-  margin-left: 200px;  
-  font-size: 20px; 
 }
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
@@ -117,39 +120,48 @@ h2{
 .name{
   width:75%;
   padding-top:5px;
-  margin-left:22%;
+  margin-left:17%;
   height:30px;
   background-color:white;
   border-radius:5px
 }
 .table{
   width:75%;
-  margin-left:22%;
+  margin-left:17%;
   height:100%;
   background-color:white;
   border-radius:5px;
   padding:20px 20px 20px 20px;
 }
-#MainTable{
-    color: black;
-    width: 100%;
-}
 h1{
-  margin-left:22%;
+  margin-left:17%;
   color:#747474;
 }
 input[type=submit] {
-        width: 25%;
-        height:15%;
+        width: 16%;
+        height:8%;
         color: #f2f2f2;
         background-color:  #469fbd;
         border-radius: 10px;
         border: solid #f2f2f2;
         opacity: 1;
         font-weight: bold;
-        margin-left:650px;
+        margin-left:550px;
         margin-top:20px;
     }
+input[type="button"]{
+        width: 16%;
+        height:8%;
+        color: #f2f2f2;
+        background-color:  #469fbd;
+        border-radius: 10px;
+        border: solid #f2f2f2;
+        opacity: 1;
+        font-weight: bold;
+        margin-left:10px;
+        margin-top:20px;
+
+}
 </style>
 <script>
 function Val()
@@ -190,7 +202,7 @@ else{
         <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-        <a href="comadd.php">Add car</a>
+        <a href="addcar.php">Add car</a>
         <a href="#">Manage Details</a>
         </div>
         <button class="dropdown-btn"  style="outline:none">Accesory
@@ -204,8 +216,8 @@ else{
         <a href="logout.php" >Log Out</a></div>
 
 <div class="main">
-<div class="back"><br>
-<p style="color:white;float:right;font-family: Arial;"><b><?php echo $_SESSION['user']; ?>&nbsp;
+<div class="back">
+<p style="color:white;float:right;font-family:Arial;padding-top:10px"><b><?php echo $_SESSION['user']; ?>&nbsp;
             <img src="upload/images/admin.jpg" width="40" height="40"><p><br>
     </div></div>
 <br>
@@ -216,17 +228,18 @@ else{
 <div class="table"> 
     <form>
     <div class="text-center">
-        <img src="<?php echo $propic;?>" class="avatar img-circle img-thumbnail" alt="avatar"><br>
+        <img src="<?php echo $pic;?>" class="avatar img-circle img-thumbnail" alt="avatar"><br>
         <h6>Upload a different photo...</h6>
         <input type="file" class="text-center center-block file-upload" id="icn" name="icn" onblur="Val()">
         <span class="err" style="color:green"></span>
         </div>
         <br>
-        <input type="text" name="comnme" id="comnme" value="<?php echo $user;?>" style="font-size:15px;width:40%;margin-left:30%;"><br>
-        <select name="drpdwn" id="derpdwn"  style="font-size:15px;width:40%;margin-left:30%;margin-top:10px">   
-        <option value="volvo">Active</option>
-        <option value="saab">Inactive</option></select>
+        <input type="text" name="comnme" id="comnme" value="<?php echo $name;?>" style="font-size:15px;width:40%;margin-left:30%;text-align:center"><br>
+        <div class="in">
         <input type="submit" onsubmit="val();" value="Update">
+        <input type="button" onclick="" value="Delete">
+        <span id="msg" style="color:#008000;"></span>
+        </div>
     </form>
    </div>
    </div>
@@ -261,6 +274,15 @@ else{
       $sql1="insert into tbl_com(name,icon) values('$name','$pic')";
       mysqli_query($con,$sql1);
       $t="upload/company/".$pic;
-      move_uploaded_file($_FILES["icn"]["tmp_name"],$t);  
+      move_uploaded_file($_FILES["icn"]["tmp_name"],$t); 
+      ?><script>document.getElementById("msg").innerHTML = "Updation successful ";</script><?php 
+      header("location:login.php?id=echo $ids;");
+ }
+ if(isset($_POST['button']))
+ {
+      $sql1="update table tbl_com set status=0 where comp_id='$ids'";
+      mysqli_query($con,$sql1);
+      ?><script>document.getElementById("msg").innerHTML = "Deleted successfully ";</script><?php
+      header("location:login.php?id=echo $ids;");
  }
 ?>

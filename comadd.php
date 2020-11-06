@@ -16,7 +16,7 @@
   }
   .sidenav {
   height: 100%;
-  width: 20%;
+  width: 15%;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -39,14 +39,10 @@
 }
 
 .main {
-  margin-left: 20%; 
+  margin-left: 15%; 
   font-size: 28px; 
 }
 
-.main {
-  margin-left: 200px;  
-  font-size: 20px; 
-}
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
@@ -117,21 +113,21 @@ h2{
 .name{
   width:75%;
   padding-top:5px;
-  margin-left:22%;
+  margin-left:17%;
   height:30px;
   background-color:white;
   border-radius:5px
 }
 .table{
   width:75%;
-  margin-left:22%;
+  margin-left:17%;
   height:100%;
   background-color:white;
   border-radius:5px;
   padding:20px 20px 20px 20px;
 }
 h1{
-  margin-left:22%;
+  margin-left:17%;
   color:#747474;
 }
 #adddet{
@@ -140,10 +136,6 @@ h1{
 }
 input[type=text]{
   width:600px;
-}
-input[type=file]{ 
-  font-size: 15px;
-  color: rgb(153,153,153);
 }
 input[type=file]{ 
   font-size: 15px;
@@ -193,7 +185,7 @@ else{
         <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-        <a href="comadd.php">Add car</a>
+        <a href="addcar.php">Add car</a>
         <a href="#">Manage Details</a>
         </div>
         <button class="dropdown-btn"  style="outline:none">Accesory
@@ -207,8 +199,8 @@ else{
         <a href="logout.php" >Log Out</a></div>
 
 <div class="main">
-<div class="back"><br>
-<p style="color:white;float:right;font-family: Arial;"><b><?php echo $_SESSION['user']; ?>&nbsp;
+<div class="back">
+<p style="color:white;float:right;font-family:Arial;padding-top:10px"><b><?php echo $_SESSION['user']; ?>&nbsp;
             <img src="upload/images/admin.jpg" width="40" height="40"><p><br>
     </div></div>
 <br>

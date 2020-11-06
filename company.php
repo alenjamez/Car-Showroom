@@ -1,7 +1,6 @@
 <?php
  $con=mysqli_connect("localhost","root","","car showroom") or die("couldn't connect");
- session_start();
- $_SESSION['id']="";
+ session_start()
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +16,7 @@
   }
   .sidenav {
   height: 100%;
-  width: 20%;
+  width: 15%;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -40,13 +39,8 @@
 }
 
 .main {
-  margin-left: 20%; 
+  margin-left: 15%; 
   font-size: 28px; 
-}
-
-.main {
-  margin-left: 200px;  
-  font-size: 20px; 
 }
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
@@ -118,14 +112,14 @@ h2{
 .name{
   width:75%;
   padding-top:5px;
-  margin-left:22%;
+  margin-left:17%;
   height:30px;
   background-color:white;
   border-radius:5px
 }
 .table{
   width:75%;
-  margin-left:22%;
+  margin-left:17%;
   height:100%;
   background-color:white;
   border-radius:5px;
@@ -137,7 +131,7 @@ h2{
     text-align:center;
 }
 h1{
-  margin-left:22%;
+  margin-left:17%;
   color:#747474;
 }
 </style>
@@ -158,7 +152,7 @@ h1{
         <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-        <a href="comadd.php">Add car</a>
+        <a href="addcar.php">Add car</a>
         <a href="#">Manage Details</a>
         </div>
         <button class="dropdown-btn"  style="outline:none">Accesory
@@ -172,8 +166,8 @@ h1{
         <a href="logout.php" >Log Out</a></div>
 
 <div class="main">
-<div class="back"><br>
-<p style="color:white;float:right;font-family: Arial;"><b><?php echo $_SESSION['user']; ?>&nbsp;
+<div class="back">
+<p style="color:white;float:right;font-family:Arial;padding-top:10px"><b><?php echo $_SESSION['user']; ?>&nbsp;
             <img src="upload/images/admin.jpg" width="40" height="40"><p><br>
     </div></div>
 <br>
@@ -242,7 +236,3 @@ addSerialNumber();
 
 </body>
 </html>
-<?php
-if(isset($_GET['id'])){
-  $_SESSION['id'] = id;
-?>

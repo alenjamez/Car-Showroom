@@ -16,7 +16,7 @@
   }
   .sidenav {
   height: 100%;
-  width: 20%;
+  width: 15%;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -39,14 +39,10 @@
 }
 
 .main {
-  margin-left: 20%; 
+  margin-left: 15%; 
   font-size: 28px; 
 }
 
-.main {
-  margin-left: 200px;  
-  font-size: 20px; 
-}
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
@@ -66,18 +62,12 @@ h2{
   .back{
     background-color: #111;
     width:100%;
-    height:77px;
+    height:90px;
     right:0;
     margin-right:0;
     left:0;
   }
  
-  #butn{
-  float:right;
-  display:block;
-  margin-right:20px;
-  clear:left;
-}
 .sidenav a, .dropdown-btn {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
@@ -115,23 +105,23 @@ h2{
   padding-right: 8px;
 }
 .name{
-  width:75%;
+  width:80%;
   padding-top:5px;
-  margin-left:22%;
+  margin-left:17%;
   height:30px;
   background-color:white;
   border-radius:5px
 }
 .table{
   width:75%;
-  margin-left:22%;
+  margin-left:17%;
   height:100%;
   background-color:white;
   border-radius:5px;
   padding:20px 20px 20px 20px;
 }
 h1{
-  margin-left:22%;
+  margin-left:17%;
   color:#747474;
 }
 #adddet{
@@ -139,18 +129,14 @@ h1{
   margin-left:50px;
 }
 input[type=text]{
-  width:600px;
-}
-input[type=file]{ 
-  font-size: 15px;
-  color: rgb(153,153,153);
+  width:300px;
 }
 input[type=file]{ 
   font-size: 15px;
   color: rgb(153,153,153);
 }
 input[type=submit] {
-        width: 35%;
+        width: 15%;
         height:15%;
         color: #f2f2f2;
         background-color:  #469fbd;
@@ -160,6 +146,21 @@ input[type=submit] {
         font-weight: bold;
         margin-left:250px;
     }
+.left{
+  width:39%;
+  height:100%;
+  margin-left:17%;
+  background-color:white;
+  border-radius:5px;
+}
+.right{
+  width:39%;
+  height:100%;
+  margin-right:3%;
+  background-color:white;
+  border-radius:5px;
+  float:right;
+}
 </style>
 <script>
 function Val()
@@ -216,9 +217,8 @@ else{
 <div class="name">
 <h6 style="margin-left:10px;"><a href="#"style="text-decoration:none;color:black;">Home</a>&nbsp;/&nbsp;Car&nbsp;/&nbsp;Add Car</h6>
 </div><br>
-<div class="table"> 
-  <label id="msg" style="color:#008000;"></label>
-    <form id="adddet" method="post" enctype="multipart/form-data">
+<div class="left">
+<form id="adddet" method="post" enctype="multipart/form-data">
     <table >
       <tr><td>
         <label for="icon"><b>Company Name</b></label></td>
@@ -235,6 +235,23 @@ else{
    <span id="err" style="color:green"></span>
    </form>
    </div>
+   <div class="right">
+   <form id="adddet" method="post" enctype="multipart/form-data">
+    <table >
+      <tr><td>
+        <label for="icon"><b>Company Name</b></label></td>
+        <td><input type="text" name="comnme" id="comnme" placeholder="Company name" pattern="[A-Za-z]+" title="Only Alphabets" required>
+      </td></tr>
+      <tr>
+        <td>
+          <label for="icon"><b>Icon</b></label></td>
+          <td><input type="file" id="icn" name="icn" onblur="Val()" required>
+          </td>
+      </tr>
+      <tr><td></td><td><input type="submit" value="Submit" onsubmit="Val();" name="submit"></td></tr>
+   </table>
+   <span id="err" style="color:green"></span>
+   </form>
    </div>
  </div>
   <script src="vendor/jquery/jquery.min.js"></script>
