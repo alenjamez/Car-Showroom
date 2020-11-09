@@ -9,6 +9,13 @@
    $name=$row['name'];
    $pic='upload/company/'.$row['icon'];
  }
+
+ if(isset($_POST['del']))
+ {
+    $sql2="update tbl_com set status=0 where comp_id='$ids'";
+    mysqli_query($con,$sql2);
+    header("Location:company.php?msg=message");
+ }
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -75,12 +82,6 @@ h2{
     left:0;
   }
  
-  #butn{
-  float:right;
-  display:block;
-  margin-right:20px;
-  clear:left;
-}
 .sidenav a, .dropdown-btn {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
@@ -137,7 +138,7 @@ h1{
   margin-left:17%;
   color:#747474;
 }
-input[type=submit] {
+#del {
         width: 16%;
         height:8%;
         color: #f2f2f2;
@@ -149,19 +150,6 @@ input[type=submit] {
         margin-left:550px;
         margin-top:20px;
     }
-input[type="button"]{
-        width: 16%;
-        height:8%;
-        color: #f2f2f2;
-        background-color:  #469fbd;
-        border-radius: 10px;
-        border: solid #f2f2f2;
-        opacity: 1;
-        font-weight: bold;
-        margin-left:10px;
-        margin-top:20px;
-
-}
 </style>
 <script>
 function Val()
@@ -196,7 +184,7 @@ else{
         </button>
         <div class="dropdown-container">
         <a href="comadd.php">Add Company</a>
-        <a href="company.php">Manage Details</a>
+        <a href="company.php?msg=">Manage Details</a>
         </div>
         <button class="dropdown-btn"  style="outline:none">Car
         <i class="fa fa-caret-down"></i>
@@ -221,25 +209,18 @@ else{
             <img src="upload/images/admin.jpg" width="40" height="40"><p><br>
     </div></div>
 <br>
-<h1>Update Details</h1>
+<h1>View Details</h1>
 <div class="name">
 <h6 style="margin-left:10px;"><a href="#"style="text-decoration:none;color:black;">Home</a>&nbsp;/&nbsp;Company&nbsp;/&nbsp;Manage Details&nbsp;/&nbsp;Edit Details</h6>
 </div><br>
 <div class="table"> 
-    <form>
+    <form method="post">
     <div class="text-center">
         <img src="<?php echo $pic;?>" class="avatar img-circle img-thumbnail" alt="avatar"><br>
-        <h6>Upload a different photo...</h6>
-        <input type="file" class="text-center center-block file-upload" id="icn" name="icn" onblur="Val()">
-        <span class="err" style="color:green"></span>
         </div>
         <br>
-        <input type="text" name="comnme" id="comnme" value="<?php echo $name;?>" style="font-size:15px;width:40%;margin-left:30%;text-align:center"><br>
-        <div class="in">
-        <input type="submit" onsubmit="val();" value="Update">
-        <input type="button" onclick="" value="Delete">
-        <span id="msg" style="color:#008000;"></span>
-        </div>
+        <label style="font-size:15px;width:40%;margin-left:30%;text-align:center"><?php echo $name;?></label><br>
+        <input type="submit" name="del" id="del" value="Delete">
     </form>
    </div>
    </div>
@@ -263,26 +244,3 @@ else{
   </script>
 </body>
 </html>
-<?php
- $con=mysqli_connect("localhost","root","","car showroom") or die("couldn't connect");
- if(isset($_POST['submit']))
- {
- 
-    $name=$_POST["comnme"];
-    $pic=$_FILES["icn"]["name"];
-
-      $sql1="insert into tbl_com(name,icon) values('$name','$pic')";
-      mysqli_query($con,$sql1);
-      $t="upload/company/".$pic;
-      move_uploaded_file($_FILES["icn"]["tmp_name"],$t); 
-      ?><script>document.getElementById("msg").innerHTML = "Updation successful ";</script><?php 
-      header("location:login.php?id=echo $ids;");
- }
- if(isset($_POST['button']))
- {
-      $sql1="update table tbl_com set status=0 where comp_id='$ids'";
-      mysqli_query($con,$sql1);
-      ?><script>document.getElementById("msg").innerHTML = "Deleted successfully ";</script><?php
-      header("location:login.php?id=echo $ids;");
- }
-?>

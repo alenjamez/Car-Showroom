@@ -179,7 +179,7 @@ else{
         </button>
         <div class="dropdown-container">
         <a href="#">Add Company</a>
-        <a href="company.php">Manage Details</a>
+        <a href="company.php?msg=">Manage Details</a>
         </div>
         <button class="dropdown-btn"  style="outline:none">Car
         <i class="fa fa-caret-down"></i>

@@ -146,21 +146,29 @@ input[type=submit] {
         font-weight: bold;
         margin-left:250px;
     }
-.left{
-  width:39%;
-  height:100%;
-  margin-left:17%;
-  background-color:white;
-  border-radius:5px;
+.add_car{
+  width:83%;
+  height:800px;
+  /* background-color: blue; */
+  margin-left:14%;
+  position:relative;
 }
-.right{
-  width:39%;
-  height:100%;
-  margin-right:3%;
+.add_car .content{
+  width:49%;
+  margin-right:1%;
+  float:left;
+  padding:15px;
   background-color:white;
-  border-radius:5px;
-  float:right;
+  /* border-radius:10px; */
 }
+.add_car .content label{
+  margin-right:10px;
+}
+
+.add_car .content input{
+
+}
+
 </style>
 <script>
 function Val()
@@ -188,7 +196,7 @@ else{
         </button>
         <div class="dropdown-container">
         <a href="#">Add Company</a>
-        <a href="company.php">Manage Details</a>
+        <a href="company.php?msg=">Manage Details</a>
         </div>
         <button class="dropdown-btn"  style="outline:none">Car
         <i class="fa fa-caret-down"></i>
@@ -217,42 +225,16 @@ else{
 <div class="name">
 <h6 style="margin-left:10px;"><a href="#"style="text-decoration:none;color:black;">Home</a>&nbsp;/&nbsp;Car&nbsp;/&nbsp;Add Car</h6>
 </div><br>
-<div class="left">
 <form id="adddet" method="post" enctype="multipart/form-data">
-    <table >
-      <tr><td>
-        <label for="icon"><b>Company Name</b></label></td>
-        <td><input type="text" name="comnme" id="comnme" placeholder="Company name" pattern="[A-Za-z]+" title="Only Alphabets" required>
-      </td></tr>
-      <tr>
-        <td>
-          <label for="icon"><b>Icon</b></label></td>
-          <td><input type="file" id="icn" name="icn" onblur="Val()" required>
-          </td>
-      </tr>
-      <tr><td></td><td><input type="submit" value="Submit" onsubmit="Val();" name="submit"></td></tr>
-   </table>
-   <span id="err" style="color:green"></span>
-   </form>
-   </div>
-   <div class="right">
-   <form id="adddet" method="post" enctype="multipart/form-data">
-    <table >
-      <tr><td>
-        <label for="icon"><b>Company Name</b></label></td>
-        <td><input type="text" name="comnme" id="comnme" placeholder="Company name" pattern="[A-Za-z]+" title="Only Alphabets" required>
-      </td></tr>
-      <tr>
-        <td>
-          <label for="icon"><b>Icon</b></label></td>
-          <td><input type="file" id="icn" name="icn" onblur="Val()" required>
-          </td>
-      </tr>
-      <tr><td></td><td><input type="submit" value="Submit" onsubmit="Val();" name="submit"></td></tr>
-   </table>
-   <span id="err" style="color:green"></span>
-   </form>
-   </div>
+<div class="add_car">
+  <div class="content">
+    <label>Name</label><input type="text" name="one">
+  </div>
+  <div class="content">
+    <label>Name</label><input type="text" name="one">
+  </div>
+</div>
+</form>
  </div>
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

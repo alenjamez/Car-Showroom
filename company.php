@@ -1,6 +1,7 @@
 <?php
  $con=mysqli_connect("localhost","root","","car showroom") or die("couldn't connect");
- session_start()
+ session_start();
+ $msg=$_GET['msg'];
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -146,7 +147,7 @@ h1{
         </button>
         <div class="dropdown-container">
         <a href="comadd.php">Add Company</a>
-        <a href="company.php">Manage Details</a>
+        <a href="company.php?msg=">Manage Details</a>
         </div>
         <button class="dropdown-btn"  style="outline:none">Car
         <i class="fa fa-caret-down"></i>
@@ -176,6 +177,7 @@ h1{
 <h6 style="margin-left:10px;"><a href="#"style="text-decoration:none;color:black;">Home</a>&nbsp;/&nbsp;Company&nbsp;/&nbsp;Manage Details</h6>
 </div><br>
 <div class="table"> 
+<span id="msg" style="color:#008000;"><?php echo $msg ?></span><br>
    <table id="MainTable" class="auto-index" width= 70% border="1">
    <thead>
      <tr>
@@ -197,7 +199,7 @@ h1{
        echo "<tr><td>";
        echo "</td><td>";
        echo $name;
-       ?></td><td><a href="updatecom.php?id=<?php echo $no; ?>" >Edit</a></td?</tr><?php
+       ?></td><td><a href="viewcom.php?id=<?php echo $no; ?>" >View</a></td?</tr><?php
 
      }
    ?>
@@ -214,7 +216,6 @@ var addSerialNumber = function () {
         $(this).find('td:nth-child(1)').html(index-1+1);
     });
 };
-
 addSerialNumber();
 </script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
