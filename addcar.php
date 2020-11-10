@@ -7,129 +7,11 @@
   <head>
   <title>UR CARZ</title>
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/sidebar.css" rel="stylesheet">
+  <link href="style/sidebar.css" rel="stylesheet">
   <style>
-  body{
-   background-color:#EDF5E1;
-   font-family: "Lato", sans-serif;
-   opacity: 1;
-  }
-  .sidenav {
-  height: 100%;
-  width: 15%;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  padding-top: 60px;
-}
-
-.sidenav a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
-}
-
-.sidenav a:hover {
-  color: #f1f1f1;
-}
-
-.main {
-  margin-left: 15%; 
-  font-size: 28px; 
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-.sidebar-heading {
-  font-size: 30px;
-  color: #f1f1f1;
- padding: 10px 16px 12px 24px;
-}
-h2{
-    width:300px;
-    color:white;
-    position: fixed;
-    text-align: center;
-    left: 45%;
-  }
-  .back{
-    background-color: #111;
-    width:100%;
-    height:90px;
-    right:0;
-    margin-right:0;
-    left:0;
-  }
- 
-.sidenav a, .dropdown-btn {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 20px;
-  color: #818181;
-  display: block;
-  border: none;
-  background: #111;
-  width:100%;
-  text-align: left;
-  cursor: pointer;
-  outline: none;
-}
-.dropdown-btn .active{
-  outline:none;
-}
-.sidenav a:hover, .dropdown-btn:hover {
-  color: #f1f1f1;
-}
-
-.active {
-  color: white;
-  outline:none;
-}
-
-.dropdown-container {
-  display: none;
-  background-color: #262626;
-  padding-left: 8px;
-  outline:none;
-}
-
-.fa-caret-down {
-  float: right;
-  padding-right: 8px;
-}
-.name{
-  width:80%;
-  padding-top:5px;
-  margin-left:17%;
-  height:30px;
-  background-color:white;
-  border-radius:5px
-}
-.table{
-  width:75%;
-  margin-left:17%;
-  height:100%;
-  background-color:white;
-  border-radius:5px;
-  padding:20px 20px 20px 20px;
-}
-h1{
-  margin-left:17%;
-  color:#747474;
-}
 #adddet{
   width:100%x;
   margin-left:50px;
-}
-input[type=text]{
-  width:300px;
 }
 input[type=file]{ 
   font-size: 15px;
@@ -163,29 +45,34 @@ input[type=submit] {
 }
 .add_car .content label{
   margin-right:10px;
+  padding:10px 10px 10px 10px;
 }
 
 .add_car .content input{
-
+  width:350px;
+  margin-right:10px;
+  float:right;
+}
+.add_car .content select{
+  width:350px;
+  margin-right:10px;
+  margin-top:10px;
+  float:right;
 }
 
 </style>
 <script>
-function Val()
+
+function onLeave(_input)
 {
-var fileInput = document.getElementById('icn');
-var filePath = fileInput.value;
-var allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
-if(!allowedExtensions.exec(filePath)){
-  document.getElementById("err").innerHTML = "* Please upload file having extensions .jpeg/.jpg/.png only.";
-	fileInput.value = '';
-	return false;
- }
-else{
-  document.getElementById("err").innerHTML = "";
-}
+    var check = _input.value;
+    if (check.length < 3) {
+        alert("Enter Something");
+        _input.focus();
+    }
 }
 </script>
+
 </head>
 <body>
 <div class="sidenav">
@@ -195,7 +82,7 @@ else{
         <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
-        <a href="#">Add Company</a>
+        <a href="Comadd.php">Add Company</a>
         <a href="company.php?msg=">Manage Details</a>
         </div>
         <button class="dropdown-btn"  style="outline:none">Car
@@ -228,10 +115,63 @@ else{
 <form id="adddet" method="post" enctype="multipart/form-data">
 <div class="add_car">
   <div class="content">
-    <label>Name</label><input type="text" name="one">
+    <label>Name</label><input type="text" name="one" pattern="[A-Za-z]+"><br>
+    <label>Car Type</label><input type="text" name="two" pattern="[A-Za-z]+"><br>
+    <label>Car Model</label><input type="text" name="three" pattern="[A-Za-z]+"><br>
+    <label>Body Type</label><input type="text" name="four" pattern="[A-Za-z]+"><br>
+    <label>Car Image</label><input type="file" name="four"><br>
+    <label>image2</label><input type="file" name="five"><br>
+    <label>image3</label><input type="file" name="six"><br>
+    <label>image4</label><input type="file" name="seven"><br>
+    <label>image5</label><input type="file" name="eight"><br>
+    <label>image6</label><input type="file" name="nine"><br>
+    <label>Colour</label><input type="text" name="ten"><br>
+    <label>Car Price</label><input type="text" name="eleven"><br>
+    <label>Car Lenght</label><input type="text" name="twelve"><br>
+    <label>Car Width</label><input type="text" name="thirteen"><br>
+    <label>Car Height</label><input type="text" name="fourteen"><br>
+    <label>Max Power</label><input type="text" name="fifteen"><br>
+    <label>Max Torque</label><input type="text" name="sixteen"><br>
+    <label>Millage</label><input type="text" name="seventeen"><br>
+    <label>No of Gear</label><input type="text" name="eighteen"><br>
   </div>
   <div class="content">
-    <label>Name</label><input type="text" name="one">
+    <label>Company</label><select name="nineteen">
+      <option value="">Choose Company</option>
+      <?php 
+       $sql3="select comp_id,name from tbl_com where status=1";
+       $res=mysqli_query($con,$sql3);
+       $select= '<select name="nineteen">';
+       while($row=mysqli_fetch_array($res))
+       {
+         echo '<option value="'.$row['comp_id'].'">'.$row['name'].'</option>';
+       }
+      ?></select>
+      <label>Fuel Type</label><select name="twenty">
+        <option value="">Choose Fuel Type</option>
+        <option value="Petrol">Petrol</option>
+        <option value="Disel">Disel</option>
+        <option value="CNG">CNG</option>
+        <option value="Electric">Electric</option></select>
+      <label>Transmission </label><select name="twentyone">
+        <option value="">Choose Transmission Type</option>
+        <option value="Automatic">Automatic</option>
+        <option value="Manual">Manual</option>
+        <option value="Semi-Automatic and Dual Cluch">Semi-Automatic and Dual Cluch</option></select>
+      <label>No of seats</label><input type="text" name="twentytwo"><br>
+      <label>Fog Lamb</label><input type="text" name="twentythree"><br>
+      <label>Engine Diplay</label><input type="text" name="twentyfour"><br>
+      <label>Fuel Capacity</label><input type="text" name="twentyfive"><br>
+      <label>Boot Space</label><input type="text" name="twentysix"><br>
+      <div class="radio">
+      <label>Air Conditioner</label><input type="radio" name="ac" value="Yes" required>&nbsp;Yes&nbsp;&nbsp;&nbsp;
+      <input type="radio" name="ac" value="No">&nbsp;No&nbsp;&nbsp;&nbsp;</div>
+      <div class="radio">
+      <label>Air Conditioner</label><input type="radio" name="ac" value="Yes" required>&nbsp;Yes&nbsp;&nbsp;&nbsp;
+      <input type="radio" name="ac" value="No">&nbsp;No&nbsp;&nbsp;&nbsp;</div>
+      
+
+      
   </div>
 </div>
 </form>
@@ -262,7 +202,34 @@ else{
  {
  
     $name=$_POST["comnme"];
+    $name=$_POST["comnme"];
+    $name=$_POST["comnme"];
+    $name=$_POST["comnme"];
     $pic=$_FILES["icn"]["name"];
+    $pic=$_FILES["icn"]["name"];
+    $pic=$_FILES["icn"]["name"];
+    $pic=$_FILES["icn"]["name"];
+    $pic=$_FILES["icn"]["name"];
+    $pic=$_FILES["icn"]["name"];
+    $pic=$_FILES["icn"]["name"];
+    $name=$_POST["comnme"];
+    $name=$_POST["comnme"];
+    $name=$_POST["comnme"];
+    $name=$_POST["comnme"];
+    $name=$_POST["comnme"];
+    $name=$_POST["comnme"];
+    $name=$_POST["comnme"];
+    $name=$_POST["comnme"];
+    $name=$_POST["comnme"];
+    $name=$_POST["comnme"];
+    $name=$_POST["comnme"];
+    $name=$_POST["comnme"];
+    $name=$_POST["comnme"];
+    $name=$_POST["comnme"];
+    $name=$_POST["comnme"];
+    $name=$_POST["comnme"];
+
+
 
     $sql="select name from tbl_com where name='$name'";
     $res=mysqli_query($con,$sql);

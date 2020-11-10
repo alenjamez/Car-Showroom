@@ -23,7 +23,7 @@
     }
 
 	span{
-         color:  #f2f2f2;
+         color: ;
 		 font-weight: bold;
 	}
     .vl {
@@ -66,6 +66,7 @@
         if(nam=="")
             {
                 document.getElementById("error").innerHTML="* Enter name";
+                document.getElementById("error").style.color = "#f2f2f2";
                 document.getElementById("name").focus();
             return false;
             }
@@ -77,6 +78,7 @@
         else
             {
                 document.getElementById("error").innerHTML="* Name must only contain characters";
+                document.getElementById("error").style.color = "red";
                 document.getElementById("name").focus();
             return false;
         
@@ -89,6 +91,7 @@
         if(emi=="")
             {
                 document.getElementById("error").innerHTML="* Enter email";
+                document.getElementById("error").style.color = "#f2f2f2";
                 document.getElementById("mail").focus();
             return false;
             }
@@ -100,6 +103,7 @@
         else
             {
                 document.getElementById("error").innerHTML="* Enter valid email";
+                document.getElementById("error").style.color = "red";
                 document.getElementById("mail").focus();
             return false;
             }
@@ -111,6 +115,7 @@
         if(ph=="")
             {
                 document.getElementById("error").innerHTML="* Enter phno";
+                document.getElementById("error").style.color = "#f2f2f2";
                 document.getElementById("ph").focus();
             return false;
             }
@@ -122,6 +127,7 @@
         else
             {
                 document.getElementById("error").innerHTML="* Must contain only numbers and must have 10 digits";
+                document.getElementById("error").style.color = "red";
                 document.getElementById("ph").focus();
             return false;
             }
@@ -133,6 +139,7 @@
         if(un=="")
             {
             document.getElementById("error").innerHTML="* Enter Username";
+            document.getElementById("error").style.color = "#f2f2f2";
             document.getElementById("user").focus();
             return false;
             }
@@ -144,6 +151,7 @@
         else
             {
                 document.getElementById("error").innerHTML="* Username must contain only lowercase letters with length greater than 5";
+                document.getElementById("error").style.color = "red";
                 document.getElementById("user").focus();
             return false;
             }
@@ -156,6 +164,7 @@
         if(ps=="")
             {
                 document.getElementById("error").innerHTML="* Enter Password";
+                document.getElementById("error").style.color = "#f2f2f2";
                 document.getElementById("pass").focus();
             return false;
             }
@@ -167,6 +176,7 @@
         else
             {
                 document.getElementById("error").innerHTML="* Password must contain number and charecter with length greater than 8";
+                document.getElementById("error").style.color = "red";
                 document.getElementById("pass").focus();
                 return false;
             }
@@ -182,6 +192,7 @@
         else
             {
                 document.getElementById("error").innerHTML="* Password not match!!!!!!!!!!";
+                document.getElementById("error").style.color = "red";
                 document.getElementById("conpass").focus();
             }
         }
@@ -192,6 +203,7 @@
         if(loc=="")
            {
                 document.getElementById("error").innerHTML="* Enter location";
+                document.getElementById("error").style.color = "#f2f2f2";
                 document.getElementById("loc").focus();
             return false;
             }
@@ -203,6 +215,7 @@
         else
             {
                 document.getElementById("error").innerHTML="* Must conatian only characters";
+                document.getElementById("error").style.color = "red";
                 document.getElementById("loc").focus();
             return false;
         
@@ -210,21 +223,27 @@
         }
         function hint1(){
             document.getElementById("error").innerHTML="* Name must only contain characters";
+            document.getElementById("error").style.color = "#f2f2f2";
         }
         function hint2(){
             document.getElementById("error").innerHTML="* Must conatian only characters";
+            document.getElementById("error").style.color = "#f2f2f2";
         }
         function hint3(){
             document.getElementById("error").innerHTML="* Enter valid email";
+            document.getElementById("error").style.color = "#f2f2f2";
         }
         function hint4(){
             document.getElementById("error").innerHTML="* Must contain only numbers and must have 10 digits";
+            document.getElementById("error").style.color = "#f2f2f2";
         }
         function hint5(){
             document.getElementById("error").innerHTML="* Username must contain only lowercase letters with length greater than 5";
+            document.getElementById("error").style.color = "#f2f2f2";
         }
         function hint6(){
             document.getElementById("error").innerHTML="* Password must contain only number and charecter with length greater than 8";
+            document.getElementById("error").style.color = "#f2f2f2";
         }
     </script>
     </head>

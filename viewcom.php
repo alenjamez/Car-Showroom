@@ -14,7 +14,7 @@
  {
     $sql2="update tbl_com set status=0 where comp_id='$ids'";
     mysqli_query($con,$sql2);
-    header("Location:company.php?msg=message");
+    header("Location:company.php?msg=* Company deleted");
  }
  ?>
 <!DOCTYPE html>
@@ -22,122 +22,8 @@
   <head>
   <title>UR CARZ</title>
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/sidebar.css" rel="stylesheet">
+  <link href="style/sidebar.css" rel="stylesheet">
   <style>
-  body{
-   background-color:#EDF5E1;
-   font-family: "Lato", sans-serif;
-   opacity: 1;
-  }
-  .sidenav {
-  height: 100%;
-  width: 15%;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  padding-top: 60px;
-}
-
-.sidenav a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
-}
-
-.sidenav a:hover {
-  color: #f1f1f1;
-}
-
-.main {
-  margin-left: 15%; 
-  font-size: 28px; 
-}
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-.sidebar-heading {
-  font-size: 30px;
-  color: #f1f1f1;
- padding: 10px 16px 12px 24px;
-}
-h2{
-    width:300px;
-    color:white;
-    position: fixed;
-    text-align: center;
-    left: 45%;
-  }
-  .back{
-    background-color: #111;
-    width:100%;
-    height:77px;
-    right:0;
-    margin-right:0;
-    left:0;
-  }
- 
-.sidenav a, .dropdown-btn {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 20px;
-  color: #818181;
-  display: block;
-  border: none;
-  background: #111;
-  width:100%;
-  text-align: left;
-  cursor: pointer;
-  outline: none;
-}
-.dropdown-btn .active{
-  outline:none;
-}
-.sidenav a:hover, .dropdown-btn:hover {
-  color: #f1f1f1;
-}
-
-.active {
-  color: white;
-  outline:none;
-}
-
-.dropdown-container {
-  display: none;
-  background-color: #262626;
-  padding-left: 8px;
-  outline:none;
-}
-
-.fa-caret-down {
-  float: right;
-  padding-right: 8px;
-}
-.name{
-  width:75%;
-  padding-top:5px;
-  margin-left:17%;
-  height:30px;
-  background-color:white;
-  border-radius:5px
-}
-.table{
-  width:75%;
-  margin-left:17%;
-  height:100%;
-  background-color:white;
-  border-radius:5px;
-  padding:20px 20px 20px 20px;
-}
-h1{
-  margin-left:17%;
-  color:#747474;
-}
 #del {
         width: 16%;
         height:8%;
@@ -151,29 +37,6 @@ h1{
         margin-top:20px;
     }
 </style>
-<script>
-function Val()
-{
-var fileInput = document.getElementById('icn');
-var filePath = fileInput.value;
-var allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
-if(!allowedExtensions.exec(filePath)){
-	document.getElementById("err").innerHTML = "* Please upload file having extensions .jpeg/.jpg/.png only.";
-	fileInput.value = '';
-	return false;
- }
-else{
-	//Image preview
-	if (fileInput.files && fileInput.files[0]) {
-		var reader = new FileReader();
-		reader.onload = function(e) {
-			document.getElementById('imagePreview').innerHTML = '<img src="'+e.target.result+'"/>';
-		};
-		reader.readAsDataURL(fileInput.files[0]);
-	}
- }
-}
-</script>
 </head>
 <body>
 <div class="sidenav">
