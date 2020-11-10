@@ -48,7 +48,7 @@ input[type=submit] {
   padding:10px 10px 10px 10px;
 }
 
-.add_car .content input{
+.add_car .content input[type=text],[type=file]{
   width:350px;
   margin-right:10px;
   float:right;
@@ -58,6 +58,14 @@ input[type=submit] {
   margin-right:10px;
   margin-top:10px;
   float:right;
+}
+.add_car .content .radio input[type=radio]{
+  width:20px;
+}
+.add_car .content .radio label{
+  width:150px;
+  margin-right:0;
+  padding:10px 10px 10px 10px;
 }
 
 </style>
@@ -118,7 +126,6 @@ function onLeave(_input)
     <label>Name</label><input type="text" name="one" pattern="[A-Za-z]+"><br>
     <label>Car Type</label><input type="text" name="two" pattern="[A-Za-z]+"><br>
     <label>Car Model</label><input type="text" name="three" pattern="[A-Za-z]+"><br>
-    <label>Body Type</label><input type="text" name="four" pattern="[A-Za-z]+"><br>
     <label>Car Image</label><input type="file" name="four"><br>
     <label>image2</label><input type="file" name="five"><br>
     <label>image3</label><input type="file" name="six"><br>
@@ -163,13 +170,17 @@ function onLeave(_input)
       <label>Engine Diplay</label><input type="text" name="twentyfour"><br>
       <label>Fuel Capacity</label><input type="text" name="twentyfive"><br>
       <label>Boot Space</label><input type="text" name="twentysix"><br>
+      <label>Body Type</label><input type="text" name="twentyseven" pattern="[A-Za-z]+"><br>
       <div class="radio">
-      <label>Air Conditioner</label><input type="radio" name="ac" value="Yes" required>&nbsp;Yes&nbsp;&nbsp;&nbsp;
-      <input type="radio" name="ac" value="No">&nbsp;No&nbsp;&nbsp;&nbsp;</div>
+      <label>Air Conditioner</label><input type="radio" name="twentyeight" value="Yes" required>&nbsp;Yes
+      <input type="radio" name="twentyeight" value="No">&nbsp;No</div>
       <div class="radio">
-      <label>Air Conditioner</label><input type="radio" name="ac" value="Yes" required>&nbsp;Yes&nbsp;&nbsp;&nbsp;
-      <input type="radio" name="ac" value="No">&nbsp;No&nbsp;&nbsp;&nbsp;</div>
-      
+      <label stylr="margin-right:50px">Wheel</label><input type="radio" name="twentynine" value="wheelcup" required>&nbsp;wheelcup
+      <input type="radio" name="twentynine" value="Alloy">&nbsp;Alloy<input type="radio" name="twentynine" value="Crystal Alloy">&nbsp;Crystal Alloy</div>
+      <div class="radio">
+      <label>Power Window</label><input type="radio" name="thirty" value="Yes" required>&nbsp;Yes
+      <input type="radio" name="thirty" value="No">&nbsp;No</div>
+      <input type="submit" name="submit" value="Add">
 
       
   </div>
@@ -201,41 +212,49 @@ function onLeave(_input)
  if(isset($_POST['submit']))
  {
  
-    $name=$_POST["comnme"];
-    $name=$_POST["comnme"];
-    $name=$_POST["comnme"];
-    $name=$_POST["comnme"];
-    $pic=$_FILES["icn"]["name"];
-    $pic=$_FILES["icn"]["name"];
-    $pic=$_FILES["icn"]["name"];
-    $pic=$_FILES["icn"]["name"];
-    $pic=$_FILES["icn"]["name"];
-    $pic=$_FILES["icn"]["name"];
-    $pic=$_FILES["icn"]["name"];
-    $name=$_POST["comnme"];
-    $name=$_POST["comnme"];
-    $name=$_POST["comnme"];
-    $name=$_POST["comnme"];
-    $name=$_POST["comnme"];
-    $name=$_POST["comnme"];
-    $name=$_POST["comnme"];
-    $name=$_POST["comnme"];
-    $name=$_POST["comnme"];
-    $name=$_POST["comnme"];
-    $name=$_POST["comnme"];
-    $name=$_POST["comnme"];
-    $name=$_POST["comnme"];
-    $name=$_POST["comnme"];
-    $name=$_POST["comnme"];
-    $name=$_POST["comnme"];
+  $one=$_POST["one"];
+  $two=$_POST["two"];
+  $three=$_POST["three"];
+  $pic=$_FILES["four"]["name"];
+  $pic1=$_FILES["five"]["name"];
+  $pic2=$_FILES["six"]["name"];
+  $pic3=$_FILES["seven"]["name"];
+  $pic4=$_FILES["eight"]["name"];
+  $pic5=$_FILES["nine"]["name"];
+  $ten=$_POST["ten"];
+  $eleven=$_POST["eleven"];
+  $twelve=$_POST["twelve"];
+  $thirteen=$_POST["thirteen"];
+  $fourteen=$_POST["fourteen"];
+  $fifteen=$_POST["fifteen"];
+  $sixteen=$_POST["sixteen"];
+  $seventeen=$_POST["seventeen"];
+  $eighteen=$_POST["eighteen"];
+  $nineteen=$_POST["nineteen"];
+  $twenty=$_POST["twenty"];
+  $twentyone=$_POST["twentyone"];
+  $twentytwo=$_POST["twentytwo"];
+  $twentythree=$_POST["twentythree"];
+  $twentyfour=$_POST["twentyfour"];
+  $twentyfive=$_POST["twentyfive"];
+  $twentysix=$_POST["twentysix"];
+  $twentyseven=$_POST["twentyseven"];
+  $twentyeight=$_POST["twentyeight"];
+  $twentynine=$_POST["twentynine"];
+  $thirty=$_POST["thirty"];
 
 
-
-    $sql="select name from tbl_com where name='$name'";
+    $sql="select name from tbl_car where name='$one'";
     $res=mysqli_query($con,$sql);
     if(mysqli_num_rows($res)>0)
     {
-      ?><script>document.getElementById("msg").innerHTML = "Name Already exist ";</script><?php
+      $c="select car_id from tbl_car where name='$one'";
+      $s=mysqli_query($con,$c)or die( mysqli_error($con));
+      while($row=mysqli_fetch_array($res))
+      {
+      $id=$row['car_id'];
+      } 
+      
     }
     else{
       $sql1="insert into tbl_com(name,icon,status) values('$name','$pic','1')";
