@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <script type = "text/javascript" >
+   function preventBack(){window.history.forward();}
+    setTimeout("preventBack()", 0);
+    window.onunload=function(){null};
+</script>
   <style>
     body {font-family: Arial, Helvetica, sans-serif;
       background-color: #469fbd;
@@ -99,9 +104,7 @@ session_start();
             {
              $uid=$row['login_id'];
              $_SESSION['logid']=$uid;
-             ?>
-             <script>alert("Login Successful")</script>
-             <?php
+             header("location:index.php");
             }
         }
     }
