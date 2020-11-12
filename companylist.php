@@ -16,7 +16,7 @@
     <style>
     .grid-container {
         display: grid;
-        grid-template-columns: auto auto auto auto auto auto;
+        grid-template-columns: auto auto auto auto;
         grid-gap: 20px;
         background-color: #2196F3;
         padding: 100px;
@@ -27,7 +27,11 @@
         text-align: center;
          padding: 20px 0;
         font-size: 30px;
-        }
+		}
+		.name{
+			font-family: Verdana,Arial,sans-serif;
+			font-size:20px;
+		}
     </style>
 </head>
 <body>
@@ -61,7 +65,7 @@
 		</div>
 	</nav>
 </div>
-<div style="background-color:red;width:100%;heigth:100%">
+<div style="width:100%;heigth:100%">
 <div class="grid-container">
     <?php
         $sql="select name,icon from tbl_com where status=1";
@@ -70,10 +74,13 @@
         {
          $name=$row['name'];
          $img='upload/company/'.$row['icon']
-         ?>
-         <div class="item1"><img src="<?php echo $img;?>"></div><?php
+		 ?>
+		 <div class="item"><img src="<?php echo $img;?>">
+			<b><h3 class="name"><?php echo $name;?></h3></b>
+		 </div>
+		 <?php
         }
-         ?>
+		 ?>
 
     </div>
 </div>

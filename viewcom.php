@@ -74,7 +74,7 @@
 <br>
 <h1>View Details</h1>
 <div class="name">
-<h6 style="margin-left:10px;"><a href="#"style="text-decoration:none;color:black;">Home</a>&nbsp;/&nbsp;Company&nbsp;/&nbsp;Manage Details&nbsp;/&nbsp;Edit Details</h6>
+<h6 style="margin-left:10px;"><a href="#"style="text-decoration:none;color:black;">Home</a>&nbsp;/&nbsp;Company&nbsp;/&nbsp;<a href="company.php?msg=" style="text-decoration:none;color:black;">Manage Details</a>&nbsp;/&nbsp;Edit Details</h6>
 </div><br>
 <div class="table"> 
     <form method="post">
