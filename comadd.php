@@ -2,6 +2,8 @@
 <?php
  $con=mysqli_connect("localhost","root","","car showroom") or die("couldn't connect");
  session_start();
+ if(isset($_SESSION['user']))
+ {
  ?>
 <html lang="en">
   <head>
@@ -137,6 +139,7 @@ else{
     $pic=$_FILES["icn"]["name"];
 
     $sql="select name from tbl_com where name='$name'";
+
     $res=mysqli_query($con,$sql);
     if(mysqli_num_rows($res)>0)
     {
@@ -150,4 +153,6 @@ else{
       ?><script>document.getElementById("msg").innerHTML = "Successful ";</script><?php
     }    
  }
+
+}
 ?>

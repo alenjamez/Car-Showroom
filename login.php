@@ -1,5 +1,6 @@
 <?php
  $con=mysqli_connect("localhost","root","","car showroom") or die("couldn't connect");
+ $msg=$_GET['msg'];
  ?>
 <!DOCTYPE html>
 <html>
@@ -8,11 +9,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-      <script type = "text/javascript" >
-   function preventBack(){window.history.forward();}
-    setTimeout("preventBack()", 0);
-    window.onunload=function(){null};
-</script>
   <style>
     body {font-family: Arial, Helvetica, sans-serif;
       background-color: #469fbd;
@@ -48,6 +44,17 @@
       border-radius: 10px;
       box-shadow: rgba(133, 133, 133, 0.603) 10px 10px 10px;
     }
+    .loginform .input{
+      width:100%;
+      border-top-left-radius: 5px;
+     border-bottom-left-radius: 5px;
+    }
+    span{
+      padding-left:100px;
+      color:red;
+      font-size:16px;
+    }
+
   </style>
   <body>
     <div class="blackbox">
@@ -65,12 +72,14 @@
             </div><br>
             <div class="form-group" style="color:#f2f2f2;"><input type="checkbox"> Remember me</div>
             <div class="form-group"><input type="submit" value="LOGIN" class="form-control" name="button"></div>
-            <footer><a href="registration.html" style="color:#f2f2f2;">Sign Up now</a></footer>
+            <footer><a href="registration.php?msg=" style="color:#f2f2f2;">Sign Up now</a></footer>
             </form>
           </div>
         <div>
       </div>
       <div class="main left"></div>
+      <br>
+      <span><?php echo $msg?></span>
     </div>
     </div>
   </body>
@@ -104,15 +113,12 @@ session_start();
             {
              $uid=$row['login_id'];
              $_SESSION['logid']=$uid;
-             header("location:index.php");
+             header("location:home.php");
             }
         }
     }
     else{
-      //header("location:login.php");
-      ?>
-      <script>alert("invalid username or password")</script>
-      <?php
+      header("location:login.php?msg=* Invalid Username or Password");
     }
 }
 ?>

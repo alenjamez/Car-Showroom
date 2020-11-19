@@ -1,6 +1,8 @@
 <?php
  $con=mysqli_connect("localhost","root","","car showroom") or die("couldn't connect");
  session_start();
+ if(isset($_SESSION['user']))
+ {
  $ids=$_GET['id'];
  $sql="select * from tbl_com where comp_id='$ids'";
  $res=mysqli_query($con,$sql)or die( mysqli_error($con));;
@@ -9,13 +11,21 @@
    $name=$row['name'];
    $pic='upload/company/'.$row['icon'];
  }
-
- if(isset($_POST['del']))
- {
-    $sql2="update tbl_com set status=0 where comp_id='$ids'";
-    mysqli_query($con,$sql2);
-    header("Location:company.php?msg=* Company deleted");
- }
+ if(array_key_exists('update', $_POST)) { 
+  $photo=$_FILES["new1"]["name"];
+  /*$nme=$_POST["new"];*/
+  $sql1="update tbl_com set name='$nme',icon='$photo' where comp_id='$ids'";
+  die($sql1);
+  mysqli_query($con,$sql1);
+  $t="upload/company/".$pc;
+  move_uploaded_file($_FILES["icn"]["tmp_name"],$t);
+  header("Location:company.php?msg=* Company Updated"); 
+} 
+else if(array_key_exists('delete', $_POST)) { 
+  $sql2="update tbl_com set status=0 where comp_id='$ids'";
+  mysqli_query($con,$sql2);
+  header("Location:company.php?msg=* Company deleted");
+} 
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,8 +33,29 @@
   <title>UR CARZ</title>
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="style/sidebar.css" rel="stylesheet">
+  <script>
+    function Val()
+    {
+      var fileInput = document.getElementById('img');
+      var filePath = fileInput.value;
+      var allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
+      if(!allowedExtensions.exec(filePath)){
+	      fileInput.value = '';
+	      return false;
+       }
+      else{
+       return true;
+      }
+  }
+  </script>
   <style>
-#del {
+    input[type=file]{ 
+      padding-top:10px;
+      font-size: 15px;
+      color: rgb(153,153,153);
+      padding-left:50px;
+}
+  #delete{
         width: 16%;
         height:8%;
         color: #f2f2f2;
@@ -36,12 +67,24 @@
         margin-left:550px;
         margin-top:20px;
     }
+    #update{
+        width: 16%;
+        height:8%;
+        color: #f2f2f2;
+        background-color:  #469fbd;
+        border-radius: 10px;
+        border: solid #f2f2f2;
+        opacity: 1;
+        font-weight: bold;
+        margin-left:20px;
+        margin-top:20px;
+    }
 </style>
 </head>
 <body>
 <div class="sidenav">
   <div class="sidebar-heading">UR CARZ</div>
-        <a href="#" >Dashboard</a>
+        <a href="dashboard.php" >Dashboard</a>
         <button class="dropdown-btn" style="outline:none">Company
         <i class="fa fa-caret-down"></i>
         </button>
@@ -78,12 +121,13 @@
 </div><br>
 <div class="table"> 
     <form method="post">
-    <div class="text-center">
+        <div class="text-center">
         <img src="<?php echo $pic;?>" class="avatar img-circle img-thumbnail" alt="avatar"><br>
-        </div>
+        <input type="file" id="new1" name="new1" onblur="Val()" ></div>
         <br>
-        <label style="font-size:15px;width:40%;margin-left:30%;text-align:center"><?php echo $name;?></label><br>
-        <input type="submit" name="del" id="del" value="Delete">
+        
+        <input type="submit" name="delete" id="delete" value="Delete">
+        <input type="submit" name="update" id="update" value="Update">
     </form>
    </div>
    </div>
@@ -105,5 +149,17 @@
   });
 }
   </script>
+  <script type="text/javascript">
+    history.pushState(null, null, location.href);
+    history.back();
+    history.forward();
+    window.onpopstate = function () { history.go(1); };
+</script>
 </body>
 </html>
+<?php
+}
+else{
+  header("location:login.php?msg=");
+}
+?>

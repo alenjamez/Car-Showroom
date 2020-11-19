@@ -1,3 +1,9 @@
+<?php
+ $con=mysqli_connect("localhost","root","","car showroom") or die("couldn't connect");
+ session_start();
+ if(isset($_SESSION['user']))
+ {
+ ?>
 <!doctype html>
 <html>
 <head>
@@ -8,31 +14,35 @@
 	<link rel="stylesheet" type="text/css" href="source/bootstrap-3.3.6-dist/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="source/font-awesome-4.5.0/css/font-awesome.css">
 	<link rel="stylesheet" type="text/css" href="style/slider.css">
-    <link rel="stylesheet" type="text/css" href="style/mystyle.css">
+	<link rel="stylesheet" type="text/css" href="style/mystyle.css">
 </head>
 <body>
 <div class="allcontain">
 	<div class="header">
-			<ul class="givusacall">
-				<li>Give us a call : +91 9544441942 </li>
-			</ul>
-			<ul class="logreg">
-				<li><a href="login.php">Login </a> </li>
-				<li><a href="Registration.html"><span class="register">Register</span></a></li>
+			<ul class="givusacall" style="align:center">
+				<li>Give us a call : +91 9544441942</li>
 			</ul>
 		</div>
 	<nav class="topnavbar navbar-default topnav">
-        <div class="navbar-header">
+	<div class="navbar-header">
             <a class="navbar-brand logo" href="#"><img src="upload/images/logo1.png" alt="logo"></a>
         </div>
 		<div class="collapse navbar-collapse" id="upmenu">
 			<ul class="nav navbar-nav" id="navbarontop">
 				<li class="active"><a href="#">HOME</a> </li>
-				<li class="active"><a href="#">COMPANY</a> </li>
-                <li class="active"><a href="#">CARS</a> </li>
-                <li class="active"><a href="#">COMPARISON</a> </li>
+				<li class="active"><a href="companylist.php">COMPANY</a> </li>
+				<li class="active"><a href="#">CARS</a> </li>
+				<li class="active"><a href="#">COMPARISON</a> </li>
 				<li class="active"><a href="#">ACCESSORY</a> </li>
-				<li><a href="contact.html">CONTACT</a></li>
+				<li><a href="#">CONTACT</a></li>
+				<li class="dropdown" style="margin-left:250px">
+					<a href="#" class="dropdown-toggle"	data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['user']; ?><span class="caret"></span>
+					<img src="upload/images/admin.jpg" width="35" height="35"></a>
+					<ul class="dropdown-menu dropdowncostume">
+						<li><a href="#">My Profile</a></li>
+						<li><a href="logout.php">Logout</a></li>
+					</ul>
+				</li>
 			</ul>
 		</div>
 	</nav>
@@ -102,15 +112,15 @@
 			 				<h2>Price &#x20B9;</h2>
 			 				<button id="btnRM" onclick="rmtxt()">READ MORE</button>
 			 				<div id="readmore">
-			 						<h1>Car Name</h1>
-                                     <p>INDIA’S FIRST AUTONOMOUS LEVEL-1 PREMIUM SUV<br>
-                                        Advanced Driver Assistance System<br>
-                                        customize premiumness with the best-in-class 
-                                        features to get a feel of your dream car<br>
-                                        the mg gloster comes with best-in-class 
-                                        safety features for a protected drive<br>
-                                        STARTS AT ₹ 29.98 LAKH
-                                        </p>
+			 						<h1>G L O S T E R</h1>
+			 						<p>INDIA’S FIRST AUTONOMOUS LEVEL-1 PREMIUM SUV<br>
+									 Advanced Driver Assistance System<br>
+                                     customize premiumness with the best-in-class 
+                                     features to get a feel of your dream car<br>
+                                     the mg gloster comes with best-in-class 
+                                     safety features for a protected drive<br>
+                                     STARTS AT ₹ 29.98 LAKH
+			 						</p>
 			 						<button id="btnRL">READ LESS</button>
 			 				</div>
 						</div>
@@ -129,12 +139,12 @@
 			 				<button id="btnRM2">READ MORE</button>
 			 				<div id="readmore2">
 			 						<h1>Car Name</h1>
-                                     <p>"THE ALL NEW THAR IS HERE<br>
-                                        A modern take on an iconic design, the All-New Thar, with its wide stance 
-                                        and iconic lines, stands out wherever it goes.<br>
-                                        Choose between the All-New mStallion150 petrol engine and mHawk130 diesel engine.
-                                         With 6-speed automatic and manual transmission options.<br>
-                                         STARTS AT ₹ 9.89 LAKH<br></p>
+			 						<p>"THE ALL NEW THAR IS HERE<br>
+									 A modern take on an iconic design, the All-New Thar, with its wide stance 
+									 and iconic lines, stands out wherever it goes.<br>
+									 Choose between the All-New mStallion150 petrol engine and mHawk130 diesel engine.
+									  With 6-speed automatic and manual transmission options.<br>
+									  STARTS AT ₹ 9.89 LAKH<br></p>
 			 						<button id="btnRL2">READ LESS</button>
 			 				</div>
 						</div>
@@ -143,15 +153,13 @@
 			</div>
 		</div>
 	</div>
-
-
 	<div class="latestcars">
 		<h1 class="text-center">&bullet; LATEST   CARS &bullet;</h1>
 	</div>
 	<br>
 	<br>
-	<!-- ________________________Latest Cars Image Thumbnail________________-->
-		<div class="grid">
+<!-- ________________________Latest Cars Image Thumbnail________________-->
+<div class="grid">
 			<div class="row">
 				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
 					<div class="txthover">
@@ -254,20 +262,20 @@
 							</div>
 					</div>	 
 				</div>
-	</div></div>
+	</div></div></div>
 
 
-        <div class="bottommenu">
-            <p>"All of those cars were once just a dream in somebody’s head".
-                Peter Gabriel </p>
-                 <img src="upload/images/line.png" alt="line"> <br>
-                 <div class="bottomsocial">
-                     <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-pinterest"></i></a>
-                </div>
-                    </div>
+	<div class="bottommenu">
+	<p>"All of those cars were once just a dream in somebody’s head".
+		Peter Gabriel </p>
+		 <img src="upload/images/line.png" alt="line"> <br>
+		 <div class="bottomsocial">
+		 	<a href="#"><i class="fa fa-facebook"></i></a>
+			<a href="#"><i class="fa fa-twitter"></i></a>
+			<a href="#"><i class="fa fa-google-plus"></i></a>
+			<a href="#"><i class="fa fa-pinterest"></i></a>
+		</div>
+			</div>
 	</div>
 </div>
 
@@ -276,5 +284,17 @@
 <script type="text/javascript" src="source/js/myscript.js"></script> 
 <script type="text/javascript" src="source/bootstrap-3.3.6-dist/js/jquery.1.11.js"></script>
 <script type="text/javascript" src="source/bootstrap-3.3.6-dist/js/bootstrap.js"></script>
+<script type="text/javascript">
+    history.pushState(null, null, location.href);
+    history.back();
+    history.forward();
+    window.onpopstate = function () { history.go(1); };
+</script>
 </body>
 </html>
+<?php
+}
+else{
+	header("location:login.php?msg=");
+  }
+  ?>

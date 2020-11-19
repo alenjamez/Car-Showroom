@@ -12,9 +12,7 @@
     $res=mysqli_query($con,$sql);
     if(mysqli_num_rows($res)>0)
     {
-        ?>
-        <script>alert("User name alredy exist")</script>
-        <?php
+        header("location:Registration.php?msg=* User name alredy exist");
     }
     else{
         $sql="insert into tbl_login(username,password) values('$usr','$psw')";
@@ -22,7 +20,7 @@
         $li=mysqli_insert_id($con);
         $sql1="insert into tbl_registration(name,gender,email,phone,location,login_id) values('$name','$gender','$email','$phno','$loc',$li)";
         mysqli_query($con,$sql1);
-        header("location:login.php");
+        header("location:login.php?msg=");
     }
 
 ?>

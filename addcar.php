@@ -2,6 +2,8 @@
 <?php
  $con=mysqli_connect("localhost","root","","car showroom") or die("couldn't connect");
  session_start();
+ if(isset($_SESSION['user']))
+ {
  ?>
 <html lang="en">
   <head>
@@ -264,4 +266,5 @@ function onLeave(_input)
       ?><script>document.getElementById("msg").innerHTML = "Successful ";</script><?php
     }    
  }
+}
 ?>

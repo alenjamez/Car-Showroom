@@ -1,7 +1,6 @@
 <?php
  $con=mysqli_connect("localhost","root","","car showroom") or die("couldn't connect");
  session_start();
- $msg=$_GET['msg'];
  if(isset($_SESSION['user']))
  {
  ?>
@@ -12,14 +11,15 @@
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="style/sidebar.css" rel="stylesheet">
   <style>
-#MainTable{
-    color: black;
-    width: 100%;
-    text-align:center;
-}
-
-</style>
-
+    .div1{
+      width:20%;
+      padding-top:5px;
+      margin-left:17%;
+      height:10%;
+      background-color:white;
+      border-radius:5px
+    }
+  </style>
 </head>
 <body>
 <div class="sidenav">
@@ -55,52 +55,15 @@
             <img src="upload/images/admin.jpg" width="40" height="40"><p><br>
     </div></div>
 <br>
-<h1>Manage Details</h1>
+<h1>Dashboard</h1>
 <div class="name">
-<h6 style="margin-left:10px;"><a href="#"style="text-decoration:none;color:black;">Home</a>&nbsp;/&nbsp;Company&nbsp;/&nbsp;Manage Details</h6>
+<h6 style="margin-left:10px;"><a href="#"style="text-decoration:none;color:black;">Home</a></h6>
 </div><br>
-<div class="table"> 
-<span id="msg" style="color:#008000;"><?php echo $msg ?></span><br>
-   <table id="MainTable" class="auto-index" width= 70% border="1">
-   <thead>
-     <tr>
-     <th scope="col">Sl.no</th>
-     <th scope="col">Company Name</th>
-     <th scope="col"></th>
-     </tr>
-   </thead>
-   <tbody>
+ 
+<div class="div1">
 
-   <?php
-     $sql="select comp_id,name from tbl_com where status=1";
-     $res=mysqli_query($con,$sql);
-     while($row=mysqli_fetch_array($res))
-     {
-       $no=$row['comp_id'];
-       $name=$row['name'];
-
-       echo "<tr><td>";
-       echo "</td><td>";
-       echo $name;
-       ?></td><td><a href="viewcom.php?id=<?php echo $no; ?>" >View</a></td?</tr><?php
-
-     }
-   ?>
-   </tbody>
-   </table>
-   </div>
-   </div>
- </div>
+</div><br>
   <script src="vendor/jquery/jquery.min.js"></script>
-  <script>//serial number
-var addSerialNumber = function () {
-    var i = 0
-    $('table tr').each(function(index) {
-        $(this).find('td:nth-child(1)').html(index-1+1);
-    });
-};
-addSerialNumber();
-</script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script type="text/javascript">
     var dropdown = document.getElementsByClassName("dropdown-btn");
@@ -117,18 +80,11 @@ addSerialNumber();
   });
 }
   </script>
-  <script type="text/javascript">
-    history.pushState(null, null, location.href);
-    history.back();
-    history.forward();
-    window.onpopstate = function () { history.go(1); };
-</script>
-
 </body>
 </html>
 <?php
- }
- else{
+}
+else{
   header("location:login.php?msg=");
 }
- ?>
+?>

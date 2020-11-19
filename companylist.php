@@ -1,6 +1,8 @@
 <?php
  $con=mysqli_connect("localhost","root","","car showroom") or die("couldn't connect");
  session_start();
+ if(isset($_SESSION['user']))
+ {
  ?>
 <!doctype html>
 <html>
@@ -47,7 +49,7 @@
         </div>
 		<div class="collapse navbar-collapse" id="upmenu">
 			<ul class="nav navbar-nav" id="navbarontop">
-				<li class="active"><a href="index.php">HOME</a> </li>
+				<li class="active"><a href="home.php">HOME</a> </li>
 				<li class="active"><a href="#">COMPANY</a> </li>
                 <li class="active"><a href="#">CARS</a> </li>
                 <li class="active"><a href="#">COMPARISON</a> </li>
@@ -103,5 +105,17 @@
 <script type="text/javascript" src="source/js/myscript.js"></script> 
 <script type="text/javascript" src="source/bootstrap-3.3.6-dist/js/jquery.1.11.js"></script>
 <script type="text/javascript" src="source/bootstrap-3.3.6-dist/js/bootstrap.js"></script>
+<script type="text/javascript">
+    history.pushState(null, null, location.href);
+    history.back();
+    history.forward();
+    window.onpopstate = function () { history.go(1); };
+</script>
 </body>
 </html>
+<?php
+ }
+ else{
+	header("location:login.php?msg=");
+  }
+ ?>

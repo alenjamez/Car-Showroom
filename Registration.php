@@ -1,3 +1,7 @@
+<?php
+ $con=mysqli_connect("localhost","root","","car showroom") or die("couldn't connect");
+ $msg=$_GET['msg'];
+ ?>
 <html>
     <head>
         <title>UR Carz</title>
@@ -135,7 +139,7 @@
         function usr()
         {
         var un=document.getElementById("user").value;
-        var un1=/^[a-z]+$/;
+        var un1=/^[a-zA-Z]+$/;
         if(un=="")
             {
             document.getElementById("error").innerHTML="* Enter Username";
@@ -284,9 +288,9 @@
                         </div></h5>
                         <input type="submit"  value="Submit" onsubmit="rname(); ema(); phn(); loc(); usr(); npsw(); psw1();">&nbsp;&nbsp;&nbsp;
                         <input type="reset"  value="Reset"><br></center><br>
-                        <a href="login.php" style="color:#f2f2f2;padding-left: 200px;">Already a Member?</a>
+                        <a href="login.php?msg=" style="color:#f2f2f2;padding-left: 200px;">Already a Member?</a>
                     </div>
-                    <br><span id="error" style="padding-left:50px"></span>
+                    <br><span id="error" style="padding-left:50px"><?php echo $msg?></span>
                 </div>
                 </form>
             </div>
