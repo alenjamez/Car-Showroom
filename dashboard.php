@@ -3,6 +3,10 @@
  session_start();
  if(isset($_SESSION['user']))
  {
+   $query="select count(*) as total from tbl_registration where status=1";
+   $result = mysql_query($query); 
+   $values = mysql_fetch_assoc($result); 
+   $usr = $values['total']
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,14 +14,23 @@
   <title>UR CARZ</title>
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="style/sidebar.css" rel="stylesheet">
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
   <style>
     .div1{
       width:20%;
-      padding-top:5px;
+      padding :10px 10px 10px 10px;
       margin-left:17%;
-      height:10%;
+      height:80px;
       background-color:white;
       border-radius:5px
+    }
+    .left{
+      width:30%;
+      float:left;
+    }
+    .right{
+      width:70%;
+      float:right;
     }
   </style>
 </head>
@@ -26,21 +39,18 @@
   <div class="sidebar-heading">UR CARZ</div>
         <a href="#" >Dashboard</a>
         <button class="dropdown-btn" style="outline:none">Company
-        <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
         <a href="comadd.php">Add Company</a>
         <a href="company.php?msg=">Manage Details</a>
         </div>
         <button class="dropdown-btn"  style="outline:none">Car
-        <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
         <a href="addcar.php">Add car</a>
         <a href="#">Manage Details</a>
         </div>
         <button class="dropdown-btn"  style="outline:none">Accesory
-        <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
         <a href="#">Add car</a>
@@ -61,8 +71,12 @@
 </div><br>
  
 <div class="div1">
-
-</div><br>
+<div class="left">
+<i class='fas fa-user-alt' name="symb" style="font-size:50px" ></i></div>
+<div class="right">
+<h3>Users</h3>
+<h3><?php echo $usr;?></h3>
+</div></div>
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script type="text/javascript">

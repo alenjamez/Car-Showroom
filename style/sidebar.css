@@ -14,7 +14,7 @@ body{
   background-color: #111;
   overflow-x: hidden;
   padding-top: 60px;
-  opacity:0;
+  opacity:1;
 }
 
 .sidenav a {

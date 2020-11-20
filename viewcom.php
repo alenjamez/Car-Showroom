@@ -12,10 +12,10 @@
    $pic='upload/company/'.$row['icon'];
  }
  if(array_key_exists('update', $_POST)) { 
-  $photo=$_FILES["new1"]["name"];
-  /*$nme=$_POST["new"];*/
+  $photo=$_FILES["phto"]["name"];
+  $nme=$_POST["new"];
+  echo $nme;
   $sql1="update tbl_com set name='$nme',icon='$photo' where comp_id='$ids'";
-  die($sql1);
   mysqli_query($con,$sql1);
   $t="upload/company/".$pc;
   move_uploaded_file($_FILES["icn"]["tmp_name"],$t);
@@ -55,7 +55,7 @@ else if(array_key_exists('delete', $_POST)) {
       color: rgb(153,153,153);
       padding-left:50px;
 }
-  #delete{
+  #update{
         width: 16%;
         height:8%;
         color: #f2f2f2;
@@ -67,7 +67,7 @@ else if(array_key_exists('delete', $_POST)) {
         margin-left:550px;
         margin-top:20px;
     }
-    #update{
+    #delete{
         width: 16%;
         height:8%;
         color: #f2f2f2;
@@ -86,21 +86,18 @@ else if(array_key_exists('delete', $_POST)) {
   <div class="sidebar-heading">UR CARZ</div>
         <a href="dashboard.php" >Dashboard</a>
         <button class="dropdown-btn" style="outline:none">Company
-        <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
         <a href="comadd.php">Add Company</a>
         <a href="company.php?msg=">Manage Details</a>
         </div>
         <button class="dropdown-btn"  style="outline:none">Car
-        <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
         <a href="addcar.php">Add car</a>
         <a href="#">Manage Details</a>
         </div>
         <button class="dropdown-btn"  style="outline:none">Accesory
-        <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
         <a href="#">Add car</a>
@@ -120,14 +117,14 @@ else if(array_key_exists('delete', $_POST)) {
 <h6 style="margin-left:10px;"><a href="#"style="text-decoration:none;color:black;">Home</a>&nbsp;/&nbsp;Company&nbsp;/&nbsp;<a href="company.php?msg=" style="text-decoration:none;color:black;">Manage Details</a>&nbsp;/&nbsp;Edit Details</h6>
 </div><br>
 <div class="table"> 
-    <form method="post">
+<form method="post" enctype="multipart/form-data">
         <div class="text-center">
         <img src="<?php echo $pic;?>" class="avatar img-circle img-thumbnail" alt="avatar"><br>
-        <input type="file" id="new1" name="new1" onblur="Val()" ></div>
+        <input type="file" id="phto" name="phto" onblur="Val()" ></div>
         <br>
-        
-        <input type="submit" name="delete" id="delete" value="Delete">
+        <input type="text" style="font-size:15px;width:40%;margin-left:30%;text-align:center" name="new" id="new" value="<?php echo $name;?>">
         <input type="submit" name="update" id="update" value="Update">
+        <input type="submit" name="delete" id="delete" value="Delete">
     </form>
    </div>
    </div>

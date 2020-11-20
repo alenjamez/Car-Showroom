@@ -89,21 +89,18 @@ function onLeave(_input)
   <div class="sidebar-heading">UR CARZ</div>
         <a href="#" >Dashboard</a>
         <button class="dropdown-btn" style="outline:none">Company
-        <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
         <a href="Comadd.php">Add Company</a>
         <a href="company.php?msg=">Manage Details</a>
         </div>
         <button class="dropdown-btn"  style="outline:none">Car
-        <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
         <a href="comadd.php">Add car</a>
         <a href="#">Manage Details</a>
         </div>
         <button class="dropdown-btn"  style="outline:none">Accesory
-        <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
         <a href="#">Add car</a>
