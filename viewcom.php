@@ -9,6 +9,7 @@
  while($row=mysqli_fetch_array($res))
  {
    $name=$row['name'];
+   $sam=$row['icon'];
    $pic='upload/company/'.$row['icon'];
  }
  if(array_key_exists('update', $_POST)) { 
@@ -17,7 +18,7 @@
   echo $nme;
   $sql1="update tbl_com set name='$nme',icon='$photo' where comp_id='$ids'";
   mysqli_query($con,$sql1);
-  $t="upload/company/".$pc;
+  $t="upload/company/".$photo;
   move_uploaded_file($_FILES["icn"]["tmp_name"],$t);
   header("Location:company.php?msg=* Company Updated"); 
 } 
@@ -120,7 +121,7 @@ else if(array_key_exists('delete', $_POST)) {
 <form method="post" enctype="multipart/form-data">
         <div class="text-center">
         <img src="<?php echo $pic;?>" class="avatar img-circle img-thumbnail" alt="avatar"><br>
-        <input type="file" id="phto" name="phto" onblur="Val()" ></div>
+        <input type="file" id="phto" name="phto" onblur="Val()" value="<?php echo $sam;?>" ></div>
         <br>
         <input type="text" style="font-size:15px;width:40%;margin-left:30%;text-align:center" name="new" id="new" value="<?php echo $name;?>">
         <input type="submit" name="update" id="update" value="Update">

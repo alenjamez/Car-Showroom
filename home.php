@@ -29,12 +29,12 @@
         </div>
 		<div class="collapse navbar-collapse" id="upmenu">
 			<ul class="nav navbar-nav" id="navbarontop">
-				<li class="active"><a href="#">HOME</a> </li>
-				<li class="active"><a href="companylist.php">COMPANY</a> </li>
-				<li class="active"><a href="#">CARS</a> </li>
-				<li class="active"><a href="#">COMPARISON</a> </li>
+				<li class="active"><a href="home.php">HOME</a> </li>
+				<li class="active"><a href="companylist.php">COMPANY</a> </li> 
+                <li class="active"><a href="#">CARS</a> </li>
+                <li class="active"><a href="#">COMPARISON</a> </li>
 				<li class="active"><a href="#">ACCESSORY</a> </li>
-				<li><a href="#">CONTACT</a></li>
+				<li><a href="contact.html">CONTACT</a></li>
 				<li class="dropdown" style="margin-left:250px">
 					<a href="#" class="dropdown-toggle"	data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['user']; ?><span class="caret"></span>
 					<img src="upload/images/admin.jpg" width="35" height="35"></a>

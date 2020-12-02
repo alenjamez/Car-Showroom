@@ -59,7 +59,7 @@
 					<a href="#" class="dropdown-toggle"	data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['user']; ?><span class="caret"></span>
 					<img src="upload/images/admin.jpg" width="35" height="35"></a>
 					<ul class="dropdown-menu dropdowncostume">
-						<li><a href="#">My Profile</a></li>
+						<li><a href="profile.php">My Profile</a></li>
 						<li><a href="logout.php">Logout</a></li>
 					</ul>
 				</li>
