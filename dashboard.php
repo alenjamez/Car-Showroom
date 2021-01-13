@@ -48,23 +48,23 @@
         </button>
         <div class="dropdown-container">
         <a href="addcar.php">Add car</a>
-        <a href="#">Manage Details</a>
+        <a href="company.php">Manage Details</a>
         </div>
         <button class="dropdown-btn"  style="outline:none">Accesory
         </button>
         <div class="dropdown-container">
-        <a href="#">Add car</a>
+        <a href="addcar.php">Add car</a>
         <a href="#">Manage Details</a>
         </div>
         <a href="#" >Sales</a>
         <a href="logout.php" >Log Out</a></div>
+      </div>
 
 <div class="main">
 <div class="back">
-<p style="color:white;float:right;font-family:Arial;padding-top:10px"><b><?php echo $_SESSION['user']; ?>&nbsp;
-            <img src="upload/images/admin.jpg" width="40" height="40"><p><br>
+      <p style="color:black;float:right;font-family:Arial;padding-top:10px"><b><?php echo $_SESSION['user']; ?>&nbsp;
+        <img src="upload/profile/admin.jpg" width="40" height="40"><p><br>
     </div></div>
-<br>
 <h1>Dashboard</h1>
 <div class="name">
 <h6 style="margin-left:10px;"><a href="#"style="text-decoration:none;color:black;">Home</a></h6>

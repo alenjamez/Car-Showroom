@@ -52,8 +52,8 @@ else{
 </script>
 </head>
 <body>
-<div class="sidenav">
-  <div class="sidebar-heading">UR CARZ</div>
+    <div class="sidenav">
+      <div class="sidebar-heading">UR CARZ</div>
         <a href="#" >Dashboard</a>
         <button class="dropdown-btn" style="outline:none">Company
         </button>
@@ -74,14 +74,15 @@ else{
         <a href="#">Manage Details</a>
         </div>
         <a href="#" >Sales</a>
-        <a href="logout.php" >Log Out</a></div>
+        <a href="logout.php" >Log Out</a>
+      </div>
+</div>
 
 <div class="main">
 <div class="back">
-<p style="color:white;float:right;font-family:Arial;padding-top:10px"><b><?php echo $_SESSION['user']; ?>&nbsp;
-            <img src="upload/images/admin.jpg" width="40" height="40"><p><br>
+<p style="color:black;float:right;font-family:Arial;padding-top:10px"><b><?php echo $_SESSION['user']; ?>&nbsp;
+            <img src="upload/profile/admin.jpg" width="40" height="40"><p><br>
     </div></div>
-<br>
 <h1>Add Company</h1>
 <div class="name">
 <h6 style="margin-left:10px;"><a href="#"style="text-decoration:none;color:black;">Home</a>&nbsp;/&nbsp;Company&nbsp;/&nbsp;Add company</h6>

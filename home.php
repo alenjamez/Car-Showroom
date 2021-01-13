@@ -3,6 +3,13 @@
  session_start();
  if(isset($_SESSION['user']))
  {
+	$lid=$_SESSION['logid'];
+	$sql="select propic from tbl_registration where login_id='$lid'";
+	$res=mysqli_query($con,$sql);
+    while($row=mysqli_fetch_array($res))
+      {
+        $propic='upload/profile/'.$row["propic"];
+      }
  ?>
 <!doctype html>
 <html>
@@ -37,7 +44,7 @@
 				<li><a href="contact.html">CONTACT</a></li>
 				<li class="dropdown" style="margin-left:250px">
 					<a href="#" class="dropdown-toggle"	data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['user']; ?><span class="caret"></span>
-					<img src="upload/images/admin.jpg" width="35" height="35"></a>
+					<img src="<?php echo $propic;?>" width="40" height="40"></a>
 					<ul class="dropdown-menu dropdowncostume">
 						<li><a href="profile.php">My Profile</a></li>
 						<li><a href="logout.php">Logout</a></li>

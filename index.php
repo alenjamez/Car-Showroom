@@ -252,9 +252,14 @@
 									<div class="glyphicon glyphicon-star"></div>
 								</div>
 							</div>
-					</div>	 
+					 	</div>	 
+					</div>
 				</div>
-	</div></div></div>
+			</div>
+		</div>
+		
+
+
 
 
         <div class="bottommenu">

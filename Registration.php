@@ -282,10 +282,7 @@
                         <span id="err6"></span><br>
                         <input type="password" class="form-control form-group" placeholder="Conform Password"  id="conpass" onblur="psw1()" required>
                         <span id="err7"></span><br>
-                        <div class="form-group form-check">
-                            <h5><input type="checkbox" class="form-check-input">
-                            <label class="form-check-label" style="color:#f2f2f2;">I accepts to the terms and conditions.</label>
-                        </div></h5>
+                        <abbr>
                         <input type="submit"  value="Submit" onsubmit="rname(); ema(); phn(); loc(); usr(); npsw(); psw1();">&nbsp;&nbsp;&nbsp;
                         <input type="reset"  value="Reset"><br></center><br>
                         <a href="login.php?msg=" style="color:#f2f2f2;padding-left: 200px;">Already a Member?</a>
