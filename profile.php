@@ -116,7 +116,7 @@ body {font-family: Arial;
         if(nam=="")
             {
                 document.getElementById("error").innerHTML="* Enter name";
-                document.getElementById("error").style.color = "#f2f2f2";
+                document.getElementById("error").style.color = "black";
                 document.getElementById("name").focus();
             return false;
             }
@@ -141,7 +141,7 @@ body {font-family: Arial;
         if(emi=="")
             {
                 document.getElementById("error").innerHTML="* Enter email";
-                document.getElementById("error").style.color = "#f2f2f2";
+                document.getElementById("error").style.color = "black";
                 document.getElementById("mail").focus();
             return false;
             }
@@ -165,7 +165,7 @@ body {font-family: Arial;
         if(ph=="")
             {
                 document.getElementById("error").innerHTML="* Enter phno";
-                document.getElementById("error").style.color = "#f2f2f2";
+                document.getElementById("error").style.color = "black";
                 document.getElementById("ph").focus();
             return false;
             }
@@ -189,7 +189,7 @@ body {font-family: Arial;
         if(un=="")
             {
             document.getElementById("error").innerHTML="* Enter Username";
-            document.getElementById("error").style.color = "#f2f2f2";
+            document.getElementById("error").style.color = "black";
             document.getElementById("user").focus();
             return false;
             }
@@ -213,20 +213,20 @@ body {font-family: Arial;
         var ps1=/^[a-zA-Z0-9:@]+$/;
         if(ps=="")
             {
-                document.getElementById("error").innerHTML="* Enter Password";
-                document.getElementById("error").style.color = "#f2f2f2";
+                document.getElementById("err").innerHTML="* Enter Password";
+                document.getElementById("err").style.color = "black";
                 document.getElementById("pass").focus();
-            return false;
+                return false;
             }
         if((ps.match(ps1))&& (ps.length>=8))
             {
-                document.getElementById("error").innerHTML="";
+                document.getElementById("err").innerHTML="";
         
             }
         else
             {
-                document.getElementById("error").innerHTML="* Password must contain number and charecter with length greater than 8";
-                document.getElementById("error").style.color = "red";
+                document.getElementById("err").innerHTML="* Password must contain number and letter with length greater than 8";
+                document.getElementById("err").style.color = "red";
                 document.getElementById("pass").focus();
                 return false;
             }
@@ -236,13 +236,13 @@ body {font-family: Arial;
         var ps1=document.getElementById("conpass").value;
         if(ps==ps1)
             {
-                document.getElementById("error").innerHTML="";
+                document.getElementById("err").innerHTML="";
                 
             }
         else
             {
-                document.getElementById("error").innerHTML="* Password not match!!!!!!!!!!";
-                document.getElementById("error").style.color = "red";
+                document.getElementById("err").innerHTML="* Password not match!!!!!!!!!!";
+                document.getElementById("err").style.color = "red";
                 document.getElementById("conpass").focus();
             }
         }
@@ -253,7 +253,7 @@ body {font-family: Arial;
         if(loc=="")
            {
                 document.getElementById("error").innerHTML="* Enter location";
-                document.getElementById("error").style.color = "#f2f2f2";
+                document.getElementById("error").style.color = "black";
                 document.getElementById("loc").focus();
             return false;
             }
@@ -277,7 +277,7 @@ body {font-family: Arial;
         if(loc=="")
            {
                 document.getElementById("error").innerHTML="* Enter location";
-                document.getElementById("error").style.color = "#f2f2f2";
+                document.getElementById("error").style.color = "black";
                 document.getElementById("gen").focus();
             return false;
             }
@@ -331,17 +331,15 @@ body {font-family: Arial;
         <input type="file" class="text-center center-block file-upload" style="color:#141e30" name="img" id="img" onblur="Val()">
       </div><br>
         </div>
-    	<div class="col-sm-9">
-          <div class="tab-content">
-            <div class="tab-pane active" id="home"><br><br>
-                  
-                      
-                      <div class="form-group">
+    	    <div class="col-sm-9">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="home"><br><br>
+                        <div class="form-group">
                           <div class="col-xs-6">
                               <label for="first_name"><h4>Name</h4></label>
                               <input type="text" class="form-control" name="nme" id="name" value="<?php echo $name;?>" onblur="rname()" style=" font-size:15px;">
                           </div>
-                      </div>
+                        </div>
                       <div class="form-group">
                           <div class="col-xs-6">
                              <label for="gender"><h4>Username</h4></label>
@@ -379,7 +377,7 @@ body {font-family: Arial;
                       <div class="form-group">
                            <div class="col-xs-12">
                                 <br>
-                              	  <input class="btn btn-lg btn-success" type="submit" name="save">
+                              	  <input class="btn btn-lg btn-success" type="submit" name="save" onsubmit="rname(); ema(); phn(); loc(); usr(); Val();">
                                   <input type="button" class="btn btn-lg btn btn-outline-info" onclick="location.href = 'home.php'" value="Back">
                             </div>
                       </div>
@@ -391,10 +389,10 @@ body {font-family: Arial;
              </div></div>
 
 
-<div id="change" class="tabcontent">
-<div class="container bootstrap snippet">
-    <div class="tab-pane active" id="home"><br><br>
-                  <form class="form" method="post" id="registrationForm" enctype="multipart/form-data">
+    <div id="change" class="tabcontent">
+        <div class="container bootstrap snippet">
+            <div class="tab-pane active" id="home"><br><br>
+                    <form class="form" method="post" id="registrationForm" enctype="multipart/form-data">
                       <div class="form-group">
                           <div class="col-xs-6">
                               <label for="first_name"><h4>Password</h4></label>
@@ -410,12 +408,15 @@ body {font-family: Arial;
                         <div class="form-group">
                            <div class="col-xs-12">
                                 <br>
-                              	  <input class="btn btn-lg btn-success" type="submit" name="change" value="Change">
+                              	  <input class="btn btn-lg btn-success" type="submit" name="change" value="Change" onsubmit="npsw(); psw1();">
                                   <input type="button" class="btn btn-lg btn btn-outline-info" onclick="location.href = 'home.php'" value="Back">
-                            </div></div>
-
-                            <span id="error"></span></form>
-                        </div></div></div>
+                            </div>
+                        </div>
+                    </form>
+                            <span id="err"></span>
+            </div>
+        </div>
+    </div>
 
 
 
@@ -457,7 +458,7 @@ document.getElementById("defaultOpen").click();
   } 
   else if(array_key_exists('change', $_POST)) { 
     $psw=md5($_POST["psw"]);
-    $sql2="update tbl_login set paswword='$psw' where login_id='$lid'";
+    $sql2="update tbl_login set password='$psw' where login_id='$lid'";
     mysqli_query($con,$sql2);
   } 
  }
