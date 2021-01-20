@@ -92,13 +92,6 @@ input[type=submit] {
 
 </style>
 <script>
-  function Disable(value)
-    {
-        if(value=="Automatic")
-        {
-          document.getElementById('gearno').disabled = true;
-        }
-    }
   function test(value)
   {
     var xhttp = new XMLHttpRequest();
@@ -160,13 +153,13 @@ input[type=submit] {
       <button class="dropdown-btn" style="outline:none">Company
       </button>
       <div class="dropdown-container">
-        <a href="Comadd.php">Add Company</a>
+        <a href="comadd.php">Add Company</a>
         <a href="company.php?msg=">Manage Details</a>
       </div>
       <button class="dropdown-btn"  style="outline:none">Car</button>
       <div class="dropdown-container">
         <a href="comadd.php">Add car</a>
-        <a href="#">Manage Details</a>
+        <a href="managecar.php">Manage Details</a>
       </div>
       <button class="dropdown-btn"  style="outline:none">Accesory</button>
       <div class="dropdown-container">
@@ -207,7 +200,7 @@ input[type=submit] {
               <option value="SUV">SUV</option>
               <option value="MUV">MUV</option>
               <option value="Luxury">Luxury</option></select>
-		        <label>Body Type</label><input type="text" name="bodytype" pattern="[A-Za-z]+"><br>
+		        <label>Ground Clearence</label><input type="text" name="bodytype" pattern="[0-9]+"><br>
             <label>Car Lenght</label><input type="text" name="length"><br>
   	        <label>Car Width</label><input type="text" name="width"><br>
             <label>Car Height</label><input type="text" name="heigth"><br>
@@ -230,6 +223,7 @@ input[type=submit] {
                 }
                 ?></select>
                 <label>Boot Space</label><input type="text" name="boot"><br>
+                <label>Fuel Capacity</label><input style="margin-top:10px" type="text" name="capacity"><br>
                 <div class="radio">
                   <label>Air Conditioner</label>
                   <input style="margin-left:20px;" type="radio" name="ac" value="Yes" required>&nbsp;Yes
@@ -240,12 +234,7 @@ input[type=submit] {
                   <input style="margin-left:20px;" type="radio" name="display" value="Yes" required>&nbsp;Yes
                   <input type="radio" name="display" value="No">&nbsp;No
                 </div>
-                <div class="radio">
-                  <label>Power Window</label>
-                  <input style="margin-left:20px;" type="radio" name="window" value="Yes" required>&nbsp;Yes
-                  <input type="radio" name="window" value="No">&nbsp;No
-                </div>
-                <label>Description</label><textarea name="desc" id="desc"></textarea><br><br>
+                <label>Emission Norm </label><input type="text" name="desc" id="desc"><br><br>
 	              <input type="submit" name="Add1" value="Add">
                 </form>
 
@@ -278,14 +267,14 @@ input[type=submit] {
             </select><br>
 
 
-            <label>Car Model</label><input type="text" name="model" pattern="[A-Za-z]+"><br>
+            <label>Car Model</label><input type="text" name="model" required><br>
             <label>Wheel</label><input type="text" name="wheel"><br>
             <div class="radio">
-                  <label>Fog lamb</label><input type="radio" name="fog" value="Yes" required>&nbsp;Yes
+                  <label>Fog lamb</label><input type="radio" style="margin-left:20px;" name="fog" value="Yes" required>&nbsp;Yes
                   <input type="radio" name="fog" value="No">&nbsp;No
             </div>
             <div class="radio">
-                  <label>Power start</label><input type="radio" name="start" value="Yes" required>&nbsp;Yes
+                  <label>Power start</label><input type="radio" style="margin-left:20px;" name="start" value="Yes" required>&nbsp;Yes
                   <input type="radio" name="start" value="No">&nbsp;No
             </div>
 
@@ -295,25 +284,31 @@ input[type=submit] {
               <div class="tab-pane active" id="home"><br><br>
               <label>Sterio</label><input type="text" name="sterio" pattern="[A-Za-z]+"><br>
                 <div class="radio">
-                  <label>Auto AC</label><input type="radio" name="auto" value="Yes" required>&nbsp;Yes
+                  <label>Auto AC</label><input type="radio" style="margin-left:20px;" name="auto" value="Yes" required>&nbsp;Yes
                   <input type="radio" name="auto" value="No">&nbsp;No
                 </div>
                 <div class="radio">
-                  <label>Sunroof</label><input type="radio" name="sunroof" value="Yes" required>&nbsp;Yes
+                  <label>Sunroof</label><input type="radio" style="margin-left:20px;" name="sunroof" value="Yes" required>&nbsp;Yes
                   <input type="radio" name="sunroof" value="No">&nbsp;No
                 </div>
                 <div class="radio">
-                  <label>Auto Headlamb</label><input type="radio" name="headlamb" value="Yes" required>&nbsp;Yes
+                  <label>Auto Headlamb</label><input type="radio" style="margin-left:20px;" name="headlamb" value="Yes" required>&nbsp;Yes
                   <input type="radio" name="headlamb" value="No">&nbsp;No
                 </div>
                 <div class="radio">
-                  <label>Sensor</label><input type="radio" name="sensor" value="Yes" required>&nbsp;Yes
+                  <label>Sensor</label><input type="radio" style="margin-left:20px;" name="sensor" value="Yes" required>&nbsp;Yes
                   <input type="radio" name="sensor" value="No">&nbsp;No
             </div>
             <div class="radio">
-                  <label>Reverse Camera</label><input type="radio" name="camera" value="Yes" required>&nbsp;Yes
+                  <label>Reverse Camera</label><input type="radio" style="margin-left:20px;" name="camera" value="Yes" required>&nbsp;Yes
                   <input type="radio" name="camera" value="No">&nbsp;No
             </div>
+            <div class="radio">
+                  <label>Power Window</label>
+                  <input style="margin-left:20px;" type="radio" name="window" value="Front only" required>&nbsp;Front only
+                  <input type="radio" name="window" value="Both">&nbsp;Both
+                  <input type="radio" name="window" value="No">&nbsp;No
+                </div>
 	              <input type="submit" name="Add2" value="Add">
                 </form>    
               </div>
@@ -383,7 +378,7 @@ input[type=submit] {
             <label>Car</label><select id="seler" name="car" onChange="test3(this.value)">
               <option value="" disabled selected>Choose Car</option> 
             </select><br>
-            <label>Car Model</label><select name="model" id="mod">
+            <label>Car Model</label><select name="mod" id="mod">
             <option value="" disabled selected>Choose model</option>
             </select><br>
             <label>Fuel Type</label><select name="fueltype">
@@ -392,23 +387,23 @@ input[type=submit] {
               <option value="Disel">Disel</option>
               <option value="CNG">CNG</option>
               <option value="Electric">Electric</option></select>
-            <label>Transmission </label><select name="gear" onChange="Disable(this.value)">
+            <label>Transmission </label><select name="gear">
               <option value="" disabled selected>Choose Transmission Type</option>
               <option value="Automatic" >Automatic</option>
               <option value="Manual">Manual</option>
               <option value="Semi-Automatic and Dual Cluch">Semi-Automatic and Dual Cluch</option></select>     
-            
+              <label>Engine Type</label><input style="margin-top:10px" type="text" name="engtype"><br>
+              
           </div>
 
     	    <div class="col-sm-6">
             <div class="tab-content">
               <div class="tab-pane active" id="home"><br><br>
-                <label>Fuel Capacity</label><input style="margin-top:10px" type="text" name="capacity"><br>
                 <label>No of Gear</label><input type="text" name="gearno" id="gearno"><br>
                 <label>Millage</label><input type="text" name="millage"><br>
-                <label>Car Price</label><input type="text" name="price"><br>
                 <label>Engine CC</label><input type="text" name="power"><br>
-  	            <label>BHP</label><input type="text" name="torque"><br><br>     
+  	            <label>BHP</label><input type="text" name="torque"><br>
+                <label>Car Price</label><input type="text" name="price"><br><br>     
 	              <input type="submit" name="Add4" value="Add">
                 </form>    
               </div>
@@ -478,12 +473,13 @@ input[type=submit] {
    $seat=$_POST["seat"];
    $boot=$_POST["boot"];
    $ac=$_POST["ac"];
-   $window=$_POST["window"];
+   $capacity=$_POST["capacity"];
    $display=$_POST["display"];
    $airbag=$_POST["airbag"];
    $desc=$_POST["desc"];
 
-   $sql1="insert into tbl_car (name,car_type,body_type,engine_display,airbag,ac,window,length,width,heigth,bootspace,description,seat,comp_id) values ('$name','$cartype','$bodytype','$display',$airbag,'$ac','$window',$length,$width,$heigth,$boot,'$desc',$seat,$company)";
+   $sql1="insert into tbl_car (name,car_type,ground,steering,airbag,ac,capacity,length,width,heigth,bootspace,enc,seat,comp_id) values ('$name','$cartype','$bodytype','$display',$airbag,'$ac',$capacity,$length,$width,$heigth,$boot,'$desc',$seat,$company)";
+   
    mysqli_query($con,$sql1);
   }
   if(array_key_exists('Add2', $_POST))
@@ -494,6 +490,7 @@ input[type=submit] {
    $wheel=$_POST["wheel"];
    $start=$_POST["start"];
    $auto=$_POST["auto"];
+   $windoww=$_POST["window"];
    $sunroof=$_POST["sunroof"];
    $headlamb=$_POST["headlamb"];
    $camera=$_POST["camera"];
@@ -501,7 +498,7 @@ input[type=submit] {
    $sterio=$_POST["sterio"];
 
 
-   $sql6="insert into tbl_model(model,wheel,fog_lamb,sensor,camera,powerstart,autoac,sunroof,headlamb,sterio,car_id) values('$model','$wheel','$fog','$sensor','$camera','$start','$auto','$sunroof','$headlamb','$sterio',$car)";
+   $sql6="insert into tbl_model(model,wheel,fog_lamb,sensor,camera,powerstart,autoac,sunroof,headlamb,sterio,car_id,window) values('$model','$wheel','$fog','$sensor','$camera','$start','$auto','$sunroof','$headlamb','$sterio',$car,'$window')";
    mysqli_query($con,$sql6);
   }
   if(array_key_exists('Add3', $_POST))
@@ -534,15 +531,16 @@ input[type=submit] {
   if(array_key_exists('Add4', $_POST))
   {
    $car=$_POST["car"];
+   $model=$_POST["mod"];
    $fueltype=$_POST["fueltype"];
    $price=$_POST["price"];
-   $capacity=$_POST["capacity"];
+   $engtype=$_POST["engtype"];
    $millage=$_POST["millage"];
    $gear=$_POST["gear"];
+   $gearno=$_POST["gearno"];
    $power=$_POST["power"];
    $torque=$_POST["torque"];
-   
-   $sql8="insert into tbl_car (power,torque) values ()";
+   $sql8="insert into tbl_transmission(type,fuel,enginecc,bhp,millage,price,car_id,model_id,gearno,engtype) values ('$gear','$fueltype',$power,'$torque',$millage,$price,$car,$model,$gearno,'$engtype')";
    mysqli_query($con,$sql8);
   }
  }

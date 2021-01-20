@@ -35,10 +35,9 @@ body {font-family: Arial;
 /* Style the tab */
 .tab {
   overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
+  color: white;
   margin-top:100px;
-  margin-left:30px;
+  margin-left:500px;
   margin-right:30px;
 }
 
@@ -56,24 +55,27 @@ body {font-family: Arial;
 
 /* Change background color of buttons on hover */
 .tab button:hover {
-  background-color: #ddd;
+    border-bottom: 3px solid white; 
+    border-radius:10px;
 }
 
 /* Create an active/current tablink class */
 .tab button.active {
-  background-color: #ccc;
+    border-bottom: 3px solid white; 
+    border-radius:10px;
 }
 
 /* Style the tab content */
 .tabcontent {
   display: none;
+  border: 1px solid white;
+  border-radius:25px;
   padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
-  background-color: #ccc;
+  margin-top:10px;
   margin-left:30px;
   margin-right:30px;
   padding-bottom:50px;
+  box-shadow:rgba(133, 133, 133, 0.603) 10px 10px 10px;
 }
          
     h1 {
@@ -87,7 +89,7 @@ body {font-family: Arial;
             margin-left: 0px;
     }
     label{
-        color: #141e30;
+        color: white;
         font-family: "Times New Roman";
         font-style: italic;
     }
@@ -326,7 +328,7 @@ body {font-family: Arial;
     <div class="row">
   	<div class="col-sm-3">
       <div class="text-center">
-      <form class="form" method="post" id="registrationForm" enctype="multipart/form-data">
+      <form class="form" method="post" id="registrationForm1" enctype="multipart/form-data">
         <img src="<?php echo $propic;?>" class="avatar img-circle img-thumbnail" alt="avatar"><br>
         <input type="file" class="text-center center-block file-upload" style="color:#141e30" name="img" id="img" onblur="Val()">
       </div><br>
@@ -342,7 +344,7 @@ body {font-family: Arial;
                         </div>
                       <div class="form-group">
                           <div class="col-xs-6">
-                             <label for="gender"><h4>Username</h4></label>
+                             <label for="user"><h4>Username</h4></label>
                               <input type="text" class="form-control" name="user" id="user" value="<?php echo $usr;?>" style=" font-size:15px;" readonly>
                           </div>
                       </div>
@@ -354,7 +356,6 @@ body {font-family: Arial;
                       </div>
 
                       <div class="form-group">
-                          
                           <div class="col-xs-6">
                               <label for="phone"><h4>Phone</h4></label>
                               <input type="text" class="form-control" name="phne" id="ph" onblur="phn()" value="<?php echo $phno;?>" style=" font-size: 15px;" >
@@ -370,7 +371,7 @@ body {font-family: Arial;
 
                       <div class="form-group">
                           <div class="col-xs-6">
-                             <label for="gender"><h4>Location</h4></label>
+                             <label for="loc"><h4>Location</h4></label>
                               <input type="text" class="form-control" name="location" id="loc" onblur="loca()"  value="<?php echo $loc;?>" style=" font-size: 15px;">
                           </div>
                       </div>
@@ -378,7 +379,7 @@ body {font-family: Arial;
                            <div class="col-xs-12">
                                 <br>
                               	  <input class="btn btn-lg btn-success" type="submit" name="save" onsubmit="rname(); ema(); phn(); loc(); usr(); Val();">
-                                  <input type="button" class="btn btn-lg btn btn-outline-info" onclick="location.href = 'home.php'" value="Back">
+                                  <input type="button" id="btn" class="btn btn-lg btn btn-outline-info" onclick="location.href ='home.php'" value="Back">
                             </div>
                       </div>
               	</form>

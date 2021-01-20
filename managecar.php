@@ -1,9 +1,9 @@
 <?php
  $con=mysqli_connect("localhost","root","","car showroom") or die("couldn't connect");
  session_start();
- $msg=$_GET['msg'];
  if(isset($_SESSION['user']))
  {
+   $msg="";
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,8 +17,22 @@
     width: 100%;
     text-align:center;
 }
-
 </style>
+<script>
+ function test(value)
+  {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function()
+    {
+        if (this.readyState == 4 && this.status == 200) 
+        {
+          document.getElementById("sel").innerHTML=this.responseText;
+        }
+    };
+    xhttp.open("GET", "carselect.php?id="+value, true);
+    xhttp.send();
+  }
+  </script>
 
 </head>
 <body>
@@ -35,7 +49,7 @@
         </button>
         <div class="dropdown-container">
         <a href="addcar.php">Add car</a>
-        <a href="managecar.php">Manage Details</a>
+        <a href="#">Manage Details</a>
         </div>
         <button class="dropdown-btn"  style="outline:none">Accesory
         </button>
@@ -44,59 +58,57 @@
         <a href="#">Manage Details</a>
         </div>
         <a href="#" >Sales</a>
-        <a href="logout.php" >Log Out</a></div></div>
+        <a href="logout.php" >Log Out</a>
+    </div>
+</div>
 
 <div class="main">
-<div class="back">
-<p style="color:black;float:right;font-family:Arial;padding-top:10px"><b><?php echo $_SESSION['user']; ?>&nbsp;
-            <img src="upload/profile/admin.jpg" width="40" height="40"><p><br>
-    </div></div>
+    <div class="back">
+        <p style="color:black;float:right;font-family:Arial;padding-top:10px"><b><?php echo $_SESSION['user']; ?>&nbsp;
+        <img src="upload/profile/admin.jpg" width="40" height="40"><p><br>
+    </div>
+</div>
+
 <h1>Manage Details</h1>
 <div class="name">
-<h6 style="margin-left:10px;"><a href="#"style="text-decoration:none;color:black;">Home</a>&nbsp;/&nbsp;Company&nbsp;/&nbsp;Manage Details</h6>
+    <h6 style="margin-left:10px;"><a href="#"style="text-decoration:none;color:black;">Home</a>&nbsp;/&nbsp;Car&nbsp;/&nbsp;Manage Car</h6>
 </div><br>
 <div class="table"> 
-<span id="msg" style="color:#008000;"><?php echo $msg ?></span><br>
-   <table id="MainTable" class="auto-index" width= 70% border="1">
-   <thead>
-     <tr>
-     <th scope="col">Sl.no</th>
-     <th scope="col">Company Name</th>
-     <th scope="col"></th>
-     </tr>
-   </thead>
-   <tbody>
-
-   <?php
-     $sql="select comp_id,name from tbl_com where status=1";
-     $res=mysqli_query($con,$sql);
-     while($row=mysqli_fetch_array($res))
-     {
-       $no=$row['comp_id'];
-       $name=$row['name'];
-
-       echo "<tr><td>";
-       echo "</td><td>";
-       echo $name;
-       ?></td><td><a href="viewcom.php?id=<?php echo $no; ?>" >View</a></td?</tr><?php
-
-     }
-   ?>
-   </tbody>
-   </table>
+    <label style="margin-top:45px;">Company</label><select name="company" style="margin-top:50px;margin-left:50px;" onChange="test(this.value)">
+    <option value="" disabled selected>Choose Company</option>
+    <?php 
+    $sql3="select comp_id,name from tbl_com where status=1";
+    $res=mysqli_query($con,$sql3);
+    while($row=mysqli_fetch_array($res))
+    {
+      echo '<option value="'.$row['comp_id'].'">'.$row['name'].'</option>';
+    }
+    ?></select><br>
+    <span id="msg" style="color:#008000;"><?php echo $msg ?></span><br>
+    <table id="MainTable" class="auto-index" width= 70% border="1">
+      <thead>
+      <tr>
+      <th scope="col">Sl.no</th>
+      <th scope="col">Car Name</th>
+      <th scope="col"></th>
+      </tr>
+      </thead>
+      <tbody id="sel">
+      </tbody>
+    </table>
    </div>
    </div>
  </div>
   <script src="vendor/jquery/jquery.min.js"></script>
   <script>//serial number
-var addSerialNumber = function () {
+    var addSerialNumber = function () {
     var i = 0
     $('table tr').each(function(index) {
         $(this).find('td:nth-child(1)').html(index-1+1);
     });
-};
-addSerialNumber();
-</script>
+    };
+    addSerialNumber();
+  </script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script type="text/javascript">
     var dropdown = document.getElementsByClassName("dropdown-btn");
@@ -110,15 +122,15 @@ addSerialNumber();
     } else {
       dropdownContent.style.display = "block";
     }
-  });
-}
+    });
+    }
   </script>
   <script type="text/javascript">
     history.pushState(null, null, location.href);
     history.back();
     history.forward();
     window.onpopstate = function () { history.go(1); };
-</script>
+  </script>
 
 </body>
 </html>
