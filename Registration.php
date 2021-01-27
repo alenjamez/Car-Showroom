@@ -259,28 +259,28 @@
                 <form  method="post" name="regform" action="reg.php" class="form-group-sm container" enctype="multipart/form-data"></center><br>
                 <div class="row">
                     <div class="col-lg-6"><center>
-                        <input type="text"class="form-control" name="nme" id="name" style="border:red" placeholder="Name" autocomplete="off" on onblur="rname()" onclick="hint1()" required>
+                        <input type="text"class="form-control" name="nme" id="name" style="border:red" placeholder="Name" title="Name" autocomplete="off" on onblur="rname()" onclick="hint1()" required>
                         <span id="err1"></span><br></center>
                         <h5 style="padding-left:60px; color:#f2f2f2;">Gender</h5><center>
                         <div style="color:#f2f2f2;"> <input type="radio" name="gender" value="Male" required>&nbsp;Male&nbsp;&nbsp;&nbsp;
                         </h6><input type="radio" name="gender" value="Female">&nbsp;Female&nbsp;&nbsp;&nbsp;
                         </h6><input type="radio" name="gender" value="Other">&nbsp;Others <br></div>
                         <h6 style="padding-right:900px; color:white;"></h6>
-                        <br><input type="text" id="loc" name="location" class="form-control  "value=""placeholder="Location" onblur="loca()" onclick="hint2()" autocomplete="off" required>
+                        <br><input type="text" id="loc" name="location" class="form-control  "value=""placeholder="Location" title="Location" onblur="loca()" onclick="hint2()" autocomplete="off" required>
                         <span id="err8"></span><br>
-                        <input type="email" id="mail" name="mail" class="form-control  " value=""placeholder="E-mail"onblur="ema()" autocomplete="off" onclick="hint3()" required>
+                        <input type="email" id="mail" name="mail" class="form-control  " value=""placeholder="E-mail" title="E-mail"onblur="ema()" autocomplete="off" onclick="hint3()" required>
                         <span id="err2"></span><br>
-                        <input type="tel" id="ph" name="phne" class="form-control  form-group"value=""placeholder="Phone Number" onblur="phn()" autocomplete="off" onclick="hint4()" required>
+                        <input type="tel" id="ph" name="phne" class="form-control  form-group"value=""placeholder="Phone Number" title="Phone Number" onblur="phn()" autocomplete="off" onclick="hint4()" required>
                         <span id="err3"></span><br></center>
                     </div>
                     <div class="vl"></div>
                     <div class="col-lg-6">
                         <center>
-                        <input type="text" name="user" class="form-control  form-group"  placeholder="Username" id="user" onblur="usr()" autocomplete="off" onclick="hint5()" required>
+                        <input type="text" name="user" class="form-control  form-group"  placeholder="Username" title="Username" id="user" onblur="usr()" autocomplete="off" onclick="hint5()" required>
                         <span id="err5"></span><br>
-                        <input type="password" name="psw" class="form-control  form-group" placeholder="Password" id="pass"  onblur="npsw()" onclick="hint6()" required>
+                        <input type="password" name="psw" class="form-control  form-group" placeholder="Password"  title="Password" id="pass"  onblur="npsw()" onclick="hint6()" required>
                         <span id="err6"></span><br>
-                        <input type="password" class="form-control form-group" placeholder="Conform Password"  id="conpass" onblur="psw1()" required>
+                        <input type="password" class="form-control form-group" placeholder="Conform Password" title="Conform Password" id="conpass" onblur="psw1()" required>
                         <span id="err7"></span><br>
                         <abbr>
                         <input type="submit"  value="Submit" onsubmit="rname(); ema(); phn(); loc(); usr(); npsw(); psw1();">&nbsp;&nbsp;&nbsp;

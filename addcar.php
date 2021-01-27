@@ -19,7 +19,7 @@
   margin-left:17%;
 }
 .tab button {
-  background-color:#EDF5E1;
+  background-color:#c2cad0;
   float: left;
   border:none;
   outline: none;
@@ -29,10 +29,12 @@
   font-size: 17px;
 }
 .tab button:hover {
-  border-bottom: 5px solid #ccc; 
+  border-bottom: 5px solid white;
+  font-weight: bold; 
 }
 .tab button.active {
-  border-bottom: 5px solid #ccc; 
+  border-bottom: 5px solid white; 
+  font-weight: bold;
 }
 .tabcontent {
   display: none;
@@ -41,7 +43,7 @@
   border-radius:10px;
   border-top: none;
   margin-bottom:20px;
-  background-color: #ccc;
+  background-color: white;
   margin-right:30px;
   height:100%;
   margin-left:17%;
@@ -89,6 +91,12 @@ input[type=submit] {
   font-weight: bold;
   margin-left:350px;
   }
+  span{
+        right:0;
+        margin-right:40px;
+        float: right;
+        font-size: 13px;
+    }
 
 </style>
 <script>
@@ -144,6 +152,22 @@ input[type=submit] {
     xhttp.open("GET", "selectmodel.php?id="+value, true);
     xhttp.send();
   }
+  // function charect(value)
+  // {
+  //   var nam1=/^[a-zA-Z]+$/;
+  //   alert(value);
+  //   if(value.match(nam1))
+  //   {
+  //     document.getElementById("error").innerHTML="";
+  //   }
+  //   else
+  //   {
+  //     document.getElementById("error").innerHTML="* Name must only contain characters";
+  //     document.getElementById("error").style.color = "red";
+  //     return false;
+  //     }
+  //   }
+  // }
 </script>
 </head>
 <body>
@@ -185,6 +209,7 @@ input[type=submit] {
       <button class="tablinks" onclick="openCity(event, 'model')">Model</button>
       <button class="tablinks" onclick="openCity(event, 'colour')">Colour</button>
       <button class="tablinks" onclick="openCity(event, 'fuel')">Transmission</button>
+      <span id="error">Hello</span>
     </div>
 
     <div id="car" class="tabcontent">
@@ -192,25 +217,25 @@ input[type=submit] {
         <div class="row">
   	      <div class="col-sm-6">
             <form class="form" method="post" id="details1" enctype="multipart/form-data">
-	          <label style="margin-top:45px;">Name</label><input type="text" name="name" style="margin-top:50px;" pattern="[A-Za-z]+"><br>
-            <label >Car Type</label><select name="cartype">
+	          <label style="margin-top:45px;">Name</label><input type="text" name="name" style="margin-top:50px;" required><br>
+            <label >Car Type</label><select name="cartype" required>
               <option value="">Choose car Type</option>
               <option value="Sedan">Sedan</option>
               <option value="HatchBack">HatchBack</option>
               <option value="SUV">SUV</option>
               <option value="MUV">MUV</option>
               <option value="Luxury">Luxury</option></select>
-		        <label>Ground Clearence</label><input type="text" name="bodytype" pattern="[0-9]+"><br>
-            <label>Car Lenght</label><input type="text" name="length"><br>
-  	        <label>Car Width</label><input type="text" name="width"><br>
-            <label>Car Height</label><input type="text" name="heigth"><br>
-            <label>No of seats</label><input type="text" name="seat"><br>
+		        <label>Ground Clearence</label><input type="text" name="bodytype" required><br>
+            <label>Car Lenght</label><input type="text" name="length" required><br>
+  	        <label>Car Width</label><input type="text" name="width" required><br>
+            <label>Car Height</label><input type="text" name="heigth" required><br>
+            <label>No of seats</label><input type="text" name="seat" required><br>
           </div>
     	    <div class="col-sm-6">
             <div class="tab-content">
               <div class="tab-pane active" id="home"><br><br>
 
-                <label>No of Airbag</label><input type="text" name="airbag"><br>
+                <label>No of Airbag</label><input type="text" name="airbag" required><br>
 			          <label>Company</label><select name="company">
                 <option value="" disabled selected>Choose Company</option>
                 <?php 
@@ -222,8 +247,8 @@ input[type=submit] {
                   echo '<option value="'.$row['comp_id'].'">'.$row['name'].'</option>';
                 }
                 ?></select>
-                <label>Boot Space</label><input type="text" name="boot"><br>
-                <label>Fuel Capacity</label><input style="margin-top:10px" type="text" name="capacity"><br>
+                <label>Boot Space</label><input type="text" name="boot" required><br>
+                <label>Fuel Capacity</label><input style="margin-top:10px" type="text" name="capacity" required><br>
                 <div class="radio">
                   <label>Air Conditioner</label>
                   <input style="margin-left:20px;" type="radio" name="ac" value="Yes" required>&nbsp;Yes
@@ -234,7 +259,7 @@ input[type=submit] {
                   <input style="margin-left:20px;" type="radio" name="display" value="Yes" required>&nbsp;Yes
                   <input type="radio" name="display" value="No">&nbsp;No
                 </div>
-                <label>Emission Norm </label><input type="text" name="desc" id="desc"><br><br>
+                <label>Emission Norm </label><input type="text" name="desc" id="desc" required><br><br>
 	              <input type="submit" name="Add1" value="Add">
                 </form>
 
@@ -249,7 +274,7 @@ input[type=submit] {
         <div class="row">
   	      <div class="col-sm-6">
             <form class="form" method="post" id="details2" enctype="multipart/form-data">
-            <label style="margin-top:45px;">Company</label><select name="company" style="margin-top:50px;" onChange="test(this.value)">
+            <label style="margin-top:45px;">Company</label><select name="company" style="margin-top:50px;" onChange="test(this.value)" required>
             <option value="" disabled selected>Choose Company</option>
             <?php 
             $sql3="select comp_id,name from tbl_com where status=1";
@@ -262,13 +287,13 @@ input[type=submit] {
             
             
             <label>Car</label>
-            <select id="sel" name="car">
+            <select id="sel" name="car" required>
               <option value="" disabled selected>Choose Car</option> 
             </select><br>
 
 
             <label>Car Model</label><input type="text" name="model" required><br>
-            <label>Wheel</label><input type="text" name="wheel"><br>
+            <label>Wheel</label><input type="text" name="wheel" required><br>
             <div class="radio">
                   <label>Fog lamb</label><input type="radio" style="margin-left:20px;" name="fog" value="Yes" required>&nbsp;Yes
                   <input type="radio" name="fog" value="No">&nbsp;No
@@ -277,12 +302,12 @@ input[type=submit] {
                   <label>Power start</label><input type="radio" style="margin-left:20px;" name="start" value="Yes" required>&nbsp;Yes
                   <input type="radio" name="start" value="No">&nbsp;No
             </div>
+            <label>Sterio</label><input type="text" name="sterio" pattern="[A-Za-z]+"><br>
 
           </div>
     	    <div class="col-sm-6">
             <div class="tab-content">
               <div class="tab-pane active" id="home"><br><br>
-              <label>Sterio</label><input type="text" name="sterio" pattern="[A-Za-z]+"><br>
                 <div class="radio">
                   <label>Auto AC</label><input type="radio" style="margin-left:20px;" name="auto" value="Yes" required>&nbsp;Yes
                   <input type="radio" name="auto" value="No">&nbsp;No
@@ -323,7 +348,7 @@ input[type=submit] {
         <div class="row">
   	      <div class="col-sm-6">
             <form class="form" method="post" id="details3" enctype="multipart/form-data">
-            <label style="margin-top:45px;">Company</label><select name="company" style="margin-top:50px;" onChange="test1(this.value)">
+            <label style="margin-top:45px;">Company</label><select name="company" style="margin-top:50px;" onChange="test1(this.value)" required>
             <option value="" disabled selected>Choose Company</option>
             <?php 
             $sql3="select comp_id,name from tbl_com where status=1";
@@ -336,20 +361,20 @@ input[type=submit] {
             
             
             <label>Car</label>
-            <select id="sele" name="car">
+            <select id="sele" name="car" required>
               <option value="" disabled selected>Choose Car</option> 
             </select><br>
-            <label>Colour</label><input type="text" name="colour"><br>
-            <label>Car Image</label><input type="file" name="car1"><br>
-            <label>Image2</label><input type="file" name="car2"><br>
+            <label>Colour</label><input type="text" name="colour" required><br>
+            <label>Car Image</label><input type="file" name="car1" required><br>
+            <label>Image2</label><input type="file" name="car2" ><br>
           </div>
     	    <div class="col-sm-6">
             <div class="tab-content">
               <div class="tab-pane active" id="home"><br><br>
-                <label>Interior1</label><input type="file" name="car3"><br>
-                <label>Interior2</label><input type="file" name="car4"><br>
-                <label>Image5</label><input type="file" name="car5"><br>
-                <label>Image6</label><input type="file" name="car6"><br>
+                <label>Interior1</label><input type="file" name="car3" ><br>
+                <label>Interior2</label><input type="file" name="car4" ><br>
+                <label>Image5</label><input type="file" name="car5" ><br>
+                <label>Image6</label><input type="file" name="car6" ><br>
 	              <input type="submit" name="Add3" value="Add">
                 </form>    
               </div>
@@ -364,7 +389,7 @@ input[type=submit] {
         <div class="row">
   	      <div class="col-sm-6">
             <form class="form" method="post" id="details3" enctype="multipart/form-data">
-            <label style="margin-top:45px;">Company</label><select name="company" style="margin-top:50px;" onChange="test2(this.value)">
+            <label style="margin-top:45px;">Company</label><select name="company" style="margin-top:50px;" onChange="test2(this.value)" required>
             <option value="" disabled selected>Choose Company</option>
             <?php 
             $sql3="select comp_id,name from tbl_com where status=1";
@@ -375,19 +400,19 @@ input[type=submit] {
             }
             ?></select><br>
           
-            <label>Car</label><select id="seler" name="car" onChange="test3(this.value)">
+            <label>Car</label><select id="seler" name="car" onChange="test3(this.value)" required>
               <option value="" disabled selected>Choose Car</option> 
             </select><br>
-            <label>Car Model</label><select name="mod" id="mod">
+            <label>Car Model</label><select name="mod" id="mod" required>
             <option value="" disabled selected>Choose model</option>
             </select><br>
-            <label>Fuel Type</label><select name="fueltype">
+            <label>Fuel Type</label><select name="fueltype" required>
               <option value="" disabled selected>Choose Fuel Type</option>
               <option value="Petrol">Petrol</option>
               <option value="Disel">Disel</option>
               <option value="CNG">CNG</option>
               <option value="Electric">Electric</option></select>
-            <label>Transmission </label><select name="gear">
+            <label>Transmission </label><select name="gear" required>
               <option value="" disabled selected>Choose Transmission Type</option>
               <option value="Automatic" >Automatic</option>
               <option value="Manual">Manual</option>
@@ -399,11 +424,11 @@ input[type=submit] {
     	    <div class="col-sm-6">
             <div class="tab-content">
               <div class="tab-pane active" id="home"><br><br>
-                <label>No of Gear</label><input type="text" name="gearno" id="gearno"><br>
-                <label>Millage</label><input type="text" name="millage"><br>
-                <label>Engine CC</label><input type="text" name="power"><br>
-  	            <label>BHP</label><input type="text" name="torque"><br>
-                <label>Car Price</label><input type="text" name="price"><br><br>     
+                <label>No of Gear</label><input type="text" name="gearno" id="gearno" required><br>
+                <label>Millage</label><input type="text" name="millage" required><br>
+                <label>Engine CC</label><input type="text" name="power" required><br>
+  	            <label>BHP</label><input type="text" name="torque" required><br>
+                <label>Car Price</label><input type="text" name="price" required><br><br>     
 	              <input type="submit" name="Add4" value="Add">
                 </form>    
               </div>
@@ -490,7 +515,7 @@ input[type=submit] {
    $wheel=$_POST["wheel"];
    $start=$_POST["start"];
    $auto=$_POST["auto"];
-   $windoww=$_POST["window"];
+   $window=$_POST["window"];
    $sunroof=$_POST["sunroof"];
    $headlamb=$_POST["headlamb"];
    $camera=$_POST["camera"];

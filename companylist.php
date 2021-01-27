@@ -39,12 +39,17 @@
 		}
 		.name{
 			font-family: Verdana,Arial,sans-serif;
-			font-size:20px;
+			font-size:18px;
+			font-weight: bold;
 		}
-		.name:hover{
-			font-family: Verdana,Arial,sans-serif;
-			font-size:20px;
-			text-shadow: 2px 2px black;
+		.item{
+			border:2px solid white;
+			border-radius:40px;
+			background:white;
+		}
+		.item:hover{
+			
+			box-shadow: rgba(133, 133, 133, 0.603) 10px 10px 10px;
 		}
     </style>
 </head>
@@ -98,19 +103,22 @@
 
     </div>
 </div>
-	<div class="bottommenu">
-	<p>"All of those cars were once just a dream in somebody’s head".
-		Peter Gabriel </p>
-		 <img src="upload/images/line.png" alt="line"> <br>
-		 <div class="bottomsocial">
-		 	<a href="#"><i class="fa fa-facebook"></i></a>
-			<a href="#"><i class="fa fa-twitter"></i></a>
-			<a href="#"><i class="fa fa-google-plus"></i></a>
-			<a href="#"><i class="fa fa-pinterest"></i></a>
-		</div>
-			</div>
+  <br><br>
+	<center>
+        <div class="bottommenu">
+            <p>"All of those cars were once just a dream in somebody’s head".
+                Peter Gabriel </p>
+                 <img src="upload/images/line.png" alt="line"> <br>
+                 <div class="bottomsocial">
+                     <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                </div>
+                    </div>
 	</div>
 </div>
+</center>
 
 <script type="text/javascript" src="source/bootstrap-3.3.6-dist/js/jquery.js"></script>
 <script type="text/javascript" src="source/js/isotope.js"></script>

@@ -3,10 +3,10 @@
  session_start();
  if(isset($_SESSION['user']))
  {
-   $query="select count(*) as total from tbl_registration where status=1";
-   $result = mysql_query($query); 
-   $values = mysql_fetch_assoc($result); 
-   $usr = $values['total']
+   $que="select count(name) from tbl_registration where status=1";
+   $result = mysqli_query($con,$que);
+   $usr =mysql_fetch_assoc($result);
+   
  ?>
 <!DOCTYPE html>
 <html lang="en">

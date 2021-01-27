@@ -38,7 +38,7 @@
 			<ul class="nav navbar-nav" id="navbarontop">
 				<li class="active"><a href="home.php">HOME</a> </li>
 				<li class="active"><a href="companylist.php">COMPANY</a> </li> 
-                <li class="active"><a href="#">CARS</a> </li>
+                <li class="active"><a href="showcar.php">CARS</a> </li>
                 <li class="active"><a href="#">COMPARISON</a> </li>
 				<li class="active"><a href="#">ACCESSORY</a> </li>
 				<li><a href="contact.html">CONTACT</a></li>
@@ -160,13 +160,13 @@
 			</div>
 		</div>
 	</div>
+
 	<div class="latestcars">
 		<h1 class="text-center">&bullet; LATEST   CARS &bullet;</h1>
 	</div>
 	<br>
-	<br>
 <!-- ________________________Latest Cars Image Thumbnail________________-->
-<div class="grid">
+		<div class="grid">
 			<div class="row">
 				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
 					<div class="txthover">
@@ -182,7 +182,7 @@
 									 <h4 class="price"> Starts at &#x20B9;5.44 Lakhs</h4>
 									 <button>READ MORE</button><br>
 									 <div class="wishtxt">
-										 <p class="paragraph2">Compare <span class="icon"><img src="image/compicon.png" alt="compicon"></span></p>
+										 <p class="paragraph2">Compare <span class="icon"><img src="upload/images/compicon.png" alt="compicon"></span></p>
 									 </div>
 								</div>
 								<div class="stars2">
@@ -208,7 +208,7 @@
 									<h4 class="price"> Starts at &#x20B9;8.40 Lakhs</h4>
 									 <button>READ MORE</button><br>
 									 <div class="wishtxt">
-										 <p class="paragraph2">Compare <span class="icon"><img src="image/compicon.png" alt="compicon"></span></p>
+										 <p class="paragraph2">Compare <span class="icon"><img src="upload/images/compicon.png" alt="compicon"></span></p>
 									 </div>
 								</div>
 								<div class="stars2">
@@ -233,7 +233,7 @@
 									 <h4 class="price">Starts at &#x20B9;8.40 Lakhs</h4>
 									 <button>READ MORE</button><br>
 									 <div class="wishtxt">
-										 <p class="paragraph2">Compare <span class="icon"><img src="image/compicon.png" alt="compicon"></span></p>
+										 <p class="paragraph2">Compare <span class="icon"><img src="upload/images/compicon.png" alt="compicon"></span></p>
 									 </div>
 								</div>
 								<div class="stars2">
@@ -258,7 +258,7 @@
 									 <h4 class="price">Starts at &#x20B9;23.8 Lakhs</h4>
 									 <button>READ MORE</button><br>
 									 <div class="wishtxt">
-										 <p class="paragraph2">Compare <span class="icon"><img src="image/compicon.png" alt="compicon"></span></p>
+										 <p class="paragraph2">Compare <span class="icon"><img src="upload/images/compicon.png" alt="compicon"></span></p>
 									 </div>
 								</div>
 								<div class="stars2">
@@ -267,22 +267,23 @@
 									<div class="glyphicon glyphicon-star"></div>
 								</div>
 							</div>
-					</div>	 
+						</div>	 
+					</div>
 				</div>
-	</div></div></div>
-
-
-	<div class="bottommenu">
-	<p>"All of those cars were once just a dream in somebody’s head".
-		Peter Gabriel </p>
-		 <img src="upload/images/line.png" alt="line"> <br>
-		 <div class="bottomsocial">
-		 	<a href="#"><i class="fa fa-facebook"></i></a>
-			<a href="#"><i class="fa fa-twitter"></i></a>
-			<a href="#"><i class="fa fa-google-plus"></i></a>
-			<a href="#"><i class="fa fa-pinterest"></i></a>
-		</div>
 			</div>
+		</div>
+
+        <div class="bottommenu">
+            <p>"All of those cars were once just a dream in somebody’s head".
+                Peter Gabriel </p>
+                 <img src="upload/images/line.png" alt="line"> <br>
+                 <div class="bottomsocial">
+                     <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                </div>
+                    </div>
 	</div>
 </div>
 

@@ -3,21 +3,13 @@
  session_start();
  if(isset($_SESSION['user']))
  {
-	$ids=$_GET['id'];
 	$lid=$_SESSION['logid'];
 	$sql="select propic from tbl_registration where login_id='$lid'";
 	$res=mysqli_query($con,$sql);
     while($row=mysqli_fetch_array($res))
       {
         $propic='upload/profile/'.$row["propic"];
-	  }
-	$sql1="select * from tbl_car where car_id='$ids'";
-	$resl=mysqli_query($con,$sql1);
-    while($row=mysqli_fetch_array($res))
-      {
-		$propic='upload/profile/'.$row["propic"];
-		
-	  }
+      }
  ?>
 <!doctype html>
 <html>
@@ -111,8 +103,8 @@
    
 		 ?>
 		 <div class="item"><img src="<?php echo $img;?>">
-			<b><h3 class="name"><?php echo $name;?></h3></b>
-			<b>Starts at <h3>&#x20B9;<?php echo $price;?></h3></b>
+			<b><h2 class="name"><?php echo $name;?></h2></b>
+			<div style="display:inline-block"><h4>Starts at </h4><h3><b>&#x20B9;<?php echo $price;?>Lacs.</b></h3></div>
 		 </div>
 		 <?php
         }
@@ -123,7 +115,7 @@
 
 
    <br><br>
-	<center>
+
         <div class="bottommenu">
             <p>"All of those cars were once just a dream in somebody’s head".
                 Peter Gabriel </p>

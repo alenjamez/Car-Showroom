@@ -1,3 +1,13 @@
+/*
+ Theme Name: GARAGE
+ Author: Web Domus ITALIA
+ Author URI: http://www.webdomus.net/
+ Description: GARAGE a multi-purpose HTML5 template built with latest Bootstrap framework. It offers flexible solutions, responsive, well documented and comes packed with tons of feature and options which they can be easily customized! It is a perfect solution for all kinds of businesses from small businesses to startups and bloggers.
+ Version: 1.0.0
+ License:  GARAGE template is under Creative Commons Attribution 4.0 International License.
+ Template: GARAGE
+ */
+
 
 .allcontain{
 	max-width: 1366px;
@@ -147,8 +157,8 @@ padding-left: 5%;
     margin-bottom: 22px;
  	padding-left: 10px;
     padding-right: 10px!important;
-    margin-left: 20px;
-	border-bottom: 2px solid rgba(0,0,0,.0);
+    margin-left: 34px;
+    border-bottom: 2px solid rgba(0,0,0,.0);
 
   }
   #navbarontop > li >a:hover{
@@ -1160,6 +1170,8 @@ padding-left: 0px;
   	-moz-transition: opacity 500ms;
   	-o-transition: opacity 500ms;
   	transition: opacity 500ms;
+
+
 }
  .stars{
  	font-size: 7px;
@@ -1176,11 +1188,56 @@ padding-left: 0px;
 	text-align: center;
 	border-top: 1px solid #F6F6FB;
 	border-bottom: 1px solid #F6F6FB;
+	margin-top: 2px;
+	margin-left: 58px;
+	margin-right: 58px;
+	padding-top: 40px;
+}
 .simpletxt>h3{
 	font-family: "OpenSans Semibold";
 	font-size: 13.6px;
 	color:#E7E7E7;
 	margin: 0px;
+}
+.simpletxt>p{
+	font-family: "OpenSans Regular";
+	font-size: 11.2px;
+	color: #E7E7E7;
+	padding-top: 7px;
+}
+.simpletxt>h4{
+	font-family: "OpenSans Regular";
+	font-size:11.3px;
+	font-weight: bold;
+	text-align: center;
+	color: #FFF;
+	padding-bottom: 25px;
+
+}
+
+.simpletxt>button{
+	background: none;
+	border: 1px solid #fff;
+	font-family:"OpenSans Regular";
+	color: #fff;
+	margin-bottom: 14px;
+}
+.wishtxt{
+	padding-bottom: 42px;
+}
+.wishtxt .paragraph1{
+	font-family: "OpenSans Regular";
+	font-size:11.32px;
+	color: #fff;
+	float: left;
+
+
+}
+.wishtxt .paragraph2{
+	font-family: "OpenSans Regular";
+	font-size: 11.32px;
+	color: #fff;
+	float: right;
 }
 .stars2{
  	font-size: 7px;
@@ -1191,21 +1248,23 @@ padding-left: 0px;
 	margin-left:58px;
 	margin-right: 58px;
 	color: #F6F6FB;
+
 }
 .txthover>img{
 	width:100%;
+
 }
 .txthover:hover .txtcontent{
 	opacity: 1;
 }
-@media screen and (min-width: 141px) and (max-width: 141px){
+@media screen and (min-width: 320px) and (max-width: 766px){
  .stars{
-	padding-top: 9px;
+	padding-top: 20px;
 }
 }
-@media screen and (min-width: 141px)and (max-width: 141px){
+@media screen and (min-width: 1200px)and (max-width: 1280px){
 .stars{
-	padding-top: 9px;
+	padding-top: 37px;
 }
 }
 /*  -----------------     End Latest Cars Images    ------------------------ */
@@ -1631,20 +1690,7 @@ height: 30px;
           transition-duration: 0.8s;
 }
 
-.grid-container {
-	display: grid;
-	grid-template-columns: auto auto auto auto;
-	grid-gap: 20px;
-	background-color: #2196F3;
-	padding: 100px;
-	}
 
-.grid-container > div {
-	
-	text-align: center;
-	 padding: 20px 0;
-	font-size: 30px;
-	}
 
 
 

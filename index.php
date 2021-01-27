@@ -256,12 +256,8 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		
-
-
-
-
+		</div><br><br>
+		<center>
         <div class="bottommenu">
             <p>"All of those cars were once just a dream in somebody’s head".
                 Peter Gabriel </p>
@@ -275,6 +271,7 @@
                     </div>
 	</div>
 </div>
+</center>
 
 <script type="text/javascript" src="source/bootstrap-3.3.6-dist/js/jquery.js"></script>
 <script type="text/javascript" src="source/js/isotope.js"></script>
