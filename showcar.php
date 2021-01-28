@@ -3,7 +3,7 @@
  session_start();
  if(isset($_SESSION['user']))
  {
-	$lid=$_SESSION['logid'];
+	$lid= 1;//$_SESSION['logid'];
 	$sql="select propic from tbl_registration where login_id='$lid'";
 	$res=mysqli_query($con,$sql);
     while($row=mysqli_fetch_array($res))
@@ -23,7 +23,7 @@
 	<link rel="stylesheet" type="text/css" href="style/slider.css">
 	<link rel="stylesheet" type="text/css" href="style/mystyle.css">
 	<style>
-    .grid-container {
+    	.grid-container {
         display: grid;
         grid-template-columns: auto auto auto auto;
         grid-gap: 20px;
@@ -31,7 +31,7 @@
         padding: 100px;
         }
 
-    .grid-container > div {
+    	.grid-container > div {
         
         text-align: center;
          padding: 20px 0;
@@ -40,6 +40,7 @@
 		.name{
 			font-family: Verdana,Arial,sans-serif;
 			font-size:20px;
+			font-weight:bold;
 		}
 		.item{
 			border:2px solid white;
@@ -47,9 +48,20 @@
 			background:white;
 		}
 		.item:hover{
-			
 			box-shadow: rgba(133, 133, 133, 0.603) 10px 10px 10px;
 		}
+		#vi{
+			color:green;
+			font-size:20px;
+			border:none;
+			background:white;
+			animation: blinker 0.6s linear infinite;
+		}
+		@keyframes blinker {
+        50% {
+          opacity: 0;
+        }
+      	}
     </style>
 </head>
 <body>
@@ -103,15 +115,17 @@
    
 		 ?>
 		 <div class="item"><img src="<?php echo $img;?>">
-			<b><h2 class="name"><?php echo $name;?></h2></b>
-			<div style="display:inline-block"><h4>Starts at </h4><h3><b>&#x20B9;<?php echo $price;?>Lacs.</b></h3></div>
+			<h2 class="name"><?php echo $name;?></h2>
+			<h4>Starts at &#x20B9;<?php echo $price;?>Lacs.</h4>
+			<button id="vi" onclick="location.href='sample.php?id=<?php echo $carid ;?>'">View</button>
 		 </div>
 		 <?php
         }
-		 ?>
+		?>
 
     </div>
 </div>
+	</div>
 
 
    <br><br>
@@ -129,7 +143,6 @@
                     </div>
 	</div>
 </div>
-</center>
 
 <script type="text/javascript" src="source/bootstrap-3.3.6-dist/js/jquery.js"></script>
 <script type="text/javascript" src="source/js/isotope.js"></script>

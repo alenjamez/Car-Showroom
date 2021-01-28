@@ -272,6 +272,7 @@
 				</div>
 			</div>
 		</div>
+	</div>
 
         <div class="bottommenu">
             <p>"All of those cars were once just a dream in somebody’s head".
