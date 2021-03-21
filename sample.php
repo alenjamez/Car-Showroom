@@ -52,7 +52,7 @@
 			width:100%;
 			background:#5cdb95;
 			padding:10% 5% 5% 5% ;
-			height:1000px;	
+			min-height: 100px;	
 		}
 		.item1{
 			width:67%;
@@ -163,7 +163,7 @@
 		background-color: #fff;
 		display: none;
 		border: 1px solid white;
-		padding: 6px 12px;
+		padding: 6px 12px 6px 12px;
 		padding-bottom:50px;
 		box-shadow:rgba(133, 133, 133, 0.603) 10px 10px 10px;
 		}
@@ -179,6 +179,28 @@
 		font-size: 20px;
 		padding: 2px;
 		}
+		.mod{
+			border: 1px solid orange;
+			border-radius:5px;
+			margin-left:300px;
+			margin-right:300px;
+			margin-bottom:2px;
+
+		}
+		table{
+			color:#696969;
+			font-weight:10px;
+			font-size:20px;
+			border-spacing: 0 1em;
+		}
+		.exptable table tr{
+			height:60px
+		}
+		.fin{
+			font-weight:bold;
+		}
+
+
     </style>
 </head>
 <body>
@@ -195,8 +217,8 @@
 		<div class="collapse navbar-collapse" id="upmenu">
 			<ul class="nav navbar-nav" id="navbarontop">
 				<li class="active"><a href="home.php">HOME</a> </li>
-				<li class="active"><a href="#">COMPANY</a> </li>
-                <li class="active"><a href="#">CARS</a> </li>
+				<li class="active"><a href="companylist.php">COMPANY</a> </li>
+                <li class="active"><a href="showcar.php">CARS</a> </li>
                 <li class="active"><a href="#">COMPARISON</a> </li>
 				<li class="active"><a href="#">ACCESSORY</a> </li>
 				<li><a href="contact.html">CONTACT</a></li>
@@ -234,7 +256,7 @@
 				$large=$row2["Largest"];
 			}
 			?>
-			<p><?php echo $small;?>-<?php echo $large;?></p>
+			<p><h4><b>&#x20B9;<?php echo $small;?> - &#x20B9;<?php echo $large;?></b>lacs</p></h4>
 			<div class="container">
 			<img id="expandedImg" src="<?php echo $img1;?>" style="width:100%">
 			<div id="imgtext"></div>
@@ -282,37 +304,10 @@
 		<div class="tab">
 			<button class="tablinks" onclick="openCity(event, 'colour')" id="defaultOpen">Colours</button>
 			<button class="tablinks" onclick="openCity(event, 'model')">Models</button>
+			<button class="tablinks" onclick="openCity(event, 'spec')">Specs</button>
 		</div>
 
 		<div id="colour" class="tabcontent">
-			<div class="container bootstrap snippet">
-			<ul class="lis">
-					<?php
-					$sql4="select colour,main from tbl_carimage where car_id='$ids'";
-					$res4=mysqli_query($con,$sql4);
-					while($row4=mysqli_fetch_array($res4)){
-						$colour=$row4["colour"];
-						$image='upload/car/'.$row4["main"];
-					?>
-					<li>
-						<img style="width:50%"src="<?php echo $image;?>">
-						<h2 class="name"><?php echo $colour;?></h2>
-					</li>
-					<?php
-					}?>
-				</ul>
-			</div>
-		</div>
-
-
-		<div id="model" class="tabcontent">
-			<div class="container bootstrap snippet">
-				<div class="tab-pane active" id="home"><br><br>
-						<b>hello</b>	
-				</div>
-			</div>
-		</div>
-
 		<ul class="lis">
 					<?php
 					$sql4="select colour,main from tbl_carimage where car_id='$ids'";
@@ -327,6 +322,63 @@
 					</li>
 					<?php
 					}?>
+		</ui>
+		</div>
+
+		<div id="model" class="tabcontent">
+			<div class="tab-pane active" id="home"><br><br>
+			<?php
+				$sql5="select * from tbl_model where car_id='$ids'";
+				$res5=mysqli_query($con,$sql5);
+				while($row5=mysqli_fetch_array($res5)){
+					$mid=$row5["model_id"];
+					$model=$row5["model"];
+					$sql6="select * from tbl_transmission where model_id='$mid'";
+					$res6=mysqli_query($con,$sql6);
+					while($row6=mysqli_fetch_array($res6)){
+					$trans=$row6["type"];
+					$fuel=$row6["fuel"];
+					$price=$row6["price"];
+					$cc=$row6["enginecc"];
+					?>
+					<div class="mod">
+					<table style="padding-left:10px" >
+					<tr>	
+						<td>
+							<h1><b><?php echo $name;?>&nbsp;<?php echo $model;?></h1>
+						</td>
+						<td style="padding-left:50px;"><h2>&#x20B9;<?php echo $price;?>Lacs.</h2></b></td>
+					</tr>
+					<tr>
+						<td><p style="padding-top:0px;color:#696969"><?php echo $trans;?>,<?php echo $fuel;?>,<?php echo $cc;?>cc </h3></td>
+						<td style="padding-left:50px;"><a href="">View</a></td>
+					</tr>
+					</table>
+					</div>
+			<?php
+					}
+				}
+			?>
+			</div>
+		</div>
+
+		<div id="spec" class="tabcontent">
+			<div class="tab-pane active exptable" id="home"><br><br>
+			<center><table id="details">
+				<tr><td class="fin">Car Type</td><td style="padding-left:50px;"><?php echo $cartype;?></td><td class="fin" style="padding-left:200px;">AC</td><td style="padding-left:50px;"><?php echo $ac;?></td></tr>
+				<tr><td class="fin">Length</td><td style="padding-left:50px;"><?php echo $length;?></td><td class="fin" style="padding-left:200px;">Seats</td><td style="padding-left:50px;"><?php echo $seat;?></td></tr>
+				<tr><td class="fin">Width</td><td style="padding-left:50px;"><?php echo $width;?></td><td class="fin" style="padding-left:200px;">Emission Standard</td><td style="padding-left:50px;"><?php echo $enc;?></td></tr>
+				<tr><td class="fin">Height</td><td style="padding-left:50px;"><?php echo $heigth;?></td><td class="fin" style="padding-left:200px;">Engine Display</td><td style="padding-left:50px;"><?php echo $steering;?></td></tr>
+				<tr><td class="fin">Boot Space</td><td style="padding-left:50px;"><?php echo $boot;?></td><td class="fin" style="padding-left:200px;">Air Bag</td><td style="padding-left:50px;"><?php echo $airbag;?> nos.</td></tr>
+				
+				
+
+			</table></center>
+			
+
+			</div>
+		</div>
+
 
 	</div>
 </div>
@@ -386,6 +438,8 @@ document.getElementById("defaulto").click();
 </body>
 </html>
 <?php
+
+	$sql9="insert into tbl_ltestdrive (date,location,login_id) into ()";
 }
 else{
 	header("location:login.php?msg=");

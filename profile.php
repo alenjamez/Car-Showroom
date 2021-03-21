@@ -244,6 +244,8 @@ body {font-family: Arial;
         else
             {
                 document.getElementById("err").innerHTML="* Password not match!!!!!!!!!!";
+                document.getElementById("error").innerHTML="* Password not match!!!!!!!!!!";
+                document.getElementById("error").style.color = "red";
                 document.getElementById("err").style.color = "red";
                 document.getElementById("conpass").focus();
             }

@@ -68,7 +68,7 @@
 			<ul class="nav navbar-nav" id="navbarontop">
 				<li class="active"><a href="home.php">HOME</a> </li>
 				<li class="active"><a href="#">COMPANY</a> </li>
-                <li class="active"><a href="#">CARS</a> </li>
+                <li class="active"><a href="showcar.php">CARS</a> </li>
                 <li class="active"><a href="#">COMPARISON</a> </li>
 				<li class="active"><a href="#">ACCESSORY</a> </li>
 				<li><a href="contact.html">CONTACT</a></li>

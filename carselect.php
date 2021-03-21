@@ -13,7 +13,7 @@
       echo $i;
       echo "</td><td>";
       echo $name;
-      ?></td><td><a href="viewcom.php?id=<?php echo $no; ?>" >View</a></td?</tr>
+      ?></td><td><a href="delete.php?id=<?php echo $no; ?>" >Delete</a></td?</tr>
       <?php
     }
 ?>

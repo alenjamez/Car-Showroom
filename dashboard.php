@@ -3,9 +3,16 @@
  session_start();
  if(isset($_SESSION['user']))
  {
-   $que="select count(name) from tbl_registration where status=1";
+   $que="select COUNT(name) as count from tbl_registration where status=1";
    $result = mysqli_query($con,$que);
-   $usr =mysql_fetch_assoc($result);
+	 while($row=mysqli_fetch_array($result)){
+     $usr=$row['count'];
+   }
+   $que1="select COUNT(name) as count from tbl_car where status=1";
+   $res = mysqli_query($con,$que1);
+	 while($row1=mysqli_fetch_array($res)){
+     $car=$row1['count'];
+   }
    
  ?>
 <!DOCTYPE html>
@@ -48,12 +55,12 @@
         </button>
         <div class="dropdown-container">
         <a href="addcar.php">Add car</a>
-        <a href="company.php">Manage Details</a>
+        <a href="managecar.php">Manage Details</a>
         </div>
         <button class="dropdown-btn"  style="outline:none">Accesory
         </button>
         <div class="dropdown-container">
-        <a href="addcar.php">Add car</a>
+        <a href="addcar.php">Add Accessory</a>
         <a href="#">Manage Details</a>
         </div>
         <a href="#" >Sales</a>
@@ -70,13 +77,22 @@
 <h6 style="margin-left:10px;"><a href="#"style="text-decoration:none;color:black;">Home</a></h6>
 </div><br>
  
-<div class="div1">
-<div class="left">
-<i class='fas fa-user-alt' name="symb" style="font-size:50px" ></i></div>
-<div class="right">
-<h3>Users</h3>
-<h3><?php echo $usr;?></h3>
-</div></div>
+    <div class="div1">
+    <div class="left">
+    <i class='fas fa-user-alt' name="symb" style="font-size:50px" ></i></div>
+    <div class="right">
+    <h3>Users</h3>
+    <h3><?php echo $usr;?></h3>
+    </div></div>
+    <br><br>
+
+    <div class="div1">
+    <div class="left">
+    <i class='fa fa-car' name="symb" style="font-size:50px" ></i></div>
+    <div class="right">
+    <h3>Cars</h3>
+    <h3><?php echo $car;?></h3>
+    </div></div>
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script type="text/javascript">

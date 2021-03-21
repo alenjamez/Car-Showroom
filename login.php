@@ -107,7 +107,7 @@ session_start();
         {
             if($usr=="Admin")
             {
-             header("location:comadd.php");
+             header("location:dashboard.php");
             }
             else
             {

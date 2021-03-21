@@ -78,8 +78,8 @@
 		<div class="collapse navbar-collapse" id="upmenu">
 			<ul class="nav navbar-nav" id="navbarontop">
 				<li class="active"><a href="home.php">HOME</a> </li>
-				<li class="active"><a href="#">COMPANY</a> </li>
-                <li class="active"><a href="#">CARS</a> </li>
+				<li class="active"><a href="companylist.php">COMPANY</a> </li>
+                <li class="active"><a href="showcar.php">CARS</a> </li>
                 <li class="active"><a href="#">COMPARISON</a> </li>
 				<li class="active"><a href="#">ACCESSORY</a> </li>
 				<li><a href="contact.html">CONTACT</a></li>
@@ -114,7 +114,7 @@
 		 $price=$row2['price'];
    
 		 ?>
-		 <div class="item"><img src="<?php echo $img;?>">
+		 <div class="item"><img src="<?php echo $img;?>" style="width:150px;height:150px">
 			<h2 class="name"><?php echo $name;?></h2>
 			<h4>Starts at &#x20B9;<?php echo $price;?>Lacs.</h4>
 			<button id="vi" onclick="location.href='sample.php?id=<?php echo $carid ;?>'">View</button>
